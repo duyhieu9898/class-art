@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   },
   // nuxt image
   image: {
-    domains: ['http://localhost:3000'],
+    domains: ['http://localhost:3000', 'https://class-art.vercel.app'],
     dir: 'assets/images',
   },
   // auto import components
