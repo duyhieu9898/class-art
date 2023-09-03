@@ -8,35 +8,29 @@ const dataBanner = {
 const productList1 = [
   {
     href: 'dd',
-    imageUrl:
-      'https://lh4.googleusercontent.com/wG83Hbc-mqEWje2DchYkrHxmhcqjLkkz3s5W2fQzP-JZw28rHrwFxdcQboiH8VKAjWHEDSnYT244-ORZxbWDKdjlhmBxrj6blfcwegkV7xR34k0H7IW7nMH9hL7Jk4iBUA=w1280',
+    imageUrl: '/class1.jpg',
   },
   {
     href: 'dd',
-    imageUrl:
-      'https://lh4.googleusercontent.com/wG83Hbc-mqEWje2DchYkrHxmhcqjLkkz3s5W2fQzP-JZw28rHrwFxdcQboiH8VKAjWHEDSnYT244-ORZxbWDKdjlhmBxrj6blfcwegkV7xR34k0H7IW7nMH9hL7Jk4iBUA=w1280',
+    imageUrl: '/class1.jpg',
   },
   {
     href: 'dd',
-    imageUrl:
-      'https://lh4.googleusercontent.com/wG83Hbc-mqEWje2DchYkrHxmhcqjLkkz3s5W2fQzP-JZw28rHrwFxdcQboiH8VKAjWHEDSnYT244-ORZxbWDKdjlhmBxrj6blfcwegkV7xR34k0H7IW7nMH9hL7Jk4iBUA=w1280',
+    imageUrl: '/class1.jpg',
   },
   {
     href: 'dd',
-    imageUrl:
-      'https://lh4.googleusercontent.com/wG83Hbc-mqEWje2DchYkrHxmhcqjLkkz3s5W2fQzP-JZw28rHrwFxdcQboiH8VKAjWHEDSnYT244-ORZxbWDKdjlhmBxrj6blfcwegkV7xR34k0H7IW7nMH9hL7Jk4iBUA=w1280',
+    imageUrl: '/class1.jpg',
   },
   {
     href: 'dd',
-    imageUrl:
-      'https://lh4.googleusercontent.com/wG83Hbc-mqEWje2DchYkrHxmhcqjLkkz3s5W2fQzP-JZw28rHrwFxdcQboiH8VKAjWHEDSnYT244-ORZxbWDKdjlhmBxrj6blfcwegkV7xR34k0H7IW7nMH9hL7Jk4iBUA=w1280',
+    imageUrl: '/class1.jpg',
   },
 ]
 const productList2 = [
   {
     href: 'dd',
-    imageUrl:
-      'https://lh4.googleusercontent.com/wG83Hbc-mqEWje2DchYkrHxmhcqjLkkz3s5W2fQzP-JZw28rHrwFxdcQboiH8VKAjWHEDSnYT244-ORZxbWDKdjlhmBxrj6blfcwegkV7xR34k0H7IW7nMH9hL7Jk4iBUA=w1280',
+    imageUrl: '/class1.jpg',
   },
 ]
 </script>
