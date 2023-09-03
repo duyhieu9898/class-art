@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   // nuxt image
   image: {
     domains: ['https://class-art.vercel.app'],
-    dir: 'static/images',
+    dir: 'public/images',
   },
   // auto import components
   components: true,

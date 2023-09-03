@@ -47,7 +47,7 @@ defineProps({
 .banner {
   padding: 95px 20px;
   background-color: rgba(55, 71, 79, 1);
-  background-image: url('~/static/images/banner.jpg');
+  background-image: url('/images/banner.jpg');
   background-size: cover;
   background-position: center center;
 }
