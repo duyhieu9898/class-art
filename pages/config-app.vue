@@ -1,10 +1,5 @@
 <script setup>
 import { reactive } from 'vue'
-import SectionMain from '~/components/Admin/SectionMain'
-import CardBox from '~/components/Admin/CardBox'
-import FormField from '~/components/Admin/FormField'
-import FormControl from '~/components/Admin/FormControl'
-import SectionTitle from '~/components/Admin/SectionTitle'
 
 definePageMeta({
   layout: 'admin',
@@ -25,24 +20,30 @@ const submit = () => {
 
 <template>
   <div>
-    <SectionTitle>Config Data</SectionTitle>
-    <SectionMain>
-      <CardBox form @submit.prevent="submit">
-        <FormField label="With help line" help="Do not enter the leading zero">
-          <FormControl v-model="form.name" />
-        </FormField>
+    <AdminSectionTitle>Config Data</AdminSectionTitle>
+    <AdminSectionMain>
+      <AdminCardBox form @submit.prevent="submit">
+        <AdminFormField
+          label="With help line"
+          help="Do not enter the leading zero"
+        >
+          <AdminFormControl v-model="form.name" />
+        </AdminFormField>
 
-        <FormField label="Question" help="Your question. Max 255 characters">
-          <FormControl
+        <AdminFormField
+          label="Question"
+          help="Your question. Max 255 characters"
+        >
+          <AdminFormControl
             type="textarea"
             placeholder="Explain how we can help you"
           />
-        </FormField>
+        </AdminFormField>
         <div class="flex">
           <Button type="primary">Save</Button>
           <Button type="secondary" class="mx-3">Reset</Button>
         </div>
-      </CardBox>
-    </SectionMain>
+      </AdminCardBox>
+    </AdminSectionMain>
   </div>
 </template>

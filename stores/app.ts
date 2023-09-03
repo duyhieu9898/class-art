@@ -7,8 +7,8 @@ export const useAppStore = defineStore('app', {
   getters: {},
   actions: {
     async fetchData() {
-      const { data } = await useFetch('/api/class')
-      console.log('data', data.value)
+      // const { data } = await useFetch('/api/class')
+      // console.log('data', data.value)
     },
   },
 })
