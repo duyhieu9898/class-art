@@ -6,7 +6,7 @@
     <div class="text-2xl md:text-4xl text-blue-500 font-bold mt-3">
       4.000.000
     </div>
-    <nuxt-img src="/class1.jpg" class="CENy8b mt-4" />
+    <img src="/images/class1.jpg" class="CENy8b mt-4" />
     <div class="text-sm mt-3">
       Thông tin về khóa Digital Painting Cơ bản Online
     </div>

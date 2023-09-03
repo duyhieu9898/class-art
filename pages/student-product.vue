@@ -8,29 +8,29 @@ const dataBanner = {
 const productList1 = [
   {
     href: 'dd',
-    imageUrl: '/class1.jpg',
+    imageUrl: '/images/class1.jpg',
   },
   {
     href: 'dd',
-    imageUrl: '/class1.jpg',
+    imageUrl: '/images/class1.jpg',
   },
   {
     href: 'dd',
-    imageUrl: '/class1.jpg',
+    imageUrl: '/images/class1.jpg',
   },
   {
     href: 'dd',
-    imageUrl: '/class1.jpg',
+    imageUrl: '/images/class1.jpg',
   },
   {
     href: 'dd',
-    imageUrl: '/class1.jpg',
+    imageUrl: '/images/class1.jpg',
   },
 ]
 const productList2 = [
   {
     href: 'dd',
-    imageUrl: '/class1.jpg',
+    imageUrl: '/images/class1.jpg',
   },
 ]
 </script>
@@ -77,7 +77,7 @@ const productList2 = [
           class="w-[25%] p-4"
         >
           <a :href="product.href">
-            <div><nuxt-img :src="product.imageUrl"></nuxt-img></div>
+            <div><img :src="product.imageUrl" /></div>
           </a>
         </div>
       </div>
