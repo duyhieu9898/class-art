@@ -1,29 +1,44 @@
+<script lang="ts" setup>
+interface Data {
+  logo?: string
+  page: string
+  desc: string
+  desc2?: string
+}
+defineProps({
+  data: {
+    type: Object as () => Data,
+    required: true,
+  },
+})
+</script>
 <template>
   <div
     id="navbar-banner"
     class="banner flex flex-col justify-center text-center text-white"
   >
-    <div class="text-4xl md:text-6xl leading-relaxed f-oswald">VUOGLE</div>
-    <h1 class="text-4xl md:text-6xl mt-2 md:mt-8 leading-relaxed f-oswald">
-      Digital Painting Cơ bản
+    <div v-if="data.logo" class="text-4xl md:text-6xl leading-relaxed f-oswald">
+      {{ data.logo }}
+    </div>
+    <h1
+      v-if="data.page"
+      class="text-4xl md:text-6xl mt-2 md:mt-8 leading-relaxed f-oswald"
+    >
+      {{ data.page }}
     </h1>
     <div
-      class="text-lg md:text-2xl mt-2 md:mt-6 leading-relaxed font-medium mt-4 c-app-cyan"
+      class="text-lg md:text-2xl mt-2 md:mt-6 leading-relaxed font-medium c-app-cyan"
     >
-      <p class="f-oswald">
-        Hỗ trợ làm bài tập,giải đáp thắc mắc cho học viên 24/7 trong nhóm chat
-        của lớp.
-      </p>
-      <p class="f-oswald mt-2 md:mt-3">
-        Tư vấn nghề, job, hướng dẫn luyện tập cho học viên trọn đời.
-      </p>
+      <pre v-if="data.desc" class="f-oswald leading-10 whitespace-normal">{{
+        data.desc
+      }}</pre>
     </div>
 
     <div
+      v-if="data.desc2"
       class="f-oswald text-lg md:text-2xl leading-relaxed font-medium mt-2 md:mt-4 c-app-violet"
     >
-      Địa chỉ đăng ký duy nhất tại class.vuogle.com và FB:
-      facebook.com/vuogle.art
+      {{ data.desc2 }}
     </div>
   </div>
 </template>

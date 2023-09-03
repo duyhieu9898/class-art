@@ -37,7 +37,7 @@ const styles = reactive<{
   text: 'capitalize text-blue-400 border-none',
   primary: 'text-white bg-app-neutral hover:bg-neutral-800 border-neutral-700',
   secondary:
-    'text-slate-800 bg-gray-200 border-gray-200 hover:bg-gray-300 dark:text-white dark:border-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700',
+    'text-neutral-900 bg-light-50 hover:bg-light-800 border-neutral-700',
   opposite:
     'text-white bg-gray-800 hover:bg-white hover:text-gray-800 hover:border-gray-900 dark:text-gray-800 dark:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-100 dark:border-white',
   'primary-outlined': `

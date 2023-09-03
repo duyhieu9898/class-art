@@ -1,5 +1,12 @@
 <script lang="ts" setup>
 import { IMenuItem } from '~/utils/types'
+
+defineProps({
+  light: {
+    type: Boolean,
+    default: false,
+  },
+})
 const navbar = ref(null)
 const showDrawer = useState<boolean>('navbar.showDrawer', () => false)
 const appMenus: IMenuItem[] = [
@@ -14,35 +21,35 @@ const appMenus: IMenuItem[] = [
     type: 'link',
     text: 'Lớp digital painting cơ bản',
     route: {
-      path: '/class-digital-painting-basic',
+      path: '/basic-digital-painting-class',
     },
   },
   {
     type: 'link',
     text: 'Lớp minh họa nâng cao',
     route: {
-      path: '/class-digital-painting-basic',
+      path: '/illustrated-advanced-class',
     },
   },
   {
     type: 'link',
     text: 'Sản phẩm học viên',
     route: {
-      path: '/class-digital-painting-basic',
+      path: '/student-product',
     },
   },
   {
     type: 'link',
     text: 'Q&A',
     route: {
-      path: '/class-digital-painting-basic',
+      path: '/qa',
     },
   },
   {
     type: 'link',
     text: 'Liên hệ',
     route: {
-      path: '/class-digital-painting-basic',
+      path: '/contact',
     },
   },
 ]
@@ -77,6 +84,7 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
   <div
     ref="navbar"
     class="app-navbar fixed z-999 top-0 left-0 w-full text-white"
+    :class="{ 'text-neutral-900': light, 'theme-light': light }"
   >
     <div class="h-56px flex items-center">
       <div class="max-w-8xl w-full mx-auto">
@@ -122,6 +130,7 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
                       :to="item.route ? item.route : undefined"
                       :href="item.href ? item.href : undefined"
                       class="font-light"
+                      :class="{ '!text-neutral-800': light }"
                       >{{ item.text }}</Anchor
                     >
                     <Button
@@ -164,9 +173,10 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
 </template>
 
 <style lang="scss">
-.app-navbar ul > li > a.router-link-active {
-  color: rgba(125, 182, 177, 1);
-  font-weight: 400;
+.app-navbar {
+  &.theme-light ul > li > a.router-link-active {
+    color: #000;
+  }
 }
 .app-navbar {
   transition-duration: 0.5ms;
