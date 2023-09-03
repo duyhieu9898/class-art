@@ -6,7 +6,7 @@
       <slot name="header">
         <Navbar></Navbar>
       </slot>
-      <div class="relative flex-1 flex flex-col w-full h-full">
+      <div class="flex-1 flex flex-col w-full h-full">
         <slot />
       </div>
       <slot name="footer">

@@ -180,7 +180,7 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
 }
 .app-navbar {
   transition-duration: 0.5ms;
-  &.sticky {
+  &.sticky-nav {
     background-color: rgba(33, 33, 33, 1);
   }
 }

@@ -29,7 +29,7 @@ defineProps({
     <div
       class="text-lg md:text-2xl mt-2 md:mt-6 leading-relaxed font-medium c-app-cyan"
     >
-      <pre v-if="data.desc" class="f-oswald leading-10 whitespace-normal">{{
+      <pre v-if="data.desc" class="f-oswald leading-10 whitespace-pre-wrap">{{
         data.desc
       }}</pre>
     </div>
@@ -47,7 +47,7 @@ defineProps({
 .banner {
   padding: 95px 20px;
   background-color: rgba(55, 71, 79, 1);
-  background-image: url('~/assets/images/banner.jpg');
+  background-image: url('~/static/images/banner.jpg');
   background-size: cover;
   background-position: center center;
 }
