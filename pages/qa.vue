@@ -8,23 +8,23 @@ definePageMeta({
     <div class="max-w-6xl mx-auto mt-6 pt-8 md:pt-12">
       <div class="text-center font-bold text-lg md:text-2xl">
         <p class="leading-10">
-          Lớp học chỉ có địa chỉ duy nhất : class.vuogle.com <br />
-          FB của giảng viên: facebook.com/vuogle.art
+          Lớp học chỉ có địa chỉ duy nhất : refstudio.org <br />
+          FB của giảng viên: facebook.com/refstudiodn
         </p>
         <p class="leading-10 mt-3">
-          Giảng viên của VUOGLE DIGITAL PAINTING CLASS <br />
+          Giảng viên của REFSTUDIO DIGITAL PAINTING CLASS <br />
           không kết hợp với bất kì trung tâm hay dịch vụ mua bán khóa học online
           nào.
         </p>
         <p class="leading-10 mt-3">
           Tất cả học viên muốn tham gia <br />
 
-          đều cần phải đăng ký thông qua web class.vuogle.com hoặc
-          facebook.com/vuogle.art
+          đều cần phải đăng ký thông qua web refstudio.org hoặc
+          facebook.com/refstudiodn
         </p>
       </div>
       <div class="mt-8">
-        <b>Các câu hỏi về lớp Vuogle Digital Painting</b>
+        <b>Các câu hỏi về lớp REFSTUDIO Digital Painting</b>
         <p class="qa-tile">1. Đăng ký trước có được không?</p>
         <p class="qa-desc">
           Không, đúng ngày đúng giờ đăng ký ghi trên web. Form đk sẽ hiện ra

@@ -1,29 +1,14 @@
 <script setup>
-import { reactive } from 'vue'
-
 definePageMeta({
   layout: 'admin',
 })
-
-const form = reactive({
-  name: 'John Doe',
-  email: 'john.doe@example.com',
-  phone: '',
-  subject: '',
-  question: '',
-})
-
-const submit = () => {
-  //
-}
 </script>
 
 <template>
   <div>
     <AdminSectionTitle>Config Data</AdminSectionTitle>
     <AdminSectionMain>
-      <AdminCardBox form @submit.prevent="submit">
-        <AdminFormField
+      <!-- <AdminFormField
           label="With help line"
           help="Do not enter the leading zero"
         >
@@ -38,12 +23,8 @@ const submit = () => {
             type="textarea"
             placeholder="Explain how we can help you"
           />
-        </AdminFormField>
-        <div class="flex">
-          <Button type="primary">Save</Button>
-          <Button type="secondary" class="mx-3">Reset</Button>
-        </div>
-      </AdminCardBox>
+        </AdminFormField> -->
+      <AdminTable></AdminTable>
     </AdminSectionMain>
   </div>
 </template>

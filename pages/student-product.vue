@@ -3,7 +3,7 @@ const dataBanner = {
   page: 'Sản phẩm học viên',
   desc: 'Hỗ trợ làm bài tập,giải đáp thắc mắc cho học viên 24/7 trong nhóm chat của lớp. \n Tư vấn nghề, job, hướng dẫn luyện tập cho học viên trọn đời.',
   desc2:
-    'Địa chỉ đăng ký duy nhất tại class.vuogle.com và FB:facebook.com/vuogle.art',
+    'Địa chỉ đăng ký duy nhất tại refstudio.org và FB:facebook.com/refstudiodn',
 }
 const productList1 = [
   {
@@ -57,7 +57,7 @@ const productList2 = [
           class="w-[25%] p-4"
         >
           <a :href="product.href">
-            <div><nuxt-img :src="product.imageUrl"></nuxt-img></div>
+            <div><img :src="product.imageUrl" alt="" /></div>
           </a>
         </div>
       </div>

@@ -3,10 +3,12 @@
     <div class="text-xl">Hướng dẫn đăng ký lớp</div>
     <p class="pt-4">
       Đúng ngày, giờ đăng ký ghi trên trang chủ. Bạn truy cập
-      <Anchor to="/">class.vuogle.com</Anchor>
+      <Anchor to="/">refstudio.com</Anchor>
       hoặc fb
-      <Anchor href="facebook.com/vuogle.art">facebook.com/vuogle.art</Anchor> sẽ
-      có link form đăng ký.
+      <Anchor href="https://www.facebook.com/refstudiodn"
+        >facebook.com/refstudiodn</Anchor
+      >
+      sẽ có link form đăng ký.
     </p>
     <p class="pt-4">
       Các bạn chỉ cần fill đầy đủ thông tin vào form đăng ký là xong.

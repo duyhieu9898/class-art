@@ -7,17 +7,23 @@
         viên ngay trong từng buổi học. Đây không phải là khóa học bán các video
         quay lại. )
       </div>
-      <div class="mt-4">
+      <!-- <div class="mt-4">
         <PageSectionYoutubeFrame></PageSectionYoutubeFrame>
-      </div>
+      </div> -->
     </div>
     <div class="max-w-7xl px-4 flex justify-center mx-auto mt-14">
       <div class="flex flex-wrap w-full">
         <div class="w-[100%] md:w-[50%] py-4 md:px-4">
-          <PageSectionYoutubeFrame></PageSectionYoutubeFrame>
+          <PageSectionYoutubeFrame
+            iframe-src="https://www.youtube.com/embed/oJjGWTjLjt0?si=LKMfzt9iCu73ikwa"
+            title="Angry Birds | Fan Art"
+          ></PageSectionYoutubeFrame>
         </div>
         <div class="w-[100%] md:w-[50%] py-4 md:px-4">
-          <PageSectionYoutubeFrame></PageSectionYoutubeFrame>
+          <PageSectionYoutubeFrame
+            iframe-src="https://www.youtube.com/embed/qtWpQv1LqmQ?si=wapLk2O9Ue2NJte5"
+            title="Xứ Sở Các Nguyên Tố - Elemental (2023) | Fanart"
+          ></PageSectionYoutubeFrame>
         </div>
       </div>
     </div>

@@ -118,7 +118,7 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
                   :to="{ name: 'index' }"
                   aria-label="page home"
                 >
-                  Vuogle
+                  Refstudio
                 </NuxtLink>
               </slot>
 

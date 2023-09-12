@@ -5,18 +5,34 @@
     <ul class="px-6" style="list-style-type: square">
       <li class="py-1"><span class="font-bold">Liên hệ: </span></li>
       <li class="py-1">
-        <span>Facebook: vuogle.art </span>
+        <span
+          >Facebook:
+          <a href="https://www.facebook.com/refstudiodn" target="_blank"
+            >Refstudio</a
+          ></span
+        >
       </li>
       <li class="py-1">
-        <span>SDT: 0975 736 456 </span>
+        <span>SDT: <a href="tel:0967749311">0967 749 311</a> </span>
       </li>
     </ul>
     <ul class="px-6" style="list-style-type: square">
       <li class="py-1">
-        <span>Email: vuogle@vuogle.com </span>
+        <span
+          >Email:
+          <a href="mailto:refstudiodn@gmail.com" target="_blank"
+            >refstudiodn@gmail.com</a
+          >
+        </span>
       </li>
       <li class="py-1">
-        <span>Portfolio: https://www.artstation.com/vuogle </span>
+        <span
+          >Portfolio:
+
+          <a href="https://www.artstation.com/thinh_le" target="_blank"
+            >artstation.com/thinh_le</a
+          >
+        </span>
       </li>
     </ul>
   </nav>
