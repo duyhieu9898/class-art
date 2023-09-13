@@ -12,7 +12,7 @@ definePageMeta({
           FB của giảng viên: facebook.com/refstudiodn
         </p>
         <p class="leading-10 mt-3">
-          Giảng viên của REFSTUDIO DIGITAL PAINTING CLASS <br />
+          Giảng viên của REFSTUDIO Casual Game Basic A01 Online <br />
           không kết hợp với bất kì trung tâm hay dịch vụ mua bán khóa học online
           nào.
         </p>
