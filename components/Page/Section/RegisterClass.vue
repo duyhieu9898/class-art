@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { useAppStore } from '~/stores/app'
 const appStore = useAppStore()
-
-appStore.fetchClassList()
 </script>
 <template>
   <div
@@ -12,7 +10,7 @@ appStore.fetchClassList()
     <div class="flex justify-between flex-wrap gap-16">
       <PageRegisterClassInfo
         v-for="(classInfo, index) in appStore.classList"
-        :key="index"
+        :key="`r-${index}`"
         :class-info="classInfo"
       ></PageRegisterClassInfo>
     </div>

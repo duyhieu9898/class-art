@@ -19,18 +19,18 @@ const appMenus: IMenuItem[] = [
   },
   {
     type: 'link',
-    text: 'Lớp digital painting cơ bản',
+    text: 'Lớp casual game basic',
     route: {
-      path: '/basic-digital-painting-class',
+      path: '/basic-casual-game-class',
     },
   },
-  {
-    type: 'link',
-    text: 'Lớp minh họa nâng cao',
-    route: {
-      path: '/illustrated-advanced-class',
-    },
-  },
+  // {
+  //   type: 'link',
+  //   text: 'Lớp minh họa nâng cao',
+  //   route: {
+  //     path: '/illustrated-advanced-class',
+  //   },
+  // },
   {
     type: 'link',
     text: 'Sản phẩm học viên',
@@ -118,7 +118,7 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
                   :to="{ name: 'index' }"
                   aria-label="page home"
                 >
-                  Refstudio
+                  <img src="/images/logo.png" class="h-[46px]" />
                 </NuxtLink>
               </slot>
 

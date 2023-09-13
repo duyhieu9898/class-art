@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center bg-neutral-800/95 text-white px-4 py-10">
+  <div class="text-center bg-app text-white px-4 py-10">
     <div class="text-xl">Hướng dẫn đăng ký lớp</div>
     <p class="pt-4">
       Đúng ngày, giờ đăng ký ghi trên trang chủ. Bạn truy cập

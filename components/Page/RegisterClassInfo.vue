@@ -16,7 +16,7 @@ const stateClass = computed(() => {
   if (props.classInfo.studentRegister >= props.classInfo.studentTotal) {
     return 'Full'
   }
-  return `${props.classInfo.studentRegister} / ${props.classInfo.studentTotal}`
+  return `Lịch khai giảng lớp ${props.classInfo.studentRegister} / ${props.classInfo.studentTotal}`
 })
 </script>
 <template>
@@ -24,9 +24,9 @@ const stateClass = computed(() => {
     <div class="font-bold" :class="{ 'text-red-500': isFull }">
       {{ stateClass }}
     </div>
-    <div class="mt-3">{{ classInfo.className }}</div>
+    <div class="mt-3">Lịch khai giảng lớp {{ classInfo.className }}</div>
     <div class="mt-3 font-bold">{{ classInfo.date }}</div>
-    <div class="mt-3 text-blue-400">
+    <div class="mt-3 text-blue-400 whitespace-pre-wrap">
       {{ classInfo.description }}
     </div>
   </div>

@@ -9,8 +9,13 @@ export interface IMenuItem {
 
 export interface IClass {
   className?: string
+  price: number
   studentTotal: number
   studentRegister: number
   date: string
   description: string
+}
+
+export interface IImage {
+  url: string
 }

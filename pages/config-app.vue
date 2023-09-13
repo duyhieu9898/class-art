@@ -24,7 +24,8 @@ definePageMeta({
             placeholder="Explain how we can help you"
           />
         </AdminFormField> -->
-      <AdminTable></AdminTable>
+      <AdminTable />
+      <AdminProductStudentTable />
     </AdminSectionMain>
   </div>
 </template>

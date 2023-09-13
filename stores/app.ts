@@ -4,14 +4,12 @@ import { IClass } from '~/utils/types'
 export interface IAppState {
   classList: IClass[]
   loading: boolean
-  count: number
 }
 
 export const useAppStore = defineStore('app', {
   state: (): IAppState => ({
     classList: [],
     loading: false,
-    count: 0,
   }),
   getters: {},
   actions: {

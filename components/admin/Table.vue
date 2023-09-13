@@ -2,36 +2,49 @@
 import { reactive } from 'vue'
 import { IClass } from '~/utils/types'
 import { useAppStore } from '~/stores/app'
-const appStore = useAppStore()
+import { formatterNumber } from '~/utils/helper'
 
+const appStore = useAppStore()
 appStore.fetchClassList()
+
 const formInput = reactive<IClass>({
   className: 'class1',
   studentTotal: 20,
   studentRegister: 10,
   date: '2023-09-14',
   description: '123',
+  price: 4000000,
 })
 </script>
 <template>
   <form id="form-class" @submit.prevent="appStore.createClass(formInput)">
     <AdminCardBox>
       <AdminSectionTitle class="mb-2">Class</AdminSectionTitle>
-      <div class="flex gap-2">
+      <div class="flex gap-2 flex-col">
         <AdminFormField label="Class name">
           <AdminFormControl v-model="formInput.className" />
         </AdminFormField>
-        <AdminFormField label="Student Total">
-          <AdminFormControl v-model="formInput.studentTotal" />
-        </AdminFormField>
-        <AdminFormField label="Student Register">
-          <AdminFormControl v-model="formInput.studentRegister" />
-        </AdminFormField>
-        <AdminFormField label="Date">
-          <AdminFormControl v-model="formInput.date" type="date" />
-        </AdminFormField>
+        <div class="flex gap-2">
+          <AdminFormField label="Student Total" class="flex-1">
+            <AdminFormControl v-model="formInput.studentTotal" type="number" />
+          </AdminFormField>
+          <AdminFormField label="Student Register" class="flex-1">
+            <AdminFormControl
+              v-model="formInput.studentRegister"
+              type="number"
+            />
+          </AdminFormField>
+        </div>
+        <div class="flex gap-2">
+          <AdminFormField label="Price (VND)" class="flex-1">
+            <AdminFormControl v-model="formInput.price" type="number" />
+          </AdminFormField>
+          <AdminFormField label="Date" class="flex-1">
+            <AdminFormControl v-model="formInput.date" type="date" />
+          </AdminFormField>
+        </div>
         <AdminFormField label="Description">
-          <AdminFormControl v-model="formInput.description" />
+          <AdminFormControl v-model="formInput.description" type="textarea" />
         </AdminFormField>
         <div class="flex items-center">
           <Button id="form-class" type="submit" :loading="appStore.loading"
@@ -42,7 +55,7 @@ const formInput = reactive<IClass>({
       </div>
       <div class="py-8">
         <div>
-          <h2 class="text-2xl font-semibold leading-tight">Invoices</h2>
+          <h2 class="text-2xl font-semibold leading-tight">Class List</h2>
         </div>
         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
           <div
@@ -65,6 +78,11 @@ const formInput = reactive<IClass>({
                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                   >
                     Num student register
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
+                    Price
                   </th>
                   <th
                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
@@ -110,6 +128,13 @@ const formInput = reactive<IClass>({
                     >
                       <p class="text-gray-900 whitespace-no-wrap">
                         {{ classItem.studentRegister }}
+                      </p>
+                    </td>
+                    <td
+                      class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                    >
+                      <p class="text-gray-900 whitespace-no-wrap">
+                        {{ formatterNumber.format(classItem.price) }}
                       </p>
                     </td>
                     <td

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-neutral-800/95 text-white px-4 py-10">
+  <div class="bg-app text-white px-4 py-10">
     <div class="max-w-5xl mx-auto px-4 text-center">
       <div class="text-xl">
         Một số video trích đoạn bài giảng. ( Ghi chú các bài giảng này đều được

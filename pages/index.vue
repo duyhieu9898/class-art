@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { useAppStore } from '~/stores/app'
 const dataBanner = {
   logo: 'REFSTUDIO',
   page: 'Digital Painting Class',
@@ -6,6 +7,9 @@ const dataBanner = {
   desc2:
     'Địa chỉ đăng ký duy nhất tại refstudio.org và FB:facebook.com/refstudiodn',
 }
+
+const appStore = useAppStore()
+appStore.fetchClassList()
 </script>
 
 <template>
@@ -14,10 +18,10 @@ const dataBanner = {
     <PageWrapper>
       <ChatBox />
       <hr class="mt-8" />
-      <PageSectionRegisterClass></PageSectionRegisterClass>
+      <PageSectionRegisterClass />
     </PageWrapper>
-    <PageSectionGuide></PageSectionGuide>
-    <PageSectionClass></PageSectionClass>
-    <PageSectionLessonYoutube></PageSectionLessonYoutube>
+    <PageSectionGuide />
+    <PageSectionClasses />
+    <PageSectionLessonYoutube />
   </div>
 </template>

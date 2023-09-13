@@ -8,7 +8,7 @@ defineProps({
 
 <template>
   <section
-    class="pt-18 pb-8 px-6 lg:px-0 lg:max-w-2xl lg:mx-auto text-center"
+    class="pt-8 pb-4 px-6 lg:px-0 lg:max-w-2xl lg:mx-auto text-center"
     :class="{ '-mb-6': first, '-mt-6': last, '-my-6': !first && !last }"
   >
     <slot v-if="custom" />

@@ -13,7 +13,7 @@ const dataBanner = {
     <PageWrapper>
       <ChatBox />
     </PageWrapper>
-    <div class="bg-neutral-800/95 text-light-100 mt-6">
+    <div class="bg-app text-light-100 mt-6">
       <PageWrapper class="max-w-5xl mx-auto">
         <p class="text-md md:text-lg leading-8 md:leading-12">
           Sẽ chỉ có 1 lớp nâng cao duy nhất học vào các ngày thứ 2 trong tuần
