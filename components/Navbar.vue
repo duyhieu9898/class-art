@@ -31,13 +31,13 @@ const appMenus: IMenuItem[] = [
   //     path: '/illustrated-advanced-class',
   //   },
   // },
-  {
-    type: 'link',
-    text: 'Sản phẩm học viên',
-    route: {
-      path: '/student-product',
-    },
-  },
+  // {
+  //   type: 'link',
+  //   text: 'Sản phẩm học viên',
+  //   route: {
+  //     path: '/student-product',
+  //   },
+  // },
   {
     type: 'link',
     text: 'Q&A',
@@ -100,7 +100,8 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
                 @click="toggleDrawer()"
               >
                 <span
-                  class="flex items-center text-gray-600 dark:text-gray-300 text-2xl"
+                  class="flex items-center text-gray-100 text-2xl"
+                  :class="{ '!text-gray-800': light }"
                   aria-hidden="true"
                 >
                   <Icon v-if="!showDrawer" name="uil:bars" />
@@ -118,7 +119,7 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
                   :to="{ name: 'index' }"
                   aria-label="page home"
                 >
-                  <img src="/images/logo.png" class="h-[46px]" />
+                  <img src="/images/logo-v2.png" class="h-[40px]" />
                 </NuxtLink>
               </slot>
 

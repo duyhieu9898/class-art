@@ -17,8 +17,11 @@ defineProps({
     id="navbar-banner"
     class="banner flex flex-col justify-center text-center text-white"
   >
-    <div v-if="data.logo" class="text-4xl md:text-6xl leading-relaxed f-oswald">
-      {{ data.logo }}
+    <div
+      v-if="data.logo"
+      class="text-4xl md:text-6xl leading-relaxed f-oswald text-center"
+    >
+      <img src="/images/logo-title.png" class="h-[35px] md:h-[40px] mx-auto" />
     </div>
     <h1
       v-if="data.page"

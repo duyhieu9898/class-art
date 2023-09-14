@@ -19,7 +19,7 @@ await imageStore.fetchImageList()
     </PageWrapper>
     <div class="bg-app text-light-100 mt-6">
       <PageWrapper class="max-w-5xl mx-auto">
-        <p class="text-md md:text-lg leading-8 md:leading-12">
+        <p class="text-md md:text-lg leading-6 md:leading-12">
           Sản phẩm học viên lớp CASUAL GAME BASIC A01 ONLINE
         </p>
       </PageWrapper>
@@ -30,7 +30,7 @@ await imageStore.fetchImageList()
         <div
           v-for="(imageItem, index) in imageStore.imageList"
           :key="`sp1-${index}`"
-          class="w-[25%] p-4"
+          class="w-[100%] md:w-[25%] p-4"
         >
           <div>
             <img

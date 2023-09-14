@@ -17,7 +17,7 @@ const formInput = reactive<IImage>({
         <AdminFormField label="Url image ID">
           <AdminFormControl v-model="formInput.url" />
         </AdminFormField>
-        <p class="-mt-6 mb-3 text-neutral-500 text-sm">
+        <p class="-mt-6 mb-3 text-neutral-500 text-sm break-all">
           https://drive.google.com/file/d/<span class="text-red-500 font-medium"
             >1H3mDhe86Bw6dS2PIzLXBi3HxSpY60doU</span
           >/view?usp=sharing

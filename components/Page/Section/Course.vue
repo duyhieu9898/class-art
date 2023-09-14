@@ -17,7 +17,7 @@ defineProps({
     <div class="text-2xl md:text-4xl text-blue-500 font-bold mt-3">
       {{ formatterNumber.format(classInfo.price) }}
     </div>
-    <img src="/images/class1.jpg" class="CENy8b mt-4" />
+    <img src="/images/class-banner-1.png" class="mt-4 rounded" />
     <div class="text-sm mt-3">
       Thông tin về khóa
       <span class="capitalize">{{ classInfo.className }}</span>
