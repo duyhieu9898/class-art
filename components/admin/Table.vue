@@ -8,13 +8,22 @@ const appStore = useAppStore()
 appStore.fetchClassList()
 
 const formInput = reactive<IClass>({
-  className: 'class1',
-  studentTotal: 20,
-  studentRegister: 10,
+  className: 'className',
+  studentTotal: 40,
+  studentRegister: 40,
   date: '2023-09-14',
-  description: '123',
+  description: 'description',
   price: 4000000,
 })
+
+const onReset = () => {
+  formInput.className = ''
+  formInput.studentTotal = 0
+  formInput.studentRegister = 0
+  formInput.date = '2023-09-14'
+  formInput.description = ''
+  formInput.price = 0
+}
 </script>
 <template>
   <form id="form-class" @submit.prevent="appStore.createClass(formInput)">
@@ -50,7 +59,7 @@ const formInput = reactive<IClass>({
           <Button id="form-class" type="submit" :loading="appStore.loading"
             >Create</Button
           >
-          <Button type="secondary" class="mx-3">Reset</Button>
+          <Button type="secondary" class="mx-3" @click="onReset">Reset</Button>
         </div>
       </div>
       <div class="py-8">

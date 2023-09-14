@@ -27,7 +27,6 @@ const formInput = reactive<IImage>({
           <Button id="form-class" type="submit" :loading="imageStore.loading"
             >Add image</Button
           >
-          <Button type="secondary" class="mx-3">Reset</Button>
         </div>
       </div>
       <div class="py-8">
