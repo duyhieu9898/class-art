@@ -14,6 +14,7 @@ export interface IClass {
   studentRegister: number
   date: string
   description: string
+  linkRegister?: string
 }
 
 export interface IImage {

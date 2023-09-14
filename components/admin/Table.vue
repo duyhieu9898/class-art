@@ -8,12 +8,14 @@ const appStore = useAppStore()
 appStore.fetchClassList()
 
 const formInput = reactive<IClass>({
-  className: 'className',
+  className: 'CASUAL GAME BASIC A01 ONLINE',
   studentTotal: 40,
-  studentRegister: 40,
+  studentRegister: 0,
   date: '2023-09-14',
-  description: 'description',
+  description: `Lịch học linh hoạt: 
+  Thứ Ba: 19:30 - 21:30 Thứ Bảy: 19:30 - 21:30`,
   price: 4000000,
+  linkRegister: `https://docs.google.com/forms/d/1gWKlin95mk10VbjJQS9IjpVkGfhBXfSfr75Dv8tThqM/edit#responses`,
 })
 
 const onReset = () => {
@@ -23,6 +25,7 @@ const onReset = () => {
   formInput.date = '2023-09-14'
   formInput.description = ''
   formInput.price = 0
+  formInput.linkRegister = ''
 }
 </script>
 <template>
@@ -54,6 +57,9 @@ const onReset = () => {
         </div>
         <AdminFormField label="Description">
           <AdminFormControl v-model="formInput.description" type="textarea" />
+        </AdminFormField>
+        <AdminFormField label="Link Register">
+          <AdminFormControl v-model="formInput.linkRegister" type="textarea" />
         </AdminFormField>
         <div class="flex items-center">
           <Button id="form-class" type="submit" :loading="appStore.loading"
@@ -106,6 +112,11 @@ const onReset = () => {
                   <th
                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                   >
+                    Link Register
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
                     Action
                   </th>
                 </tr>
@@ -154,10 +165,19 @@ const onReset = () => {
                       </p>
                     </td>
                     <td
-                      class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-right"
+                      class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-left"
                     >
                       <p class="text-gray-900 whitespace-no-wrap">
                         {{ classItem.description }}
+                      </p>
+                    </td>
+                    <td
+                      class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-left"
+                    >
+                      <p class="text-blue-400">
+                        <a :href="classItem.linkRegister" target="_blank"
+                          >Click to open</a
+                        >
                       </p>
                     </td>
                     <td
