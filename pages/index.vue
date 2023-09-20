@@ -19,8 +19,9 @@ appStore.fetchClassList()
       <ChatBox />
       <hr class="mt-8" />
       <PageSectionRegisterClass />
+      <hr class="mt-8" />
     </PageWrapper>
-    <PageSectionGuide />
+    <!-- <PageSectionGuide /> -->
     <PageSectionClasses />
     <PageSectionLessonYoutube />
   </div>
