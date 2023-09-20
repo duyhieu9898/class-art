@@ -16,7 +16,7 @@ const stateClass = computed(() => {
   if (props.classInfo.studentRegister >= props.classInfo.studentTotal) {
     return 'Full'
   }
-  return `${props.classInfo.studentRegister} / ${props.classInfo.studentTotal}`
+  return `${props.classInfo.studentTotal} học viên`
 })
 </script>
 <template>

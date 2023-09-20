@@ -30,6 +30,7 @@
   "dependencies": {
     "@nuxt/image": "^1.0.0-rc.1",
     "@pinia/nuxt": "^0.4.11",
-    "pinia": "^2.1.6"
+    "pinia": "^2.1.6",
+    "swiper": "^10.2.0"
   }
 }

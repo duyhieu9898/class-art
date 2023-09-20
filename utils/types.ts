@@ -15,6 +15,7 @@ export interface IClass {
   date: string
   description: string
   linkRegister?: string
+  thumbnail?: string
 }
 
 export interface IImage {

@@ -26,6 +26,7 @@ const onReset = () => {
   formInput.description = ''
   formInput.price = 0
   formInput.linkRegister = ''
+  formInput.thumbnail = ''
 }
 </script>
 <template>
@@ -61,6 +62,9 @@ const onReset = () => {
         <AdminFormField label="Link Register">
           <AdminFormControl v-model="formInput.linkRegister" type="textarea" />
         </AdminFormField>
+        <!-- <AdminFormField label="Thumbnail Image">
+          <AdminFormControl v-model="formInput.thumbnail" type="textarea" />
+        </AdminFormField> -->
         <div class="flex items-center">
           <Button id="form-class" type="submit" :loading="appStore.loading"
             >Create</Button

@@ -15,34 +15,34 @@ defineProps({
 <template>
   <div
     id="navbar-banner"
-    class="banner flex flex-col justify-center text-center text-white"
+    class="banner flex flex-col justify-center text-center text-white h-[400px] md:h-[500px]"
   >
     <div
       v-if="data.logo"
-      class="text-4xl md:text-6xl leading-relaxed f-oswald text-center"
+      class="text-4xl md:text-6xl leading-relaxed f-oswald text-center mb-20"
     >
       <img src="/images/logo-title.png" class="h-[35px] md:h-[40px] mx-auto" />
     </div>
-    <h1
+    <!-- <h1
       v-if="data.page"
       class="text-4xl md:text-6xl mt-2 md:mt-8 leading-relaxed f-oswald"
     >
       {{ data.page }}
-    </h1>
-    <div
+    </h1> -->
+    <!-- <div
       class="text-lg md:text-2xl mt-2 md:mt-6 leading-relaxed font-medium c-app-cyan"
     >
       <pre v-if="data.desc" class="f-oswald leading-10 whitespace-pre-wrap">{{
         data.desc
       }}</pre>
-    </div>
+    </div> -->
 
-    <div
+    <!-- <div
       v-if="data.desc2"
       class="f-oswald text-lg md:text-2xl leading-relaxed font-medium mt-2 md:mt-4 c-app-violet"
     >
       {{ data.desc2 }}
-    </div>
+    </div> -->
   </div>
 </template>
 
