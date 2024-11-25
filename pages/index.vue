@@ -16,8 +16,6 @@ appStore.fetchClassList()
   <div>
     <Banner :data="dataBanner" />
     <PageWrapper>
-      <ChatBox />
-      <hr class="mt-8" />
       <PageSectionRegisterClass />
       <hr class="mt-8" />
     </PageWrapper>

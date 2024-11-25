@@ -1,19 +1,8 @@
-<script lang="ts" setup>
-const dataBanner = {
-  page: 'CASUAL GAME BASIC A01 ONLINE',
-  desc: 'Hỗ trợ làm bài tập,giải đáp thắc mắc cho học viên 24/7 trong nhóm chat của lớp. \n Tư vấn nghề, job, hướng dẫn luyện tập cho học viên trọn đời.',
-  desc2:
-    'Địa chỉ đăng ký duy nhất tại refstudio.org và FB:facebook.com/refstudiodn',
-}
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <div>
-    <Banner :data="dataBanner" />
-    <PageWrapper>
-      <ChatBox />
-    </PageWrapper>
-    <div class="bg-app text-light-100 mt-6">
+    <div class="bg-app text-light-100 pt-[80px]">
       <PageWrapper class="max-w-5xl mx-auto">
         <p class="text-md md:text-lg leading-8 md:leading-12">
           🎨 Tham Gia Khoá Học CASUAL GAME BASIC A01 ONLINE <br />

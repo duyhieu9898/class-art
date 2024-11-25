@@ -11,28 +11,20 @@ const props = defineProps({
 const isFull = computed(() => {
   return props.classInfo.studentRegister >= props.classInfo.studentTotal
 })
-
-const stateClass = computed(() => {
-  if (props.classInfo.studentRegister >= props.classInfo.studentTotal) {
-    return 'Full'
-  }
-  return `${props.classInfo.studentTotal} học viên`
-})
 </script>
 <template>
   <div class="flex flex-col text-center py-3 px-6 mx-auto flex-1">
+    <div class="mt-3 font-medium uppercase">Lịch học cố định</div>
+    <div class="uppercase font-extrabold tracking-widest text-lg mt-3">
+      Thứ 3 - Thứ 5
+    </div>
     <div
-      class="font-bold"
-      :class="[isFull ? 'text-red-500' : 'text-violet-500']"
+      class="flex justify-between font-bold max-w-[500px] w-full mx-auto mt-4"
     >
-      {{ stateClass }}
+      <div>Thứ 3: 19h300 đến 21h00</div>
+      <div>Thứ 5: 19h300 đến 21h00</div>
     </div>
-    <div class="mt-3">Lịch khai giảng lớp {{ classInfo.className }}</div>
-    <div class="mt-3 font-bold">{{ classInfo.date }}</div>
-    <div class="mt-3 text-blue-400 whitespace-pre-wrap">
-      {{ classInfo.description }}
-    </div>
-    <div v-show="!isFull" class="max-w-[300px] mx-auto mt-2">
+    <div v-show="!isFull" class="max-w-[300px] mx-auto mt-6">
       <Button :href="classInfo.linkRegister" target="blank">Đăng ký</Button>
     </div>
   </div>

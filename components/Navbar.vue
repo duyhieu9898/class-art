@@ -17,41 +17,6 @@ const appMenus: IMenuItem[] = [
       path: '/',
     },
   },
-  {
-    type: 'link',
-    text: 'Lớp casual game basic',
-    route: {
-      path: '/basic-casual-game-class',
-    },
-  },
-  // {
-  //   type: 'link',
-  //   text: 'Lớp minh họa nâng cao',
-  //   route: {
-  //     path: '/illustrated-advanced-class',
-  //   },
-  // },
-  // {
-  //   type: 'link',
-  //   text: 'Sản phẩm học viên',
-  //   route: {
-  //     path: '/student-product',
-  //   },
-  // },
-  {
-    type: 'link',
-    text: 'Q&A',
-    route: {
-      path: '/qa',
-    },
-  },
-  {
-    type: 'link',
-    text: 'Liên hệ',
-    route: {
-      path: '/contact',
-    },
-  },
 ]
 onMounted(() => {
   if (!navbar.value) return
@@ -115,36 +80,13 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
               <!-- logo -->
               <slot name="title">
                 <NuxtLink
-                  class="mr-3 overflow-hidden md:w-auto flex items-center text-xl"
+                  class="tracking-wider mr-3 overflow-hidden md:w-auto flex items-center text-2xl font-extrabold"
                   :to="{ name: 'index' }"
                   aria-label="page home"
                 >
-                  <img src="/images/logo-v2.png" class="h-[40px]" />
+                  REF ACADEMY
                 </NuxtLink>
               </slot>
-
-              <nav class="hidden lg:block leading-6" role="navigation">
-                <ul class="flex items-center lg:space-x-1 xl:space-x-6 w-full">
-                  <li v-for="(item, i) in appMenus" :key="i">
-                    <Anchor
-                      v-if="item.type === 'link'"
-                      :to="item.route ? item.route : undefined"
-                      :href="item.href ? item.href : undefined"
-                      class="font-light"
-                      :class="{ '!text-neutral-800': light }"
-                      >{{ item.text }}</Anchor
-                    >
-                    <Button
-                      v-else-if="item.type === 'button'"
-                      :text="item.text"
-                      size="xs"
-                      class="font-extrabold capitalize"
-                      :to="item.route ? item.route : undefined"
-                      :href="item.href ? item.href : undefined"
-                    />
-                  </li>
-                </ul>
-              </nav>
             </div>
           </div>
         </div>
@@ -181,8 +123,9 @@ const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
 }
 .app-navbar {
   transition-duration: 0.5ms;
+  background-image: linear-gradient(45deg, rgb(218, 45, 100), rgb(198, 28, 61));
   &.sticky-nav {
-    background-color: rgba(33, 33, 33, 1);
+    box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.8);
   }
 }
 
