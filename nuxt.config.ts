@@ -8,14 +8,18 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   app: {
     head: {
-      title: 'REF Studio - Dạy Vẽ máy',
+      title: 'REF Academy - Đà Nẵng',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: 'description',
           name: 'description',
           content:
-            'Dạy Vẽ Digital Game (vẽ tranh trên máy tính dành cho người mới)',
+            'Chuyên Dạy Thiết kế đồ hoạ, Photoshop, Illustrator, Digital Game, Minh Hoạ Truyện Tranh, Vẽ Fashion',
+        },
+        {
+          property: '"og:image',
+          content: 'https://https://www.refacademy.art/og.png',
         },
       ],
       link: [
