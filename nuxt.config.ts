@@ -19,7 +19,7 @@ export default defineNuxtConfig({
         },
         {
           property: '"og:image',
-          content: 'https://https://www.refacademy.art/og.png',
+          content: 'https://www.refacademy.art/og.png',
         },
       ],
       link: [
