@@ -18,8 +18,25 @@ export default defineNuxtConfig({
             'Chuyên Dạy Thiết kế đồ hoạ, Photoshop, Illustrator, Digital Game, Minh Hoạ Truyện Tranh, Vẽ Fashion',
         },
         {
-          property: '"og:image',
+          property: 'og:title',
+          content: 'REF Academy - Đà Nẵng',
+        },
+        {
+          property: 'og:description',
+          content:
+            'Chuyên Dạy Thiết kế đồ hoạ, Photoshop, Illustrator, Digital Game, Minh Hoạ Truyện Tranh, Vẽ Fashion',
+        },
+        {
+          property: 'og:image',
           content: 'https://www.refacademy.art/og.png',
+        },
+        {
+          property: 'og:image:width',
+          content: '700',
+        },
+        {
+          property: 'og:image:height',
+          content: '400',
         },
       ],
       link: [
