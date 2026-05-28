@@ -169,11 +169,7 @@ For complex customizations, you can also extend or override components:
 /* Customizing Shadcn UI components */
 @layer components {
     .button-gradient {
-        background-image: linear-gradient(
-            to right,
-            var(--color-blue-500),
-            var(--color-purple-500)
-        );
+        background-image: linear-gradient(to right, var(--color-blue-500), var(--color-purple-500));
     }
 }
 ```
@@ -212,7 +208,11 @@ export default async function Posts() {
     const { data: posts } = await supabase.from("posts").select("*");
 
     return (
-        <div>{posts?.map((post) => <div key={post.id}>{post.title}</div>)}</div>
+        <div>
+            {posts?.map((post) => (
+                <div key={post.id}>{post.title}</div>
+            ))}
+        </div>
     );
 }
 ```
@@ -229,9 +229,7 @@ export default function FileUpload() {
 
     const handleUpload = async (event) => {
         const file = event.target.files[0];
-        const { data, error } = await supabase.storage
-            .from("avatars")
-            .upload(`public/${file.name}`, file);
+        const { data, error } = await supabase.storage.from("avatars").upload(`public/${file.name}`, file);
     };
 
     return <input type="file" onChange={handleUpload} />;

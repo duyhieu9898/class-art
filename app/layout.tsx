@@ -1,41 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
+const roboto = Roboto({
+    variable: "--font-roboto",
+    subsets: ["latin", "vietnamese"],
+    weight: ["400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
-    title: "Next.js + Shadcn UI + Tailwind + Supabase Template",
+    title: "REF ACADEMY - Học viện Đào tạo Trí tuệ Nhân tạo & Thiết kế",
     description:
-        "A modern full-stack template for building beautiful, accessible, and high-performance web applications",
-    keywords: [
-        "Next.js",
-        "Shadcn UI",
-        "Tailwind CSS",
-        "Supabase",
-        "React",
-        "TypeScript",
-        "Full-stack",
-    ],
-    authors: [{ name: "CodeLab Davis" }],
-    creator: "CodeLab Davis",
-    openGraph: {
-        type: "website",
-        locale: "en_US",
-        url: "https://next-shadcn-tailwind-supabase.vercel.app/",
-        title: "Next.js + Shadcn UI + Tailwind + Supabase Template",
-        description:
-            "A modern full-stack template for building beautiful, accessible, and high-performance web applications",
-        siteName: "Next.js + Shadcn UI + Tailwind + Supabase Template",
-    }
+        "Lộ trình đào tạo thực chiến bài bản, REF ACADEMY trang bị cho bạn nền tảng kỹ năng sử dụng trí tuệ nhân tạo để tự tin gia nhập thị trường việc làm",
+    keywords: ["REF ACADEMY", "AI", "Thiết kế đồ họa", "Đào tạo", "Đà Nẵng"],
 };
 
 export default function RootLayout({
@@ -44,11 +22,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
+        <html lang="vi">
+            <body className={`${roboto.variable} font-sans antialiased`}>
                 {children}
+                <Toaster />
             </body>
         </html>
     );

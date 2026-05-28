@@ -1,0 +1,2 @@
+Always read and strictly follow the global rules in AGENTS.md.
+When implementing specific features, check if there is a matching skill under .codex/skills/ and apply its guidelines.
