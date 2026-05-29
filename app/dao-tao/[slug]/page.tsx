@@ -6,11 +6,10 @@ import { getPostBySlug, getRelatedPosts } from "@/actions/posts";
 
 export default async function DaoTaoDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = await getPostBySlug(slug);
+    const [post, related] = await Promise.all([getPostBySlug(slug), getRelatedPosts(slug, "dao-tao", 3)]);
 
     if (!post) notFound();
 
-    const related = await getRelatedPosts(slug, "dao-tao", 3);
     const relatedPosts = related.map((p) => ({
         title: p.title,
         excerpt: p.excerpt || "",

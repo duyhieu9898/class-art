@@ -72,6 +72,7 @@ export default function PostDetail({ post, breadcrumbs, relatedPosts }: PostDeta
                                     src={getImageUrl(post.image_url)}
                                     alt={post.title}
                                     fill
+                                    sizes="(max-width: 1280px) 100vw, 1100px"
                                     className="object-cover"
                                 />
                             </div>
@@ -100,9 +101,10 @@ export default function PostDetail({ post, breadcrumbs, relatedPosts }: PostDeta
                                         <Link key={index} href={post.href} className="group flex gap-[12px]">
                                             <div className="relative h-[70px] w-[100px] shrink-0 overflow-hidden rounded-[8px]">
                                                 <Image
-                                                    src={post.imageSrc}
+                                                    src={getImageUrl(post.imageSrc)}
                                                     alt={post.title}
                                                     fill
+                                                    sizes="100px"
                                                     className="object-cover"
                                                 />
                                             </div>

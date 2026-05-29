@@ -119,6 +119,7 @@ export default function RegistrationSection() {
                     src="/images/registration-city.png"
                     alt=""
                     fill
+                    sizes="1200px"
                     className="object-contain object-bottom"
                     aria-hidden="true"
                 />
@@ -130,6 +131,7 @@ export default function RegistrationSection() {
                     src="/images/registration-bg.png"
                     alt="Học viên REF Academy"
                     fill
+                    sizes="(max-width: 768px) 350px, 500px"
                     className="object-contain object-bottom"
                 />
             </div>

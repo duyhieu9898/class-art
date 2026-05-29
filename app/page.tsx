@@ -13,11 +13,14 @@ import { getPartners } from "@/actions/partners";
 import { getPosts } from "@/actions/posts";
 
 export default async function Home() {
-    const [courses, partners, { posts: inspirations }] = await Promise.all([
-        getCourses(),
-        getPartners(),
-        getPosts({ section: "nhan-vat", perPage: 6 }),
-    ]);
+    const [courses, partners, { posts: inspirations }, { posts: workshops }, { posts: activities }] =
+        await Promise.all([
+            getCourses(),
+            getPartners(),
+            getPosts({ section: "nhan-vat", perPage: 6 }),
+            getPosts({ section: "workshop", perPage: 6 }),
+            getPosts({ section: "hoat-dong", perPage: 6 }),
+        ]);
 
     return (
         <div className="flex min-h-screen flex-col">
@@ -34,7 +37,7 @@ export default async function Home() {
                 <CoursesSection courses={courses} />
 
                 {/* Workshop Section */}
-                <WorkshopSection />
+                <WorkshopSection posts={workshops} />
 
                 {/* Registration Form Section */}
                 <RegistrationSection />
@@ -46,7 +49,7 @@ export default async function Home() {
                 <PartnersSection partners={partners} />
 
                 {/* Activity Gallery Section */}
-                <ActivitySection />
+                <ActivitySection posts={activities} />
             </main>
 
             <Footer />

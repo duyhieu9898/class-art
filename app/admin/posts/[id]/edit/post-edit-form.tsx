@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,11 +16,18 @@ import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { POST_SECTIONS } from "@/lib/constants/post-sections";
 import { SlugInput } from "@/components/admin/slug-input";
-import { RichTextEditor } from "@/components/admin/rich-text-editor";
 import { ImageUploader } from "@/components/admin/image-uploader";
 import { toast } from "sonner";
 
 type PostFormValues = z.input<typeof postSchema>;
+
+const RichTextEditor = dynamic(
+    () => import("@/components/admin/rich-text-editor").then((mod) => mod.RichTextEditor),
+    {
+        ssr: false,
+        loading: () => <div className="min-h-[250px] rounded-md border bg-gray-50" />,
+    }
+);
 
 interface Post {
     id: string;

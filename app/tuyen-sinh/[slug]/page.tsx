@@ -6,11 +6,10 @@ import { getPostBySlug, getRelatedPosts } from "@/actions/posts";
 
 export default async function TuyenSinhDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = await getPostBySlug(slug);
+    const [post, related] = await Promise.all([getPostBySlug(slug), getRelatedPosts(slug, "hoc-bong", 3)]);
 
     if (!post || post.section !== "hoc-bong") notFound();
 
-    const related = await getRelatedPosts(slug, "hoc-bong", 3);
     const relatedPosts = related.map((p) => ({
         title: p.title,
         excerpt: p.excerpt || "",

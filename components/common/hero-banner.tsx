@@ -10,7 +10,7 @@ export default function HeroBanner({ imageSrc, title }: HeroBannerProps) {
         <section className="relative flex min-h-[300px] w-full items-center justify-center overflow-hidden rounded-[20px] py-[89px]">
             {/* Background */}
             <div className="absolute inset-0 overflow-hidden rounded-[16px]">
-                <Image src={imageSrc} alt="" fill className="object-cover" priority />
+                <Image src={imageSrc} alt="" fill sizes="100vw" className="object-cover" priority />
                 <div className="absolute inset-0 rounded-[16px] bg-black/50" />
             </div>
 

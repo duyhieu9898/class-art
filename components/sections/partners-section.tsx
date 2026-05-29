@@ -53,6 +53,7 @@ export default function PartnersSection({ partners }: PartnersSectionProps) {
                                         src={getImageUrl(partner.logo_url)}
                                         alt={partner.name}
                                         fill
+                                        sizes="(max-width: 768px) 33vw, 20vw"
                                         className="object-contain"
                                     />
                                 );

@@ -11,7 +11,7 @@ export default function PageBanner({ imageSrc, imageAlt, height = 550 }: PageBan
         <section className="w-full pt-[30px]">
             <div className="px-[15px]">
                 <div className="relative w-full overflow-hidden rounded-2xl" style={{ height: `${height}px` }}>
-                    <Image src={imageSrc} alt={imageAlt} fill className="object-cover" priority />
+                    <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover" priority />
                 </div>
             </div>
         </section>

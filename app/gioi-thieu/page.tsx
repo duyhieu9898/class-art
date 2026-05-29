@@ -15,6 +15,7 @@ export default function GioiThieuPage() {
                         src="/images/about/hero-bg.png"
                         alt="REF Academy Campus"
                         fill
+                        sizes="100vw"
                         className="rounded-[20px] object-cover"
                     />
                     <div className="absolute inset-0 rounded-[20px] bg-black/15" />
@@ -69,6 +70,7 @@ export default function GioiThieuPage() {
                                     src="/images/about/about-banner.png"
                                     alt="REF Academy"
                                     fill
+                                    sizes="(max-width: 1024px) 100vw, 60vw"
                                     className="rounded-[16px] object-cover"
                                 />
                             </div>
@@ -87,6 +89,7 @@ export default function GioiThieuPage() {
                                 src="/images/about/history-banner.png"
                                 alt="Lịch sử hình thành REF Academy"
                                 fill
+                                sizes="100vw"
                                 className="rounded-[16px] object-cover"
                             />
                         </div>
@@ -131,6 +134,7 @@ export default function GioiThieuPage() {
                                         src="/images/about/offline-campus.png"
                                         alt="Cơ sở Offline - 35 Nại Nam"
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="object-cover"
                                     />
                                 </div>
@@ -169,6 +173,7 @@ export default function GioiThieuPage() {
                                         src="/images/about/online-campus.png"
                                         alt="Cơ sở Online - Google Meet"
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="object-cover"
                                     />
                                 </div>

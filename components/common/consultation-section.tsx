@@ -75,7 +75,13 @@ export default function ConsultationSection({
                         <div className="relative h-[690px] w-full overflow-hidden rounded-[20px] drop-shadow-[0px_4px_15px_rgba(48,58,158,0.15)]">
                             <div className="relative h-full w-full overflow-hidden rounded-[16px]">
                                 <div className="absolute inset-[14px_12px_11px_12px] overflow-hidden rounded-[27px] border-[3px] border-black">
-                                    <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
+                                    <Image
+                                        src={imageSrc}
+                                        alt={imageAlt}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 800px"
+                                        className="object-cover"
+                                    />
                                 </div>
                             </div>
                         </div>

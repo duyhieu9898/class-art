@@ -1,9 +1,7 @@
-import { getPosts } from "@/actions/posts";
+import { type Post } from "@/actions/posts";
 import { ImageCarousel } from "@/components/common/image-carousel";
 
-export default async function WorkshopSection() {
-    const { posts } = await getPosts({ section: "workshop", perPage: 6 });
-
+export default function WorkshopSection({ posts }: { posts: Post[] }) {
     // Convert fetched posts to carousel format with solid fallbacks
     const displayItems =
         posts.length > 0

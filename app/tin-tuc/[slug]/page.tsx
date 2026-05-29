@@ -6,11 +6,10 @@ import { getPostBySlug, getRelatedPosts } from "@/actions/posts";
 
 export default async function TinTucDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = await getPostBySlug(slug);
+    const [post, related] = await Promise.all([getPostBySlug(slug), getRelatedPosts(slug, "tin-tuc", 3)]);
 
     if (!post) notFound();
 
-    const related = await getRelatedPosts(slug, "tin-tuc", 3);
     const relatedPosts = related.map((p) => ({
         title: p.title,
         excerpt: p.excerpt || "",

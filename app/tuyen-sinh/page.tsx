@@ -44,8 +44,7 @@ const documents = [
 ];
 
 export default async function TuyenSinhPage() {
-    const scholarships = await getScholarships();
-    const info = await getFooterInfo();
+    const [scholarships, info] = await Promise.all([getScholarships(), getFooterInfo()]);
 
     return (
         <div className="flex min-h-screen flex-col">
@@ -72,7 +71,13 @@ export default async function TuyenSinhPage() {
                                 <div key={index} className=" flex-1 flex flex-col items-center">
                                     {/* Circle image */}
                                     <div className="relative z-[2] mb-[-80px] h-[201px] w-[201px] overflow-hidden rounded-full">
-                                        <Image src={item.imageSrc} alt={item.title} fill className="object-cover" />
+                                        <Image
+                                            src={item.imageSrc}
+                                            alt={item.title}
+                                            fill
+                                            sizes="201px"
+                                            className="object-cover"
+                                        />
                                     </div>
 
                                     {/* Card */}
@@ -109,6 +114,7 @@ export default async function TuyenSinhPage() {
                                         src="/images/tuyen-sinh/register-online.png"
                                         alt="Đăng ký online"
                                         fill
+                                        sizes="480px"
                                         className="object-cover"
                                     />
                                 </div>
@@ -172,6 +178,7 @@ export default async function TuyenSinhPage() {
                                         src="/images/tuyen-sinh/register-offline.png"
                                         alt="Đăng ký trực tiếp"
                                         fill
+                                        sizes="520px"
                                         className="object-cover"
                                     />
                                 </div>
@@ -192,7 +199,13 @@ export default async function TuyenSinhPage() {
                                 <div key={index} className="flex-1 flex items-center gap-0 ">
                                     {/* Circle image */}
                                     <div className="relative z-[2] h-[150px] w-[150px] min-w-[150px] xl:h-[200px] xl:w-[200px] xl:min-w-[200px] overflow-hidden rounded-full">
-                                        <Image src={doc.imageSrc} alt={doc.text} fill className="object-cover" />
+                                        <Image
+                                            src={doc.imageSrc}
+                                            alt={doc.text}
+                                            fill
+                                            sizes="(max-width: 1280px) 150px, 200px"
+                                            className="object-cover"
+                                        />
                                     </div>
 
                                     {/* Text card */}
@@ -261,6 +274,7 @@ export default async function TuyenSinhPage() {
                                                 src={getImageUrl(item.image_url)}
                                                 alt={item.title}
                                                 fill
+                                                sizes="(max-width: 768px) 100vw, 33vw"
                                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                                             />
                                         </div>

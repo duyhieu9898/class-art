@@ -1,9 +1,7 @@
-import { getPosts } from "@/actions/posts";
+import { type Post } from "@/actions/posts";
 import { ImageCarousel } from "@/components/common/image-carousel";
 
-export default async function ActivitySection() {
-    const { posts } = await getPosts({ section: "hoat-dong", perPage: 6 });
-
+export default function ActivitySection({ posts }: { posts: Post[] }) {
     // Convert fetched student activities to carousel format with robust fallbacks
     const displayItems =
         posts.length > 0

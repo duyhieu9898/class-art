@@ -68,7 +68,13 @@ export default function ActivityCarousel() {
                                         className="group flex items-start gap-4 p-2"
                                     >
                                         <div className="relative h-[200px] w-[170px] shrink-0 overflow-hidden rounded-lg">
-                                            <Image src={item.image} alt={item.title} fill className="object-cover" />
+                                            <Image
+                                                src={item.image}
+                                                alt={item.title}
+                                                fill
+                                                sizes="170px"
+                                                className="object-cover"
+                                            />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="line-clamp-2 text-lg leading-[26px] font-bold text-gray-800 group-hover:text-[#384196]">
