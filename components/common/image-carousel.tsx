@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useState, useEffect } from "react";
+import { getImageUrl } from "@/lib/supabase/storage";
 
 interface CarouselItem {
     id: string;
@@ -68,7 +69,7 @@ export function ImageCarousel({
                         <div key={item.id || index} className="min-w-0 flex-[0_0_100%]">
                             <div className={`relative w-full ${aspectRatio}`}>
                                 <Image
-                                    src={item.image_url}
+                                    src={getImageUrl(item.image_url)}
                                     alt={item.title || `Carousel image ${index + 1}`}
                                     fill
                                     className="object-cover"

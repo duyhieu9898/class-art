@@ -10,13 +10,14 @@ import { getImageUrl } from "@/lib/supabase/storage";
 import imageCompression from "browser-image-compression";
 
 interface ImageUploaderProps {
-    bucket?: string;
     folder: string;
     value: string | null;
     onChange: (path: string | null) => void;
 }
 
-export function ImageUploader({ bucket = "images", folder, value, onChange }: ImageUploaderProps) {
+const IMAGE_BUCKET = "images";
+
+export function ImageUploader({ folder, value, onChange }: ImageUploaderProps) {
     const [isUploading, setIsUploading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -59,10 +60,11 @@ export function ImageUploader({ bucket = "images", folder, value, onChange }: Im
             const compressedFile = await imageCompression(file, compressionOptions);
 
             // 2. Generate unique filename and upload to Supabase Storage
-            const ext = file.name.split(".").pop();
-            const filename = `${folder}/${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${ext}`;
+            const filename = `${folder}/${Date.now()}-${Math.random().toString(36).substring(2, 8)}.jpg`;
 
-            const { error: uploadError } = await supabase.storage.from(bucket).upload(filename, compressedFile);
+            const { error: uploadError } = await supabase.storage.from(IMAGE_BUCKET).upload(filename, compressedFile, {
+                contentType: "image/jpeg",
+            });
 
             if (uploadError) {
                 setError("Tải ảnh thất bại. Vui lòng thử lại.");

@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Pencil, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
+import { getImageUrl } from "@/lib/supabase/storage";
 
 interface Partner {
     id: string;
@@ -50,7 +51,7 @@ export function PartnersTable({ data }: PartnersTableProps) {
             render: (item) =>
                 item.logo_url ? (
                     <Image
-                        src={item.logo_url}
+                        src={getImageUrl(item.logo_url)}
                         alt={item.name}
                         width={40}
                         height={40}

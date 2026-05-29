@@ -33,11 +33,21 @@ export async function middleware(request: NextRequest) {
         }
     );
 
-    const {
-        data: { user },
-    } = await supabase.auth.getUser();
+    const { user, error } = await getUser(supabase);
 
     const isLoginPage = request.nextUrl.pathname === "/admin/login";
+
+    if (isMissingRefreshTokenError(error)) {
+        clearSupabaseAuthCookies(request, supabaseResponse);
+
+        if (!isLoginPage) {
+            const url = request.nextUrl.clone();
+            url.pathname = "/admin/login";
+            const redirectResponse = NextResponse.redirect(url);
+            clearSupabaseAuthCookies(request, redirectResponse);
+            return redirectResponse;
+        }
+    }
 
     // Redirect authenticated users away from login page
     if (isLoginPage && user) {
@@ -54,6 +64,35 @@ export async function middleware(request: NextRequest) {
     }
 
     return supabaseResponse;
+}
+
+async function getUser(supabase: ReturnType<typeof createServerClient>) {
+    try {
+        const {
+            data: { user },
+            error,
+        } = await supabase.auth.getUser();
+
+        return { user, error };
+    } catch (error) {
+        return { user: null, error };
+    }
+}
+
+function isMissingRefreshTokenError(error: unknown) {
+    if (!error || typeof error !== "object") return false;
+
+    return "code" in error && error.code === "refresh_token_not_found";
+}
+
+function clearSupabaseAuthCookies(request: NextRequest, response: NextResponse) {
+    request.cookies
+        .getAll()
+        .filter(({ name }) => name.startsWith("sb-") && name.includes("-auth-token"))
+        .forEach(({ name }) => {
+            request.cookies.delete(name);
+            response.cookies.set(name, "", { maxAge: 0, path: "/" });
+        });
 }
 
 export const config = {

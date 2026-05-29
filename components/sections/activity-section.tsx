@@ -8,10 +8,10 @@ export default async function ActivitySection() {
     const displayItems =
         posts.length > 0
             ? posts.map((post) => ({
-                  id: post.id,
-                  image_url: post.image_url || "/images/activity-full.png",
-                  title: post.title,
-              }))
+                id: post.id,
+                image_url: post.image_url || "/images/activity-full.png",
+                title: post.title,
+            }))
             : [{ id: "1", image_url: "/images/activity-full.png", title: "Hoạt động học viên REF Academy" }];
 
     return (

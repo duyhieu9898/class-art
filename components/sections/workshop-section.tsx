@@ -8,15 +8,15 @@ export default async function WorkshopSection() {
     const displayItems =
         posts.length > 0
             ? posts.map((post) => ({
-                  id: post.id,
-                  image_url: post.image_url || "/images/workshop-main.png",
-                  title: post.title,
-              }))
+                id: post.id,
+                image_url: post.image_url || "/images/workshop-main.png",
+                title: post.title,
+            }))
             : [
-                  { id: "1", image_url: "/images/workshop-main.png", title: "Workshop tại các trường đại học 1" },
-                  { id: "2", image_url: "/images/workshop-main.png", title: "Workshop tại các trường đại học 2" },
-                  { id: "3", image_url: "/images/workshop-main.png", title: "Workshop tại các trường đại học 3" },
-              ];
+                { id: "1", image_url: "/images/workshop-main.png", title: "Workshop tại các trường đại học 1" },
+                { id: "2", image_url: "/images/workshop-main.png", title: "Workshop tại các trường đại học 2" },
+                { id: "3", image_url: "/images/workshop-main.png", title: "Workshop tại các trường đại học 3" },
+            ];
 
     return (
         <section className="relative w-full bg-[#384196] py-12 md:py-16">

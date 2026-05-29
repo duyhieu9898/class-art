@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getImageUrl } from "@/lib/supabase/storage";
 
 export interface CardPostProps {
     title: string;
@@ -15,6 +16,7 @@ export interface CardPostProps {
 
 export default function CardPost({ title, excerpt, imageSrc, imageAlt, href, category, date }: CardPostProps) {
     const hasMetadata = category || date;
+    const src = getImageUrl(imageSrc);
 
     return (
         <Link href={href} className="group block h-full">
@@ -28,7 +30,7 @@ export default function CardPost({ title, excerpt, imageSrc, imageAlt, href, cat
                 {/* Image */}
                 <div className={`relative w-full overflow-hidden ${hasMetadata ? "h-[252px]" : "h-[247px]"}`}>
                     <Image
-                        src={imageSrc}
+                        src={src}
                         alt={imageAlt || title}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"

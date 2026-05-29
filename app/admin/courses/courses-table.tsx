@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Pencil, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
+import { getImageUrl } from "@/lib/supabase/storage";
 
 interface Course {
     id: string;
@@ -48,7 +49,7 @@ export function CoursesTable({ data }: CoursesTableProps) {
             render: (item) =>
                 item.image_url ? (
                     <Image
-                        src={item.image_url}
+                        src={getImageUrl(item.image_url)}
                         alt={item.title}
                         width={60}
                         height={40}

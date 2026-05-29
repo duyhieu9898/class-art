@@ -38,7 +38,7 @@ const documents = [
         imageSrc: "/images/tuyen-sinh/doc-02.png",
     },
     {
-        text: '01 Cam kết sinh viên đã đọc "Những điều SV cần biết"',
+        text: "01 Cam kết sinh viên đã đọc \"Những điều SV cần biết\"",
         imageSrc: "/images/tuyen-sinh/doc-03.png",
     },
 ];
