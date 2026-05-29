@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import { SnowfallEffect } from "@/components/common/snowfall-effect";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <html lang="vi">
             <body className={`${roboto.variable} font-sans antialiased`}>
                 {children}
+                <SnowfallEffect />
                 <Toaster />
             </body>
         </html>
