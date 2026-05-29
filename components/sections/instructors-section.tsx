@@ -18,6 +18,7 @@ export default function InstructorsSection() {
                             src="/images/instructors-logo.png"
                             alt="Học viên tiêu biểu - Vinh danh thành tích xuất sắc"
                             fill
+                            sizes="330px"
                             className="object-contain"
                         />
                     </div>
@@ -28,6 +29,7 @@ export default function InstructorsSection() {
                             src="/images/instructors-group.png"
                             alt="Đội ngũ giảng viên REF Academy"
                             fill
+                            sizes="(max-width: 768px) 100vw, 1070px"
                             className="object-contain object-bottom"
                         />
 

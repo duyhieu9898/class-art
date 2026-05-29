@@ -14,15 +14,36 @@ export default function HeroSection() {
 
             {/* Decorative images */}
             <div className="absolute top-[62px] left-[-106px]  h-[396px] w-[554px] lg:block">
-                <Image src="/images/hero-decor-left.png" alt="" fill className="object-contain" aria-hidden="true" />
+                <Image
+                    src="/images/hero-decor-left.png"
+                    alt=""
+                    fill
+                    sizes="554px"
+                    className="object-contain"
+                    aria-hidden="true"
+                />
             </div>
 
             <div className="absolute top-[50%] hidden md:top-[140px] right-[-30%] md:right-0 h-[372px] w-[325px]  md:h-[465px] md:w-[407px] lg:block">
-                <Image src="/images/hero-decor-right.png" alt="" fill className="object-contain" aria-hidden="true" />
+                <Image
+                    src="/images/hero-decor-right.png"
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 325px, 407px"
+                    className="object-contain"
+                    aria-hidden="true"
+                />
             </div>
 
             <div className="absolute bottom-[88px] left-[171px] hidden h-[184px] w-[234px] lg:block">
-                <Image src="/images/hero-decor-bottom.png" alt="" fill className="object-contain" aria-hidden="true" />
+                <Image
+                    src="/images/hero-decor-bottom.png"
+                    alt=""
+                    fill
+                    sizes="234px"
+                    className="object-contain"
+                    aria-hidden="true"
+                />
             </div>
 
             {/* Main content container */}
@@ -33,6 +54,7 @@ export default function HeroSection() {
                         src="/images/hero-main.png"
                         alt="Học viên REF Academy"
                         fill
+                        sizes="(max-width: 768px) 400px, 617px"
                         className="object-contain object-bottom"
                         priority
                     />
@@ -44,13 +66,14 @@ export default function HeroSection() {
                         src="/images/hero-banner.png"
                         alt="AI - Thiết kế Tương lai"
                         fill
+                        sizes="(max-width: 768px) 400px, 818px"
                         className="object-contain"
                         priority
                     />
                 </div>
 
                 {/* Text content */}
-                <div className="absolute bottom-[20px] md:bottom-[80px] left-1/2 w-[90%] -translate-x-1/2 text-center md:bottom-[60px] md:left-[580px] md:w-[536px] md:translate-x-0 bg-[#0000006b] md:bg-transparent rounded-lg p-4 md:p-0">
+                <div className="max-w-[450px] absolute bottom-[20px] left-1/2 -translate-x-1/2 text-center md:bottom-[60px] md:left-[660px] md:translate-x-0 bg-[#0000006b] md:bg-transparent rounded-lg p-4 md:p-0">
                     <p className="mb-6 text-sm leading-relaxed text-white md:text-base">
                         Lộ trình đào tạo thực chiến bài bản, REF ACADEMY trang bị cho bạn nền tảng kỹ năng sử dụng trí
                         tuệ nhân tạo để tự tin gia nhập thị trường việc làm
@@ -72,6 +95,7 @@ export default function HeroSection() {
                     src="/images/hero-overlay.png"
                     alt=""
                     fill
+                    sizes="100vw"
                     className="object-cover object-bottom"
                     aria-hidden="true"
                 />

@@ -33,6 +33,7 @@ export default function CoursesSection({ courses }: CoursesSectionProps) {
                                 src={getImageUrl(course.image_url)}
                                 alt={course.title}
                                 fill
+                                sizes="(max-width: 768px) 290px, 405px"
                                 className="rounded-xl object-contain"
                             />
                         </div>
