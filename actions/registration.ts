@@ -17,7 +17,7 @@ const registrationSchema = z.object({
 
 export type RegistrationInput = z.infer<typeof registrationSchema>;
 
-async function sendTelegramNotification(data: RegistrationInput) {
+async function sendTelegramNotification(data: RegistrationInput, percentDiscount?: number) {
     const message = [
         "🎓 *Đăng ký mới!*",
         "",
@@ -26,6 +26,7 @@ async function sendTelegramNotification(data: RegistrationInput) {
         `📱 *SĐT:* ${data.phone}`,
         `📋 *Loại:* ${data.formType}`,
         data.voucher ? `🎟 *Voucher:* ${data.voucher}` : "",
+        percentDiscount ? `💸 *Giảm giá:* ${percentDiscount}%` : "",
     ]
         .filter(Boolean)
         .join("\n");
@@ -45,6 +46,23 @@ async function sendTelegramNotification(data: RegistrationInput) {
     }
 }
 
+async function getVoucherPercent(code: string) {
+    const supabase = await createClient();
+    const { data, error } = await supabase.rpc("validate_voucher", { voucher_code: code }).maybeSingle();
+
+    if (error) {
+        console.error("Voucher validation error:", error);
+        return { error: "Không thể kiểm tra voucher. Vui lòng thử lại." };
+    }
+
+    if (!data) {
+        return { error: "Mã voucher không hợp lệ" };
+    }
+
+    const voucher = data as { percent_discount: number };
+    return { percentDiscount: voucher.percent_discount };
+}
+
 export async function submitRegistration(input: RegistrationInput) {
     const parsed = registrationSchema.safeParse(input);
 
@@ -53,12 +71,18 @@ export async function submitRegistration(input: RegistrationInput) {
     }
 
     const supabase = await createClient();
+    const voucherCode = parsed.data.voucher?.trim().toUpperCase();
+    const voucherResult = voucherCode ? await getVoucherPercent(voucherCode) : null;
+
+    if (voucherResult?.error) {
+        return { error: voucherResult.error };
+    }
 
     const { error } = await supabase.from("registrations").insert({
         full_name: parsed.data.fullName,
         email: parsed.data.email,
         phone: parsed.data.phone,
-        voucher: parsed.data.voucher || null,
+        voucher: voucherCode || null,
         form_type: parsed.data.formType,
         source_page: parsed.data.sourcePage || null,
     });
@@ -69,7 +93,13 @@ export async function submitRegistration(input: RegistrationInput) {
     }
 
     // Send Telegram notification (non-blocking)
-    sendTelegramNotification(parsed.data);
+    sendTelegramNotification(
+        {
+            ...parsed.data,
+            voucher: voucherCode,
+        },
+        voucherResult?.percentDiscount
+    );
 
-    return { success: true };
+    return { success: true, percentDiscount: voucherResult?.percentDiscount };
 }

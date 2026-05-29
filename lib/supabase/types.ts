@@ -35,6 +35,16 @@ export interface Database {
                 Insert: Omit<Database["public"]["Tables"]["registrations"]["Row"], "id" | "created_at">;
                 Update: Partial<Database["public"]["Tables"]["registrations"]["Insert"]>;
             };
+            vouchers: {
+                Row: {
+                    id: string;
+                    code: string;
+                    percent_discount: number;
+                    created_at: string;
+                };
+                Insert: Omit<Database["public"]["Tables"]["vouchers"]["Row"], "id" | "created_at">;
+                Update: Partial<Database["public"]["Tables"]["vouchers"]["Insert"]>;
+            };
             courses: {
                 Row: {
                     id: string;

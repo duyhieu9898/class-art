@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, FileText, Users, BookOpen, Handshake, Info } from "lucide-react";
+import { LayoutDashboard, FileText, Users, BookOpen, Handshake, Info, TicketPercent } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
     { label: "Tổng quan", href: "/admin", icon: LayoutDashboard },
     { label: "Bài viết", href: "/admin/posts", icon: FileText },
     { label: "Đăng ký", href: "/admin/registrations", icon: Users },
+    { label: "Voucher", href: "/admin/vouchers", icon: TicketPercent },
     { label: "Khóa học", href: "/admin/courses", icon: BookOpen },
     { label: "Đối tác", href: "/admin/partners", icon: Handshake },
     { label: "Thông tin Footer", href: "/admin/info", icon: Info },

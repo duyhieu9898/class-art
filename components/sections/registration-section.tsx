@@ -65,6 +65,7 @@ function CountdownTimer() {
 export default function RegistrationSection() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [percentDiscount, setPercentDiscount] = useState<number | undefined>();
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -97,6 +98,7 @@ export default function RegistrationSection() {
             if (result.error) {
                 toast.error(result.error);
             } else {
+                setPercentDiscount(result.percentDiscount);
                 setIsModalOpen(true);
                 form.reset();
             }
@@ -114,7 +116,7 @@ export default function RegistrationSection() {
             }}
         >
             {/* Background city image - bottom */}
-            <div className="hidden md:block absolute bottom-[5] left-1/2 z-10 h-85 w-300 -translate-x-1/2">
+            <div className="absolute bottom-[5] left-1/2 z-10 hidden h-85 w-300 -translate-x-1/2 md:block">
                 <Image
                     src="/images/registration-city.png"
                     alt=""
@@ -136,8 +138,8 @@ export default function RegistrationSection() {
                 />
             </div>
 
-            <div className="relative z-10 mx-auto max-w-300 px-4 py-8 md:pt-24 bg-[#f1711f] md:bg-transparent">
-                <div className="grid grid-cols-1  md:gap-10 lg:grid-cols-2">
+            <div className="relative z-10 mx-auto max-w-300 bg-[#f1711f] px-4 py-8 md:bg-transparent md:pt-24">
+                <div className="grid grid-cols-1 md:gap-10 lg:grid-cols-2">
                     {/* Left side - Spacer for image + Countdown */}
                     <div className="mb-8 flex flex-col justify-end">
                         {/* Countdown */}
@@ -152,7 +154,7 @@ export default function RegistrationSection() {
                     {/* Right side - Title + Form */}
                     <div className="flex flex-col justify-end">
                         {/* Title */}
-                        <div className="mb-4 md:mb-20 text-center md:text-left">
+                        <div className="mb-4 text-center md:mb-20 md:text-left">
                             <h2 className="text-4xl leading-tight font-black text-[#fec508] md:text-6xl">
                                 REF ACADEMY
                             </h2>
@@ -165,10 +167,7 @@ export default function RegistrationSection() {
                         </div>
 
                         {/* Form */}
-                        <form
-                            onSubmit={handleSubmit}
-                            className="md:mr-10 ml-auto max-w-117.5 justify-end space-y-3"
-                        >
+                        <form onSubmit={handleSubmit} className="ml-auto max-w-117.5 justify-end space-y-3 md:mr-10">
                             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                                 <Input
                                     name="fullName"
@@ -242,6 +241,7 @@ export default function RegistrationSection() {
 
             <RegistrationSuccessModal
                 isOpen={isModalOpen}
+                percentDiscount={percentDiscount}
                 onClose={() => setIsModalOpen(false)}
             />
         </section>

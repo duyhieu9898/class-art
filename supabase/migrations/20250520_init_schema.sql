@@ -40,7 +40,15 @@ CREATE TABLE registrations (
 
 CREATE INDEX idx_registrations_created ON registrations(created_at DESC);
 
--- 4. COURSES
+-- 4. VOUCHERS
+CREATE TABLE vouchers (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    code TEXT UNIQUE NOT NULL,
+    percent_discount INT NOT NULL CHECK (percent_discount >= 1 AND percent_discount <= 100),
+    created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- 5. COURSES
 CREATE TABLE courses (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     title TEXT NOT NULL,
@@ -51,7 +59,7 @@ CREATE TABLE courses (
     updated_at TIMESTAMPTZ DEFAULT now()
 );
 
--- 5. PARTNERS
+-- 6. PARTNERS
 CREATE TABLE partners (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     name TEXT NOT NULL,
@@ -68,6 +76,7 @@ CREATE TABLE partners (
 
 ALTER TABLE posts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE registrations ENABLE ROW LEVEL SECURITY;
+ALTER TABLE vouchers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
 ALTER TABLE partners ENABLE ROW LEVEL SECURITY;
 
@@ -91,6 +100,10 @@ CREATE POLICY "admin_all_posts" ON posts
 
 CREATE POLICY "admin_all_registrations" ON registrations
     FOR ALL USING (auth.role() = 'authenticated');
+
+CREATE POLICY "admin_all_vouchers" ON vouchers
+    FOR ALL USING (auth.role() = 'authenticated')
+    WITH CHECK (auth.role() = 'authenticated');
 
 CREATE POLICY "admin_all_courses" ON courses
     FOR ALL USING (auth.role() = 'authenticated');
@@ -139,3 +152,21 @@ CREATE TRIGGER posts_updated_at
 CREATE TRIGGER courses_updated_at
     BEFORE UPDATE ON courses
     FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+
+-- =============================================
+-- VOUCHER VALIDATION RPC
+-- =============================================
+
+CREATE OR REPLACE FUNCTION validate_voucher(voucher_code TEXT)
+RETURNS TABLE(code TEXT, percent_discount INT)
+LANGUAGE sql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+    SELECT vouchers.code, vouchers.percent_discount
+    FROM vouchers
+    WHERE vouchers.code = upper(trim(voucher_code))
+    LIMIT 1;
+$$;
+
+GRANT EXECUTE ON FUNCTION validate_voucher(TEXT) TO anon, authenticated;

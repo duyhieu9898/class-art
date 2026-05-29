@@ -46,8 +46,18 @@ export const infoSchema = z.object({
     footer_description: z.string().optional().or(z.literal("")),
 });
 
+export const voucherSchema = z.object({
+    code: z
+        .string()
+        .trim()
+        .min(1, "Mã voucher không được để trống")
+        .transform((value) => value.toUpperCase()),
+    percent_discount: z.coerce.number().int("Phần trăm giảm giá phải là số nguyên").min(1).max(100),
+});
+
 export type LoginInput = z.infer<typeof loginSchema>;
 export type PostInput = z.infer<typeof postSchema>;
 export type CourseInput = z.infer<typeof courseSchema>;
 export type PartnerInput = z.infer<typeof partnerSchema>;
 export type InfoInput = z.infer<typeof infoSchema>;
+export type VoucherInput = z.infer<typeof voucherSchema>;
