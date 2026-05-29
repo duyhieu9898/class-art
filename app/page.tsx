@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import HeroSection from "@/components/sections/hero-section";
@@ -11,6 +12,12 @@ import ActivitySection from "@/components/sections/activity-section";
 import { getCourses } from "@/actions/courses";
 import { getPartners } from "@/actions/partners";
 import { getPosts } from "@/actions/posts";
+
+export const metadata: Metadata = {
+    title: "REF ACADEMY | Đào tạo AI và thiết kế sáng tạo",
+    description:
+        "REF ACADEMY đào tạo AI và thiết kế theo lộ trình thực chiến, giúp học viên xây dựng kỹ năng sáng tạo để tự tin gia nhập thị trường việc làm.",
+};
 
 export default async function Home() {
     const [courses, partners, { posts: inspirations }, { posts: workshops }, { posts: activities }] =

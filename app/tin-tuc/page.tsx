@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import HeroBanner from "@/components/common/hero-banner";
@@ -5,6 +6,12 @@ import CardPost from "@/components/common/card-post";
 import Pagination from "@/components/common/pagination";
 import ConsultationSection from "@/components/common/consultation-section";
 import { getPosts } from "@/actions/posts";
+
+export const metadata: Metadata = {
+    title: "Tin tức & Sự kiện | REF ACADEMY",
+    description:
+        "Cập nhật tin tức, sự kiện, hoạt động đào tạo và các câu chuyện sáng tạo mới nhất từ REF ACADEMY.",
+};
 
 export default async function TinTucPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
     const params = await searchParams;

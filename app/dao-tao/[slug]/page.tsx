@@ -1,10 +1,31 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import PostDetail from "@/components/common/post-detail";
 import { getPostBySlug, getRelatedPosts } from "@/actions/posts";
 
-export default async function DaoTaoDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+interface PageProps {
+    params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const post = await getPostBySlug(slug);
+
+    if (!post) {
+        return {
+            title: "Bài viết không tồn tại | REF ACADEMY",
+        };
+    }
+
+    return {
+        title: `${post.title} | Đào tạo REF ACADEMY`,
+        description: post.excerpt || `Đọc bài viết ${post.title} trong chuyên mục Đào tạo tại REF ACADEMY.`,
+    };
+}
+
+export default async function DaoTaoDetailPage({ params }: PageProps) {
     const { slug } = await params;
     const [post, related] = await Promise.all([getPostBySlug(slug), getRelatedPosts(slug, "dao-tao", 3)]);
 

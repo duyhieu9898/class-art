@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import HeroBanner from "@/components/common/hero-banner";
@@ -5,6 +6,12 @@ import CardPost from "@/components/common/card-post";
 import Pagination from "@/components/common/pagination";
 import ConsultationSection from "@/components/common/consultation-section";
 import { getPosts } from "@/actions/posts";
+
+export const metadata: Metadata = {
+    title: "Nhân vật truyền cảm hứng | REF ACADEMY",
+    description:
+        "Gặp gỡ các học viên, sinh viên xuất sắc và những câu chuyện truyền cảm hứng trong cộng đồng REF ACADEMY.",
+};
 
 export default async function NhanVatPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
     const params = await searchParams;

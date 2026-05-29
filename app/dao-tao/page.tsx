@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import PageBanner from "@/components/common/page-banner";
 import CardPost from "@/components/common/card-post";
 import ConsultationSection from "@/components/common/consultation-section";
 import { getPosts } from "@/actions/posts";
+
+export const metadata: Metadata = {
+    title: "Đào tạo | REF ACADEMY",
+    description:
+        "Khám phá các bài cuối khóa, đồ án và chương trình đào tạo thiết kế ứng dụng AI tại REF ACADEMY.",
+};
 
 export default async function DaoTaoPage() {
     const { posts } = await getPosts({ section: "dao-tao", page: 1, perPage: 30 });

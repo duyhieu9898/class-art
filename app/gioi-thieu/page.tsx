@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Image from "next/image";
 import ActivityCarousel from "@/components/sections/about/activity-carousel";
+
+export const metadata: Metadata = {
+    title: "Giới thiệu | REF ACADEMY",
+    description:
+        "Tìm hiểu về sứ mệnh, triết lý giáo dục, văn hóa và cơ sở đào tạo của REF ACADEMY.",
+};
 
 export default function GioiThieuPage() {
     return (

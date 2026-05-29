@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/header";
@@ -7,6 +8,12 @@ import ConsultationSection from "@/components/common/consultation-section";
 import { getScholarships } from "@/actions/scholarships";
 import { getFooterInfo } from "@/actions/info";
 import { getImageUrl } from "@/lib/supabase/storage";
+
+export const metadata: Metadata = {
+    title: "Tuyển sinh | REF ACADEMY",
+    description:
+        "Thông tin tuyển sinh, đối tượng đăng ký, hồ sơ nhập học, học bổng và ưu đãi dành cho học viên REF ACADEMY.",
+};
 
 const targets = [
     {

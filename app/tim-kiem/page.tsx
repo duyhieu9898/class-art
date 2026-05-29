@@ -1,8 +1,29 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CardPost from "@/components/common/card-post";
 import Pagination from "@/components/common/pagination";
 import { searchPosts } from "@/actions/posts";
+
+export async function generateMetadata({
+    searchParams,
+}: {
+    searchParams: Promise<{ q?: string }>;
+}): Promise<Metadata> {
+    const { q } = await searchParams;
+    const query = q?.trim();
+
+    return {
+        title: query ? `Tìm kiếm "${query}" | REF ACADEMY` : "Tìm kiếm | REF ACADEMY",
+        description: query
+            ? `Kết quả tìm kiếm bài viết phù hợp với từ khóa "${query}" trên REF ACADEMY.`
+            : "Tìm kiếm bài viết, tin tức, đào tạo và học bổng trên website REF ACADEMY.",
+        robots: {
+            index: false,
+            follow: true,
+        },
+    };
+}
 
 interface SearchPageProps {
     searchParams: Promise<{
