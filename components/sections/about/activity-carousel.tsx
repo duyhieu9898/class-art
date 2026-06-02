@@ -49,7 +49,7 @@ export default function ActivityCarousel() {
     return (
         <section className="w-full py-16">
             <div className="mx-auto max-w-[1600px] ">
-                <div className="rounded-[20px] bg-white p-8 shadow-lg">
+                <div className="rounded-[20px] bg-white md:p-8 shadow-lg">
                     <h2 className="mb-8 text-center text-[28.8px] font-bold text-gray-800">
                         Hoạt động của REF ACADEMY
                     </h2>
@@ -91,14 +91,14 @@ export default function ActivityCarousel() {
                     </div>
 
                     {/* Dots */}
-                    <div className="mt-6 flex justify-center gap-3">
+                    <div className="pb-4 pt-4 md:pb-0 md:pt-6 flex justify-center gap-3">
                         {scrollSnaps.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => emblaApi?.scrollTo(index)}
-                                className={`h-4 w-4 rounded-full transition-colors ${
-                                    index === selectedIndex ? "bg-gray-800" : "bg-black/20"
-                                }`}
+                                className={
+                                    `h-4 w-4 rounded-full transition-colors ${index === selectedIndex ? "bg-gray-800" : "bg-black/20"
+                                    }`}
                                 aria-label={`Trang ${index + 1}`}
                             />
                         ))}

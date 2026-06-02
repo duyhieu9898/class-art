@@ -18,8 +18,8 @@ export default function HeroBanner({ imageSrc, title }: HeroBannerProps) {
             <div className="relative z-10 w-full max-w-[1600px] ">
                 <div className="flex items-center gap-0 px-[15px]">
                     <div className="h-[2px] flex-1 bg-white" />
-                    <div className="px-[41px] py-[15px]">
-                        <h1 className="text-center text-[51.2px] leading-[81.92px] font-semibold whitespace-nowrap text-white uppercase">
+                    <div className="">
+                        <h1 className="text-center text-4xl md:text-6xl font-semibold whitespace-nowrap text-white uppercase">
                             {title}
                         </h1>
                     </div>

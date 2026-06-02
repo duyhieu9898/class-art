@@ -73,7 +73,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Text content */}
-                <div className="max-w-[450px] absolute bottom-[20px] left-1/2 -translate-x-1/2 text-center md:bottom-[60px] md:left-[660px] md:translate-x-0 bg-[#0000006b] md:bg-transparent rounded-lg p-4 md:p-0">
+                <div className="w-full max-w-[450px] absolute bottom-[20px] left-1/2 -translate-x-1/2 text-center md:bottom-[60px] md:left-[660px] md:translate-x-0 bg-[#0000006b] md:bg-transparent rounded-lg p-4 md:p-0">
                     <p className="mb-6 text-sm leading-relaxed text-white md:text-base">
                         Lộ trình đào tạo thực chiến bài bản, REF ACADEMY trang bị cho bạn nền tảng kỹ năng sử dụng trí
                         tuệ nhân tạo để tự tin gia nhập thị trường việc làm

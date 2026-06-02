@@ -126,7 +126,7 @@ export default async function TuyenSinhPage() {
                                     />
                                 </div>
                             </div>
-                            <div className="relative z-[1] ml-[-100px] flex-1">
+                            <div className="relative z-[1] ml-0 md:ml-[-100px] flex-1">
                                 <div className="relative h-full rounded-[20px] shadow-xl py-8 flex flex-col justify-center">
                                     <div className="max-w-[80%] flex items-center justify-center rounded-r-[20px] bg-[#ffc404]">
                                         <span className="text-center text-2xl font-semibold text-[#363e91] py-3">
@@ -153,7 +153,7 @@ export default async function TuyenSinhPage() {
 
                         {/* Offline */}
                         <div className="flex items-stretch gap-0">
-                            <div className="relative z-[1] mr-[-100px] flex-1">
+                            <div className="relative z-[1] mr-0 md:mr-[-100px] flex-1">
                                 <div className="relative h-full rounded-[20px] shadow-xl flex flex-col justify-center py-8">
                                     <div className="ml-auto w-full flex items-center justify-center rounded-l-[20px] bg-[#ffc404] max-w-[80%]">
                                         <span className="text-center text-2xl font-semibold text-[#363e91] py-3 ">
