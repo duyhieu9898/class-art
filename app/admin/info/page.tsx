@@ -9,7 +9,7 @@ export default async function AdminInfoPage() {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-2xl font-bold tracking-tight">Cấu hình thông tin Footer</h1>
+                <h1 className="text-2xl font-bold tracking-tight">Cấu hình thông tin</h1>
                 <p className="text-muted-foreground mt-1 text-sm">
                     Quản lý các thông tin hiển thị ở phần chân trang (Footer) của website bao gồm số điện thoại, email,
                     địa chỉ và mạng xã hội.

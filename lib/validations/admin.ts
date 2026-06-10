@@ -44,6 +44,15 @@ export const infoSchema = z.object({
     instagram_url: z.string().url("Link Instagram không hợp lệ").optional().or(z.literal("")),
     copyright_text: z.string().min(1, "Copyright không được để trống"),
     footer_description: z.string().optional().or(z.literal("")),
+    history_image_url: z.string().optional().or(z.literal("")),
+    history_milestones: z
+        .array(
+            z.object({
+                year: z.string().min(1, "Năm không được để trống"),
+                desc: z.string().min(1, "Mô tả không được để trống"),
+            })
+        )
+        .default([]),
 });
 
 export const voucherSchema = z.object({

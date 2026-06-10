@@ -51,7 +51,7 @@ export function ImageUploader({ folder, value, onChange }: ImageUploaderProps) {
         try {
             // 1. Compress & resize image to exactly 1.5x render resolution
             const compressionOptions = {
-                maxSizeMB: 0.8, // Maximum file size (target < 800KB)
+                maxSizeMB: 1.5, // Maximum file size (target < 800KB)
                 maxWidthOrHeight: maxWidthOrHeight, // Smart resizing based on entity type
                 useWebWorker: true,
                 fileType: "image/jpeg",

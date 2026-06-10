@@ -60,7 +60,7 @@ export default async function TuyenSinhPage() {
             <main className="flex-1">
                 {/* Banner */}
                 <PageBanner
-                    imageSrc="/images/tuyen-sinh/banner.png"
+                    imageSrc={getImageUrl(info?.admissions_banner_url || "/images/tuyen-sinh/banner.png")}
                     imageAlt="Tuyển sinh REF Academy 2025"
                     height={561}
                 />
@@ -246,8 +246,7 @@ export default async function TuyenSinhPage() {
                                 </div>
 
                                 <p className="text-base leading-[25.6px] text-black">
-                                    FPT Arena Multimedia đào tạo theo chương trình Arena Multimedia Specialist Program
-                                    (AMSP) – theo quy chuẩn từ Arena quốc tế – cung cấp chương trình đào tạo cập nhật và
+                                    REF ACADEMY  cung cấp chương trình đào tạo cập nhật và
                                     toàn diện, bao quát tất cả các lĩnh vực của Mỹ thuật Đa phương tiện, bám sát các ứng
                                     dụng thực tế và yêu cầu thiết yếu của ngành công nghiệp sáng tạo và giải trí.
                                 </p>

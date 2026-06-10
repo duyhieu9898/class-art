@@ -13,6 +13,9 @@ export interface FooterInfo {
     instagram_url: string | null;
     copyright_text: string | null;
     footer_description: string | null;
+    history_image_url: string | null;
+    history_milestones: { year: string; desc: string }[] | null;
+    admissions_banner_url: string | null;
 }
 
 export async function getFooterInfo(): Promise<FooterInfo | null> {

@@ -166,15 +166,8 @@ export default function ConsultationSection({
                                         className="text-[14px] leading-[20px] text-[#112337]"
                                     >
                                         Đồng ý để dữ liệu cá nhân của Anh/Chị được thu thập trên trang này, được xử lý
-                                        và lưu trữ bởi Tổ chức giáo dục FPT cho mục đích và theo điều kiện đã được công
-                                        bố tại Quy định bảo vệ dữ liệu cá nhân của Tổ chức giáo dục FPT{" "}
-                                        <a
-                                            href="https://fpt.edu.vn/thu-vien-anh/11140"
-                                            target="_blank"
-                                            className="text-[16px] text-[#d33]"
-                                        >
-                                            &quot;tại đây&quot;
-                                        </a>
+                                        và lưu trữ bởi Tổ chức giáo dục REF ACADEM
+
                                     </label>
                                 </div>
 

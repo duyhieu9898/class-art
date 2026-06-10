@@ -71,6 +71,27 @@ export interface Database {
                 Insert: Omit<Database["public"]["Tables"]["partners"]["Row"], "id" | "created_at">;
                 Update: Partial<Database["public"]["Tables"]["partners"]["Insert"]>;
             };
+            info: {
+                Row: {
+                    id: string;
+                    phone: string | null;
+                    email: string | null;
+                    address: string | null;
+                    facebook_url: string | null;
+                    youtube_url: string | null;
+                    tiktok_url: string | null;
+                    instagram_url: string | null;
+                    copyright_text: string | null;
+                    footer_description: string | null;
+                    history_image_url: string | null;
+                    history_milestones: any;
+                    admissions_banner_url: string | null;
+                    created_at: string;
+                    updated_at: string;
+                };
+                Insert: Omit<Database["public"]["Tables"]["info"]["Row"], "created_at" | "updated_at">;
+                Update: Partial<Database["public"]["Tables"]["info"]["Insert"]>;
+            };
         };
     };
 }

@@ -34,5 +34,32 @@ export async function updateFooterInfo(input: InfoInput) {
     revalidatePath("/tin-tuc");
     revalidatePath("/nhan-vat");
     revalidatePath("/tuyen-sinh");
+    revalidatePath("/gioi-thieu");
+    return { success: true };
+}
+
+export async function updateAdmissionsBanner(bannerUrl: string | null) {
+    const supabase = await createClient();
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) {
+        return { error: "Chưa đăng nhập" };
+    }
+
+    const { error } = await supabase
+        .from("info")
+        .update({
+            admissions_banner_url: bannerUrl,
+            updated_at: new Date().toISOString(),
+        })
+        .eq("id", "site_settings");
+
+    if (error) {
+        console.error("Error updating admissions banner:", error);
+        return { error: "Cập nhật banner tuyển sinh thất bại" };
+    }
+
+    revalidatePath("/tuyen-sinh");
     return { success: true };
 }
