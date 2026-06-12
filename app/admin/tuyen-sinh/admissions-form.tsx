@@ -85,7 +85,7 @@ export function AdmissionsForm({
                             onChange={setDegreeImageUrl}
                         />
                         <p className="text-xs text-muted-foreground mt-1">
-                            Ảnh minh họa cho phần Bằng cấp. Ảnh sẽ được lưu trữ trong thư mục &quot;posts&quot;.
+                            Kích thước khuyên dùng: 667x433px (tỷ lệ khoảng 3:2). Ảnh sẽ được lưu trữ trong thư mục &quot;posts&quot;.
                         </p>
                     </div>
 
