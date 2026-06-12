@@ -22,15 +22,19 @@ export default function PartnersSection({ partners }: PartnersSectionProps) {
     const visiblePartners = partners.filter((partner) => partner.logo_url);
 
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center", slidesToScroll: 1 }, [
-        Autoplay({ delay: 5000, stopOnInteraction: true }),
+        Autoplay({ delay: 3000, stopOnMouseEnter: true }),
     ]);
 
     const scrollPrev = useCallback(() => {
-        emblaApi?.scrollPrev();
+        if (!emblaApi) return;
+        emblaApi.scrollPrev();
+        emblaApi.plugins().autoplay?.reset();
     }, [emblaApi]);
 
     const scrollNext = useCallback(() => {
-        emblaApi?.scrollNext();
+        if (!emblaApi) return;
+        emblaApi.scrollNext();
+        emblaApi.plugins().autoplay?.reset();
     }, [emblaApi]);
 
     if (visiblePartners.length === 0) return null;
