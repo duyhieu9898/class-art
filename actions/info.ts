@@ -16,6 +16,9 @@ export interface FooterInfo {
     history_image_url: string | null;
     history_milestones: { year: string; desc: string }[] | null;
     admissions_banner_url: string | null;
+    admissions_degree_image_url: string | null;
+    admissions_degree_title: string | null;
+    admissions_degree_content: string | null;
 }
 
 export async function getFooterInfo(): Promise<FooterInfo | null> {

@@ -61,6 +61,9 @@ Dự án sử dụng cơ sở dữ liệu Postgres quản lý bởi Supabase. D�
 - `history_image_url` (TEXT) - Đường dẫn ảnh banner lịch sử
 - `history_milestones` (JSONB) - Mảng JSON lưu các mốc lịch sử `[{ "year": "Năm", "desc": "Mô tả" }]`
 - `admissions_banner_url` (TEXT) - Đường dẫn ảnh banner trang tuyển sinh
+- `admissions_degree_image_url` (TEXT) - Đường dẫn ảnh minh họa phần Bằng cấp trang tuyển sinh
+- `admissions_degree_title` (TEXT) - Tiêu đề phần Bằng cấp trang tuyển sinh
+- `admissions_degree_content` (TEXT) - Nội dung mô tả phần Bằng cấp trang tuyển sinh
 
 ### 2. Bảng `posts` (Quản lý các bài viết, tin tức, học bổng)
 - `id` (UUID, Primary Key)

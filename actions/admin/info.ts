@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { infoSchema, type InfoInput } from "@/lib/validations/admin";
+import { infoSchema, type InfoInput, admissionsSchema, type AdmissionsInput } from "@/lib/validations/admin";
 import { revalidatePath } from "next/cache";
 
 export async function updateFooterInfo(input: InfoInput) {
@@ -38,7 +38,12 @@ export async function updateFooterInfo(input: InfoInput) {
     return { success: true };
 }
 
-export async function updateAdmissionsBanner(bannerUrl: string | null) {
+export async function updateAdmissionsSettings(input: AdmissionsInput) {
+    const parsed = admissionsSchema.safeParse(input);
+    if (!parsed.success) {
+        return { error: "Dữ liệu không hợp lệ" };
+    }
+
     const supabase = await createClient();
     const {
         data: { user },
@@ -50,14 +55,17 @@ export async function updateAdmissionsBanner(bannerUrl: string | null) {
     const { error } = await supabase
         .from("info")
         .update({
-            admissions_banner_url: bannerUrl,
+            admissions_banner_url: parsed.data.admissions_banner_url || null,
+            admissions_degree_image_url: parsed.data.admissions_degree_image_url || null,
+            admissions_degree_title: parsed.data.admissions_degree_title,
+            admissions_degree_content: parsed.data.admissions_degree_content,
             updated_at: new Date().toISOString(),
         })
         .eq("id", "site_settings");
 
     if (error) {
-        console.error("Error updating admissions banner:", error);
-        return { error: "Cập nhật banner tuyển sinh thất bại" };
+        console.error("Error updating admissions settings:", error);
+        return { error: "Cập nhật cấu hình tuyển sinh thất bại" };
     }
 
     revalidatePath("/tuyen-sinh");

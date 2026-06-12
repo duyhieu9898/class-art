@@ -15,7 +15,12 @@ export default async function AdminAdmissionsPage() {
                 </p>
             </div>
 
-            <AdmissionsForm initialBannerUrl={info?.admissions_banner_url || null} />
+            <AdmissionsForm
+                initialBannerUrl={info?.admissions_banner_url || null}
+                initialDegreeImageUrl={info?.admissions_degree_image_url || null}
+                initialDegreeTitle={info?.admissions_degree_title || "Bằng cấp"}
+                initialDegreeContent={info?.admissions_degree_content || ""}
+            />
         </div>
     );
 }

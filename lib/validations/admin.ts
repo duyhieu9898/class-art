@@ -64,9 +64,17 @@ export const voucherSchema = z.object({
     percent_discount: z.coerce.number().int("Phần trăm giảm giá phải là số nguyên").min(1).max(100),
 });
 
+export const admissionsSchema = z.object({
+    admissions_banner_url: z.string().nullable().optional(),
+    admissions_degree_image_url: z.string().nullable().optional(),
+    admissions_degree_title: z.string().min(1, "Tiêu đề không được để trống"),
+    admissions_degree_content: z.string().min(1, "Nội dung không được để trống"),
+});
+
 export type LoginInput = z.infer<typeof loginSchema>;
 export type PostInput = z.infer<typeof postSchema>;
 export type CourseInput = z.infer<typeof courseSchema>;
 export type PartnerInput = z.infer<typeof partnerSchema>;
 export type InfoInput = z.infer<typeof infoSchema>;
 export type VoucherInput = z.infer<typeof voucherSchema>;
+export type AdmissionsInput = z.infer<typeof admissionsSchema>;

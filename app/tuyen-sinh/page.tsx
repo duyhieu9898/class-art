@@ -231,33 +231,49 @@ export default async function TuyenSinhPage() {
                         {/* Image */}
 
                         <Image
-                            src="/images/tuyen-sinh/degree-img.png"
-                            alt="Bằng cấp"
+                            src={getImageUrl(info?.admissions_degree_image_url || "/images/tuyen-sinh/degree-img.png")}
+                            alt={info?.admissions_degree_title || "Bằng cấp"}
                             width={667}
                             height={433}
-                            className="relative z-[2] overflow-hidden rounded-[16px]"
+                            className="relative z-[2] overflow-hidden rounded-[16px] object-cover"
                         />
 
                         {/* Content card */}
                         <div className="relative z-[1] flex-1 rounded-[20px] py-[20px] shadow-xl">
                             <div className="space-y-[20px] px-8">
                                 <div className="ml-[-40px] inline-block rounded-r-[10px] bg-[#ffc404] px-[40px] py-[6.5px]">
-                                    <h1 className="text-[40px] leading-[64px] font-bold text-[#333]">Bằng cấp</h1>
+                                    <h1 className="text-[40px] leading-[64px] font-bold text-[#333]">
+                                        {info?.admissions_degree_title || "Bằng cấp"}
+                                    </h1>
                                 </div>
 
-                                <p className="text-base leading-[25.6px] text-black">
-                                    REF ACADEMY  cung cấp chương trình đào tạo cập nhật và
-                                    toàn diện, bao quát tất cả các lĩnh vực của Mỹ thuật Đa phương tiện, bám sát các ứng
-                                    dụng thực tế và yêu cầu thiết yếu của ngành công nghiệp sáng tạo và giải trí.
-                                </p>
+                                {info?.admissions_degree_content ? (
+                                    info.admissions_degree_content
+                                        .split(/\n+/)
+                                        .map((paragraph, idx) => (
+                                            <p key={idx} className="text-base leading-[25.6px] text-black">
+                                                {paragraph.trim()}
+                                            </p>
+                                        ))
+                                ) : (
+                                    <>
+                                        <p className="text-base leading-[25.6px] text-black">
+                                            REF ACADEMY cung cấp chương trình đào tạo cập nhật và toàn diện,
+                                            bao quát tất cả các lĩnh vực của Mỹ thuật Đa phương tiện,
+                                            bám sát các ứng dụng thực tế và yêu cầu thiết yếu của ngành
+                                            công nghiệp sáng tạo và giải trí.
+                                        </p>
 
-                                <p className="text-base leading-[25.6px] text-black">
-                                    Sinh viên sau khi hoàn thành chương trình học 2 năm sẽ nhận chứng chỉ Advanced
-                                    Diploma in Multimedia (ADIM) do Arena Multimedia Ấn Độ cấp. Sở hữu chứng chỉ ADIM,
-                                    học viên có thể học liên thông tại các trường Đại học lớn trên thế giới như:
-                                    Middlesex University (MDX – Anh Quốc), Vancouver Center for Entertainment Arts (VCEA
-                                    – Canada), Lincoln University College (LUC – Malaysia)… để lấy bằng cử nhân quốc tế.
-                                </p>
+                                        <p className="text-base leading-[25.6px] text-black">
+                                            Sinh viên sau khi hoàn thành chương trình học 2 năm sẽ nhận chứng chỉ
+                                            Advanced Diploma in Multimedia (ADIM) do Arena Multimedia Ấn Độ cấp.
+                                            Sở hữu chứng chỉ ADIM, học viên có thể học liên thông tại các trường
+                                            Đại học lớn trên thế giới như: Middlesex University (MDX – Anh Quốc),
+                                            Vancouver Center for Entertainment Arts (VCEA – Canada),
+                                            Lincoln University College (LUC – Malaysia)… để lấy bằng cử nhân quốc tế.
+                                        </p>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
