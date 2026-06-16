@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -11,6 +12,7 @@ interface CarouselItem {
     id: string;
     image_url: string;
     title?: string;
+    href?: string;
     [key: string]: any;
 }
 
@@ -67,23 +69,46 @@ export function ImageCarousel({
                 <div className="flex">
                     {items.map((item, index) => (
                         <div key={item.id || index} className="min-w-0 flex-[0_0_100%]">
-                            <div className={`relative w-full ${aspectRatio}`}>
-                                <Image
-                                    src={getImageUrl(item.image_url)}
-                                    alt={item.title || `Carousel image ${index + 1}`}
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 1200px) 100vw, 1200px"
-                                    priority={index === 0}
-                                />
-                                {item.title && (
-                                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-16 text-left">
-                                        <h3 className="line-clamp-1 text-base font-bold text-white md:text-xl">
-                                            {item.title}
-                                        </h3>
-                                    </div>
-                                )}
-                            </div>
+                            {item.href ? (
+                                <Link
+                                    href={item.href}
+                                    className={`relative block w-full ${aspectRatio} group overflow-hidden`}
+                                >
+                                    <Image
+                                        src={getImageUrl(item.image_url)}
+                                        alt={item.title || `Carousel image ${index + 1}`}
+                                        fill
+                                        className="object-cover transition-transform duration-350 group-hover:scale-105"
+                                        sizes="(max-width: 1200px) 100vw, 1200px"
+                                        priority={index === 0}
+                                    />
+                                    {item.title && (
+                                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-16 text-left">
+                                            <h3 className="line-clamp-1 text-base font-bold text-white transition-colors group-hover:text-[#ffc708] md:text-xl">
+                                                {item.title}
+                                            </h3>
+                                        </div>
+                                    )}
+                                </Link>
+                            ) : (
+                                <div className={`relative w-full ${aspectRatio}`}>
+                                    <Image
+                                        src={getImageUrl(item.image_url)}
+                                        alt={item.title || `Carousel image ${index + 1}`}
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 1200px) 100vw, 1200px"
+                                        priority={index === 0}
+                                    />
+                                    {item.title && (
+                                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-16 text-left">
+                                            <h3 className="line-clamp-1 text-base font-bold text-white md:text-xl">
+                                                {item.title}
+                                            </h3>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>

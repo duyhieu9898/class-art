@@ -9,6 +9,7 @@ export default function ActivitySection({ posts }: { posts: Post[] }) {
                 id: post.id,
                 image_url: post.image_url || "/images/activity-full.png",
                 title: post.title,
+                href: `/tin-tuc/${post.slug}`,
             }))
             : [{ id: "1", image_url: "/images/activity-full.png", title: "Hoạt động học viên REF Academy" }];
 

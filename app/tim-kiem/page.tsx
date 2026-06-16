@@ -86,7 +86,13 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                                         excerpt={post.excerpt || ""}
                                         imageSrc={post.image_url || "/images/dao-tao/post-01.png"}
                                         imageAlt={post.title}
-                                        href={`/posts/${post.slug}`}
+                                        href={
+                                            post.section === "nhan-vat"
+                                                ? `/nhan-vat/${post.slug}`
+                                                : post.section === "dao-tao"
+                                                    ? `/dao-tao/${post.slug}`
+                                                    : `/tin-tuc/${post.slug}`
+                                        }
                                         category={sectionLabels[post.section] || post.section}
                                         date={
                                             post.published_at

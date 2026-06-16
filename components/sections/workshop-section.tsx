@@ -9,6 +9,7 @@ export default function WorkshopSection({ posts }: { posts: Post[] }) {
                 id: post.id,
                 image_url: post.image_url || "/images/workshop-main.png",
                 title: post.title,
+                href: `/tin-tuc/${post.slug}`,
             }))
             : [
                 { id: "1", image_url: "/images/workshop-main.png", title: "Workshop tại các trường đại học 1" },
