@@ -18,6 +18,7 @@ import { POST_SECTIONS } from "@/lib/constants/post-sections";
 import { SlugInput } from "@/components/admin/slug-input";
 import { ImageUploader } from "@/components/admin/image-uploader";
 import { toast } from "sonner";
+import { formatDateTimeLocal } from "@/lib/utils";
 
 type PostFormValues = z.input<typeof postSchema>;
 
@@ -66,7 +67,7 @@ export function PostEditForm({ post }: PostEditFormProps) {
             image_url: post.image_url || "",
             section: post.section,
             is_published: post.is_published,
-            published_at: post.published_at || "",
+            published_at: formatDateTimeLocal(post.published_at),
         },
     });
 
