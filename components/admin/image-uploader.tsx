@@ -49,21 +49,25 @@ export function ImageUploader({ folder, value, onChange }: ImageUploaderProps) {
         setIsUploading(true);
 
         try {
-            // 1. Compress & resize image to exactly 1.5x render resolution
+            // 1. Compress & resize image to exactly 1.5x render resolution using WebP format
+            // WebP supports transparency and has superior compression.
+            const targetFileType = "image/webp";
+            const extension = "webp";
+
             const compressionOptions = {
                 maxSizeMB: 1.5, // Maximum file size (target < 800KB)
                 maxWidthOrHeight: maxWidthOrHeight, // Smart resizing based on entity type
                 useWebWorker: true,
-                fileType: "image/jpeg",
+                fileType: targetFileType,
             };
 
             const compressedFile = await imageCompression(file, compressionOptions);
 
             // 2. Generate unique filename and upload to Supabase Storage
-            const filename = `${folder}/${Date.now()}-${Math.random().toString(36).substring(2, 8)}.jpg`;
+            const filename = `${folder}/${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${extension}`;
 
             const { error: uploadError } = await supabase.storage.from(IMAGE_BUCKET).upload(filename, compressedFile, {
-                contentType: "image/jpeg",
+                contentType: targetFileType,
             });
 
             if (uploadError) {
@@ -117,7 +121,7 @@ export function ImageUploader({ folder, value, onChange }: ImageUploaderProps) {
                         <div className="flex flex-col items-center gap-2">
                             <Upload className="h-8 w-8 text-gray-400" />
                             <p className="text-sm text-gray-500">Nhấn để chọn ảnh</p>
-                            <p className="text-xs text-gray-400">JPEG, PNG, WebP, GIF (tối đa 5MB)</p>
+                            <p className="text-xs text-gray-400">JPEG, PNG, WebP (tối đa 5MB)</p>
                         </div>
                     )}
                 </div>
@@ -126,7 +130,7 @@ export function ImageUploader({ folder, value, onChange }: ImageUploaderProps) {
             <input
                 ref={inputRef}
                 type="file"
-                accept="image/jpeg,image/png,image/webp,image/gif"
+                accept="image/jpeg,image/png,image/webp"
                 className="hidden"
                 onChange={handleFileChange}
                 disabled={isUploading}
