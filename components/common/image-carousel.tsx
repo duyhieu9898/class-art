@@ -13,7 +13,7 @@ interface CarouselItem {
     image_url: string;
     title?: string;
     href?: string;
-    [key: string]: any;
+    [key: string]: unknown;
 }
 
 interface ImageCarouselProps {
@@ -41,8 +41,8 @@ export function ImageCarousel({
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-    const onSelect = useCallback((emblaApi: any) => {
-        setSelectedIndex(emblaApi.selectedScrollSnap());
+    const onSelect = useCallback((api: NonNullable<typeof emblaApi>) => {
+        setSelectedIndex(api.selectedScrollSnap());
     }, []);
 
     useEffect(() => {

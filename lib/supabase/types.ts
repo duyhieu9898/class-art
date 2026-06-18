@@ -84,7 +84,7 @@ export interface Database {
                     copyright_text: string | null;
                     footer_description: string | null;
                     history_image_url: string | null;
-                    history_milestones: any;
+                    history_milestones: { year: string; desc: string }[] | null;
                     admissions_banner_url: string | null;
                     admissions_degree_image_url: string | null;
                     admissions_degree_title: string | null;
