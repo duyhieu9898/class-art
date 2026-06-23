@@ -12,7 +12,7 @@ import { getImageUrl } from "@/lib/supabase/storage";
 export const metadata: Metadata = {
     title: "Tuyển sinh | REF ACADEMY",
     description:
-        "Thông tin tuyển sinh, đối tượng đăng ký, hồ sơ nhập học, học bổng và ưu đãi dành cho học viên REF ACADEMY.",
+        "Thông tin tuyển sinh, đối tượng đăng ký, học bổng và ưu đãi dành cho học viên REF ACADEMY.",
 };
 
 const targets = [
@@ -35,20 +35,6 @@ const targets = [
     },
 ];
 
-const documents = [
-    {
-        text: "01 Phiếu đăng ký có dán ảnh",
-        imageSrc: "/images/tuyen-sinh/doc-01.png",
-    },
-    {
-        text: "01 Bản sao công chứng CCCD/hộ chiếu",
-        imageSrc: "/images/tuyen-sinh/doc-02.png",
-    },
-    {
-        text: "01 Cam kết sinh viên đã đọc \"Những điều SV cần biết\"",
-        imageSrc: "/images/tuyen-sinh/doc-03.png",
-    },
-];
 
 export default async function TuyenSinhPage() {
     const [scholarships, info] = await Promise.all([getScholarships(), getFooterInfo()]);
@@ -194,36 +180,7 @@ export default async function TuyenSinhPage() {
                     </div>
                 </section>
 
-                {/* Hồ sơ nhập học */}
-                <section className="w-full  py-[30px]">
-                    <div className="mx-auto max-w-[1600px] px-5">
-                        <h1 className="mb-[30px] text-center text-[40px] leading-[64px] font-bold text-[#333]">
-                            Hồ sơ nhập học
-                        </h1>
 
-                        <div className="flex gap-8 flex-col lg:flex-row">
-                            {documents.map((doc, index) => (
-                                <div key={index} className="flex-1 flex items-center gap-0 ">
-                                    {/* Circle image */}
-                                    <div className="relative z-[2] h-[150px] w-[150px] min-w-[150px] xl:h-[200px] xl:w-[200px] xl:min-w-[200px] overflow-hidden rounded-full">
-                                        <Image
-                                            src={doc.imageSrc}
-                                            alt={doc.text}
-                                            fill
-                                            sizes="(max-width: 1280px) 150px, 200px"
-                                            className="object-cover"
-                                        />
-                                    </div>
-
-                                    {/* Text card */}
-                                    <div className="relative z-[1] ml-[-60px] flex min-h-[150px]  xl:min-h-[200px] flex-1 items-center rounded-2xl py-[30px] pl-[80px] pr-4 shadow-xl">
-                                        <p className="text-base leading-[25.6px] text-black">{doc.text}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
 
                 {/* Bằng cấp */}
                 <section className="w-full  py-[75px]">

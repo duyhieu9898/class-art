@@ -10,7 +10,7 @@ import { getPosts } from "@/actions/posts";
 export const metadata: Metadata = {
     title: "Nhân vật truyền cảm hứng | REF ACADEMY",
     description:
-        "Gặp gỡ các học viên, sinh viên xuất sắc và những câu chuyện truyền cảm hứng trong cộng đồng REF ACADEMY.",
+        "Gặp gỡ các học viên xuất sắc và những câu chuyện truyền cảm hứng trong cộng đồng REF ACADEMY.",
 };
 
 export default async function NhanVatPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
@@ -23,7 +23,7 @@ export default async function NhanVatPage({ searchParams }: { searchParams: Prom
             <Header />
 
             <main className="flex-1">
-                <HeroBanner imageSrc="/images/nhan-vat/banner.png" title="Sinh viên xuất sắc" />
+                <HeroBanner imageSrc="/images/nhan-vat/banner.png" title="Học viên xuất sắc" />
 
                 <section className="w-full  pt-[75px]">
                     <div className="mx-auto max-w-[1600px] px-[15px]">
