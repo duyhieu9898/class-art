@@ -13,6 +13,7 @@ interface Registration {
     email: string;
     phone: string | null;
     form_type: string | null;
+    voucher: string | null;
     source_page: string | null;
     created_at: string;
     [key: string]: unknown;
@@ -49,11 +50,15 @@ export function RegistrationsTable({ data, page, total, currentFormType }: Regis
         { key: "email", label: "Email" },
         { key: "phone", label: "Điện thoại" },
         {
+            key: "voucher",
+            label: "Mã giảm giá",
+            render: (item) => (item.voucher ? <Badge variant="outline" className="font-mono">{item.voucher}</Badge> : "—"),
+        },
+        {
             key: "form_type",
             label: "Loại form",
             render: (item) => (item.form_type ? <Badge variant="secondary">{item.form_type}</Badge> : "—"),
         },
-        { key: "source_page", label: "Nguồn" },
         {
             key: "created_at",
             label: "Ngày đăng ký",

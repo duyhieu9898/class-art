@@ -22,9 +22,8 @@ export default async function RegistrationDetailPage({ params }: Props) {
         { label: "Họ tên", value: registration.full_name },
         { label: "Email", value: registration.email },
         { label: "Điện thoại", value: registration.phone },
+        { label: "Mã giảm giá", value: registration.voucher },
         { label: "Loại form", value: registration.form_type },
-        { label: "Nguồn", value: registration.source_page },
-        { label: "Ghi chú", value: registration.note },
         { label: "Ngày đăng ký", value: registration.created_at ? formatDateVN(registration.created_at) : null },
     ];
 
