@@ -14,6 +14,7 @@ export interface Post {
     category: string | null;
     section: PostSection;
     published_at: string;
+    updated_at?: string;
 }
 
 interface GetPostsOptions {

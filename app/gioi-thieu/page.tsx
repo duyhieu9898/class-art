@@ -8,7 +8,14 @@ import { getImageUrl } from "@/lib/supabase/storage";
 
 export const metadata: Metadata = {
     title: "Giới thiệu | REF ACADEMY",
-    description: "Tìm hiểu về sứ mệnh, triết lý giáo dục, văn hóa và cơ sở đào tạo của REF ACADEMY.",
+    description:
+        "Khám phá sứ mệnh, triết lý giáo dục, văn hóa khác biệt và lịch sử phát triển của REF ACADEMY - Đơn vị tiên phong đào tạo thiết kế ứng dụng AI tại Đà Nẵng.",
+    openGraph: {
+        title: "Giới thiệu | REF ACADEMY",
+        description:
+            "Khám phá sứ mệnh, triết lý giáo dục, văn hóa khác biệt và lịch sử phát triển của REF ACADEMY - Đơn vị tiên phong đào tạo thiết kế ứng dụng AI tại Đà Nẵng.",
+        images: ["/images/hero-banner.png"],
+    },
 };
 
 export default async function GioiThieuPage() {

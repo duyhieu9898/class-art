@@ -10,9 +10,15 @@ import { getFooterInfo } from "@/actions/info";
 import { getImageUrl } from "@/lib/supabase/storage";
 
 export const metadata: Metadata = {
-    title: "Tuyển sinh | REF ACADEMY",
+    title: "Thông tin Tuyển sinh | REF ACADEMY",
     description:
-        "Thông tin tuyển sinh, đối tượng đăng ký, học bổng và ưu đãi dành cho học viên REF ACADEMY.",
+        "Cập nhật thông tin tuyển sinh mới nhất, đối tượng đăng ký học, quỹ học bổng và các chương trình ưu đãi học phí hấp dẫn dành cho học viên REF ACADEMY.",
+    openGraph: {
+        title: "Thông tin Tuyển sinh | REF ACADEMY",
+        description:
+            "Cập nhật thông tin tuyển sinh mới nhất, đối tượng đăng ký học, quỹ học bổng và các chương trình ưu đãi học phí hấp dẫn dành cho học viên REF ACADEMY.",
+        images: ["/images/hero-banner.png"],
+    },
 };
 
 const targets = [

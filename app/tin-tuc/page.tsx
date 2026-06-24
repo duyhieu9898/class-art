@@ -10,7 +10,13 @@ import { getPosts } from "@/actions/posts";
 export const metadata: Metadata = {
     title: "Tin tức & Sự kiện | REF ACADEMY",
     description:
-        "Cập nhật tin tức, sự kiện, hoạt động đào tạo và các câu chuyện sáng tạo mới nhất từ REF ACADEMY.",
+        "Cập nhật tin tức công nghệ, sự kiện sáng tạo, hoạt động đào tạo thiết kế và các câu chuyện truyền cảm hứng mới nhất từ REF ACADEMY.",
+    openGraph: {
+        title: "Tin tức & Sự kiện | REF ACADEMY",
+        description:
+            "Cập nhật tin tức công nghệ, sự kiện sáng tạo, hoạt động đào tạo thiết kế và các câu chuyện truyền cảm hứng mới nhất từ REF ACADEMY.",
+        images: ["/images/hero-banner.png"],
+    },
 };
 
 export default async function TinTucPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {

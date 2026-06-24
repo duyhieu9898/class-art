@@ -8,9 +8,15 @@ import ConsultationSection from "@/components/common/consultation-section";
 import { getPosts } from "@/actions/posts";
 
 export const metadata: Metadata = {
-    title: "Nhân vật truyền cảm hứng | REF ACADEMY",
+    title: "Nhân vật Truyền cảm hứng | REF ACADEMY",
     description:
-        "Gặp gỡ các học viên xuất sắc và những câu chuyện truyền cảm hứng trong cộng đồng REF ACADEMY.",
+        "Gặp gỡ những học viên xuất sắc, cựu học viên thành đạt và những câu chuyện truyền cảm hứng thiết kế, ứng dụng AI đột phá trong cộng đồng REF ACADEMY.",
+    openGraph: {
+        title: "Nhân vật Truyền cảm hứng | REF ACADEMY",
+        description:
+            "Gặp gỡ những học viên xuất sắc, cựu học viên thành đạt và những câu chuyện truyền cảm hứng thiết kế, ứng dụng AI đột phá trong cộng đồng REF ACADEMY.",
+        images: ["/images/hero-banner.png"],
+    },
 };
 
 export default async function NhanVatPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {

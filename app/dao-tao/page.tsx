@@ -7,9 +7,15 @@ import ConsultationSection from "@/components/common/consultation-section";
 import { getPosts } from "@/actions/posts";
 
 export const metadata: Metadata = {
-    title: "Đào tạo | REF ACADEMY",
+    title: "Chương trình Đào tạo | REF ACADEMY",
     description:
-        "Khám phá các bài cuối khóa, đồ án và chương trình đào tạo thiết kế ứng dụng AI tại REF ACADEMY.",
+        "Khám phá các đồ án, bài tập cuối khóa xuất sắc và chương trình đào tạo thiết kế đồ họa ứng dụng công nghệ trí tuệ nhân tạo (AI) đột phá tại REF ACADEMY.",
+    openGraph: {
+        title: "Chương trình Đào tạo | REF ACADEMY",
+        description:
+            "Khám phá các đồ án, bài tập cuối khóa xuất sắc và chương trình đào tạo thiết kế đồ họa ứng dụng công nghệ trí tuệ nhân tạo (AI) đột phá tại REF ACADEMY.",
+        images: ["/images/hero-banner.png"],
+    },
 };
 
 export default async function DaoTaoPage() {
