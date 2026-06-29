@@ -60,6 +60,7 @@ export function AdmissionsForm({
                     <Label className="font-semibold text-gray-700">Ảnh banner Tuyển sinh</Label>
                     <ImageUploader
                         folder="posts"
+                        maxWidthOrHeight={1920}
                         value={bannerUrl}
                         onChange={setBannerUrl}
                     />
