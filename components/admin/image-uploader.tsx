@@ -13,26 +13,26 @@ interface ImageUploaderProps {
     folder: string;
     value: string | null;
     onChange: (path: string | null) => void;
+    /** Override the compression max dimension (px). Defaults are inferred from folder if omitted. */
+    maxWidthOrHeight?: number;
 }
 
 const IMAGE_BUCKET = "images";
 
-export function ImageUploader({ folder, value, onChange }: ImageUploaderProps) {
+export function ImageUploader({ folder, value, onChange, maxWidthOrHeight: maxWidthOrHeightProp }: ImageUploaderProps) {
     const [isUploading, setIsUploading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const supabase = createClient();
 
-    // Determine dynamic maxWidthOrHeight based on 1.5x of maximum render size
-    let maxWidthOrHeight = 1200; // Default fallback
-    if (folder === "partners") {
-        maxWidthOrHeight = 360; // 1.5x of ~240px wide render
-    } else if (folder === "courses") {
-        maxWidthOrHeight = 675; // 1.5x of ~450px high render (tallest state)
-    } else if (folder === "posts") {
-        maxWidthOrHeight = 1650; // 1.5x of ~1100px wide render in post details
-    }
+    // Use the explicit prop first; fall back to folder-based defaults for known entity types.
+    const folderDefaults: Record<string, number> = {
+        partners: 240,  //  202X100
+        courses: 450,   //  265x353
+        posts: 1280,    //  1070X500
+    };
+    const maxWidthOrHeight = maxWidthOrHeightProp ?? folderDefaults[folder] ?? 1200;
 
     async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
         const file = e.target.files?.[0];

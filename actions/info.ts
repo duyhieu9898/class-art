@@ -19,6 +19,16 @@ export interface FooterInfo {
     admissions_degree_image_url: string | null;
     admissions_degree_title: string | null;
     admissions_degree_content: string | null;
+    // Hero - Sứ mệnh
+    hero_image_url: string | null;
+    hero_mission: string | null;
+    hero_philosophy: string | null;
+    hero_culture: string | null;
+    // Về REF ACADEMY
+    about_title: string | null;
+    about_description_1: string | null;
+    about_description_2: string | null;
+    about_image_url: string | null;
 }
 
 export async function getFooterInfo(): Promise<FooterInfo | null> {

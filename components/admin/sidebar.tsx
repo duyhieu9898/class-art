@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, FileText, Users, BookOpen, Handshake, Info, TicketPercent, GraduationCap } from "lucide-react";
+import { LayoutDashboard, FileText, Users, BookOpen, Handshake, Info, TicketPercent, GraduationCap, Newspaper } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -12,6 +12,7 @@ const navItems = [
     { label: "Voucher", href: "/admin/vouchers", icon: TicketPercent },
     { label: "Khóa học", href: "/admin/courses", icon: BookOpen },
     { label: "Tuyển sinh", href: "/admin/tuyen-sinh", icon: GraduationCap },
+    { label: "Giới thiệu", href: "/admin/gioi-thieu", icon: Newspaper },
     { label: "Đối tác", href: "/admin/partners", icon: Handshake },
     { label: "Thông tin chung", href: "/admin/info", icon: Info },
 ];

@@ -44,15 +44,6 @@ export const infoSchema = z.object({
     instagram_url: z.string().url("Link Instagram không hợp lệ").optional().or(z.literal("")),
     copyright_text: z.string().min(1, "Copyright không được để trống"),
     footer_description: z.string().optional().or(z.literal("")),
-    history_image_url: z.string().optional().or(z.literal("")),
-    history_milestones: z
-        .array(
-            z.object({
-                year: z.string().min(1, "Năm không được để trống"),
-                desc: z.string().min(1, "Mô tả không được để trống"),
-            })
-        )
-        .default([]),
 });
 
 export const voucherSchema = z.object({
@@ -62,6 +53,29 @@ export const voucherSchema = z.object({
         .min(1, "Mã voucher không được để trống")
         .transform((value) => value.toUpperCase()),
     percent_discount: z.coerce.number().int("Phần trăm giảm giá phải là số nguyên").min(1).max(100),
+});
+
+export const aboutSchema = z.object({
+    // Hero - Sứ mệnh section
+    hero_image_url: z.string().optional().or(z.literal("")),
+    hero_mission: z.string().optional().or(z.literal("")),
+    hero_philosophy: z.string().optional().or(z.literal("")),
+    hero_culture: z.string().optional().or(z.literal("")),
+    // Về REF ACADEMY section
+    about_title: z.string().optional().or(z.literal("")),
+    about_description_1: z.string().optional().or(z.literal("")),
+    about_description_2: z.string().optional().or(z.literal("")),
+    about_image_url: z.string().optional().or(z.literal("")),
+    // Lịch sử hình thành (moved from info)
+    history_image_url: z.string().optional().or(z.literal("")),
+    history_milestones: z
+        .array(
+            z.object({
+                year: z.string().min(1, "Năm không được để trống"),
+                desc: z.string().min(1, "Mô tả không được để trống"),
+            })
+        )
+        .default([]),
 });
 
 export const admissionsSchema = z.object({
@@ -76,5 +90,6 @@ export type PostInput = z.infer<typeof postSchema>;
 export type CourseInput = z.infer<typeof courseSchema>;
 export type PartnerInput = z.infer<typeof partnerSchema>;
 export type InfoInput = z.infer<typeof infoSchema>;
+export type AboutInput = z.infer<typeof aboutSchema>;
 export type VoucherInput = z.infer<typeof voucherSchema>;
 export type AdmissionsInput = z.infer<typeof admissionsSchema>;

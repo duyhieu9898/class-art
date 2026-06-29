@@ -21,7 +21,36 @@ export const metadata: Metadata = {
 export default async function GioiThieuPage() {
     const info = await getFooterInfo();
 
-    const historyImage = getImageUrl(info?.history_image_url || "/images/about/history-banner.png");
+    // Hero section
+    const heroImage = info?.hero_image_url
+        ? getImageUrl(info.hero_image_url)
+        : "/images/about/hero-bg.png";
+    const heroMission =
+        info?.hero_mission ||
+        "Cung cấp nhân lực chất lượng giúp đỡ học viên có thể tiếp cận cơ hội việc làm.";
+    const heroPhilosophy =
+        info?.hero_philosophy ||
+        "Giáo dục đào tạo là tổ chức và quản trị việc tự học của người học.";
+    const heroCulture =
+        info?.hero_culture ||
+        "Tôn trọng, Đổi mới, Đồng đội, Chí công\nGương mẫu, Sáng suốt\nHọc thật, thi thật, thành công thật\nLàm khác để làm tốt.";
+
+    // About section
+    const aboutTitle = info?.about_title || "Về REF ACADEMY";
+    const aboutDesc1 =
+        info?.about_description_1 ||
+        "REF ACADEMY là đơn vị tiên phong đào tạo sử dụng trí tuệ nhân tạo tích hợp công nghệ vào trong thiết kế";
+    const aboutDesc2 =
+        info?.about_description_2 ||
+        "Với mong muốn đồng hành cùng người trẻ trong việc ứng dụng trí tuệ nhân tạo vào trong thiết kế, với hy vọng giúp đỡ các học viên tự tin trên con đường theo đuổi trong con đường thiết kế đồ họa.";
+    const aboutImage = info?.about_image_url
+        ? getImageUrl(info.about_image_url)
+        : "/images/about/about-banner.png";
+
+    // History section
+    const historyImage = info?.history_image_url
+        ? getImageUrl(info.history_image_url)
+        : "/images/about/history-banner.png";
     let milestones = [
         { year: "7/2004", desc: "Thành lập REF ACADEMY" },
         { year: "2009", desc: "Hi4 Coffee" },
@@ -31,6 +60,7 @@ export default async function GioiThieuPage() {
     if (info?.history_milestones && info.history_milestones.length > 0) {
         milestones = info.history_milestones;
     }
+
     return (
         <div className="flex min-h-screen flex-col">
             <Header />
@@ -39,7 +69,7 @@ export default async function GioiThieuPage() {
                 {/* Hero - Sứ mệnh */}
                 <section className="relative mx-auto mt-10 h-[550px] w-full max-w-[1600px] overflow-hidden rounded-[20px] md:h-[785px]">
                     <Image
-                        src="/images/about/hero-bg.png"
+                        src={heroImage}
                         alt="REF Academy Campus"
                         fill
                         sizes="100vw"
@@ -50,27 +80,15 @@ export default async function GioiThieuPage() {
                         <div className="space-y-6 p-6 text-white md:p-10">
                             <div>
                                 <h2 className="text-3xl font-semibold text-[#486aff]">Sứ mệnh</h2>
-                                <p className="mt-2 leading-8 text-gray-100">
-                                    Cung cấp nhân lực chất lượng giúp đỡ học viên có thể tiếp cận cơ hội việc làm.
-                                </p>
+                                <p className="mt-2 leading-8 text-gray-100">{heroMission}</p>
                             </div>
                             <div>
                                 <h2 className="text-3xl font-semibold text-[#486aff]">Triết lý giáo dục</h2>
-                                <p className="mt-2 leading-8 text-gray-100">
-                                    Giáo dục đào tạo là tổ chức và quản trị việc tự học của người học.
-                                </p>
+                                <p className="mt-2 leading-8 text-gray-100">{heroPhilosophy}</p>
                             </div>
                             <div>
                                 <h2 className="text-3xl font-semibold text-[#486aff]">Văn hóa</h2>
-                                <p className="mt-2 leading-8 text-gray-100">
-                                    Tôn trọng, Đổi mới, Đồng đội, Chí công
-                                    <br />
-                                    Gương mẫu, Sáng suốt
-                                    <br />
-                                    Học thật, thi thật, thành công thật
-                                    <br />
-                                    Làm khác để làm tốt.
-                                </p>
+                                <p className="mt-2 leading-8 text-gray-100 whitespace-pre-line">{heroCulture}</p>
                             </div>
                         </div>
                     </div>
@@ -81,20 +99,13 @@ export default async function GioiThieuPage() {
                     <div className="mx-auto max-w-[1600px]">
                         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[2fr_3fr]">
                             <div>
-                                <h1 className="text-4xl leading-[64px] font-bold text-gray-800">Về REF ACADEMY</h1>
-                                <p className="mt-2 text-base leading-relaxed text-black">
-                                    REF ACADEMY là đơn vị tiên phong đào tạo sử dụng trí tuệ nhân tạo tích hợp công nghệ
-                                    vào trong thiết kế
-                                </p>
-                                <p className="mt-3 text-base leading-relaxed text-black">
-                                    Với mong muốn đồng hành cùng người trẻ trong việc ứng dụng trí tuệ nhân tạo vào
-                                    trong thiết kế, với hy vọng giúp đỡ các học viên tự tin trên con đường theo đuổi
-                                    trong con đường thiết kế đồ họa.
-                                </p>
+                                <h1 className="text-4xl leading-[64px] font-bold text-gray-800">{aboutTitle}</h1>
+                                <p className="mt-2 text-base leading-relaxed text-black">{aboutDesc1}</p>
+                                <p className="mt-3 text-base leading-relaxed text-black">{aboutDesc2}</p>
                             </div>
                             <div className="relative h-[508px] overflow-hidden rounded-[20px] bg-[#ffc404]">
                                 <Image
-                                    src="/images/about/about-banner.png"
+                                    src={aboutImage}
                                     alt="REF Academy"
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 60vw"
