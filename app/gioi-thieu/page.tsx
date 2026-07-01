@@ -5,6 +5,7 @@ import Image from "next/image";
 import ActivityCarousel from "@/components/sections/about/activity-carousel";
 import { getFooterInfo } from "@/actions/info";
 import { getImageUrl } from "@/lib/supabase/storage";
+import { getPosts } from "@/actions/posts";
 
 export const metadata: Metadata = {
     title: "Giới thiệu | REF ACADEMY",
@@ -19,7 +20,10 @@ export const metadata: Metadata = {
 };
 
 export default async function GioiThieuPage() {
-    const info = await getFooterInfo();
+    const [info, { posts: dynamicActivities }] = await Promise.all([
+        getFooterInfo(),
+        getPosts({ section: "tin-tuc", perPage: 3 }),
+    ]);
 
     // Hero section
     const heroImage = info?.hero_image_url
@@ -145,7 +149,7 @@ export default async function GioiThieuPage() {
                 </section>
 
 
-                <ActivityCarousel />
+                <ActivityCarousel posts={dynamicActivities} />
             </main>
 
             <Footer />

@@ -3,32 +3,10 @@
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
+import { type Post } from "@/actions/posts";
+import { getImageUrl } from "@/lib/supabase/storage";
 
-const activities = [
-    {
-        image: "/images/about/blog-01.png",
-        title: "Cựu học viên REF và cơ duyên với ngành công nghiệp…",
-        excerpt:
-            "Không lâu trước đây, khi nhắc tới Game, không nhiều người lại nghĩ tới việc đây sẽ là một ngành bùng nổ mạnh mẽ như hiện tại. Nhu cầu nhân ...",
-        href: "https://arena.fpt.edu.vn/cuu-sinh-vien-fpt-arena-va-co-duyen-voi-nganh-cong-nghiep-game-2/",
-    },
-    {
-        image: "/images/about/blog-02.png",
-        title: "Dấu hiệu để nhận biết bạn sẽ trở thành nhà thiết kế tương lai",
-        excerpt:
-            "Vừa mới tốt nghiệp THPT, bạn đang phân vân liệu sau này mình có thể trở thành Nhà Thiết Kế tài ba nếu như gia nhập ngành Thiết Kế Đồ ...",
-        href: "https://arena.fpt.edu.vn/dau-hieu-de-nhan-biet-ban-se-tro-thanh-nha-thiet-ke-tuong-lai-2/",
-    },
-    {
-        image: "/images/about/blog-03.png",
-        title: "Chuẩn bị hành trang khi theo học thiết kế đồ họa",
-        excerpt:
-            "Để gia nhập ngành học sáng tạo như thiết kế đồ họa, sinh viên cần chuẩn bị tốt cả về cơ sở vật chất và tinh thần học tập. Dưới ...",
-        href: "https://arena.fpt.edu.vn/chuan-bi-hanh-trang-khi-theo-hoc-thiet-ke-do-hoa/",
-    },
-];
-
-export default function ActivityCarousel() {
+export default function ActivityCarousel({ posts }: { posts: Post[] }) {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", slidesToScroll: 1 }, []);
 
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -46,6 +24,10 @@ export default function ActivityCarousel() {
         onSelect();
     }, [emblaApi, onSelect]);
 
+    if (!posts || posts.length === 0) {
+        return null;
+    }
+
     return (
         <section className="w-full py-16">
             <div className="mx-auto max-w-[1600px] ">
@@ -56,21 +38,19 @@ export default function ActivityCarousel() {
 
                     <div className="overflow-hidden" ref={emblaRef}>
                         <div className="flex">
-                            {activities.map((item, index) => (
+                            {posts.map((post) => (
                                 <div
-                                    key={index}
+                                    key={post.id}
                                     className="min-w-0 flex-[0_0_100%] px-3 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
                                 >
                                     <a
-                                        href={item.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        href={`/tin-tuc/${post.slug}`}
                                         className="group flex items-start gap-4 p-2"
                                     >
                                         <div className="relative h-[200px] w-[170px] shrink-0 overflow-hidden rounded-lg">
                                             <Image
-                                                src={item.image}
-                                                alt={item.title}
+                                                src={getImageUrl(post.image_url)}
+                                                alt={post.title}
                                                 fill
                                                 sizes="170px"
                                                 className="object-cover"
@@ -78,10 +58,10 @@ export default function ActivityCarousel() {
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="line-clamp-2 text-lg leading-[26px] font-bold text-gray-800 group-hover:text-[#384196]">
-                                                {item.title}
+                                                {post.title}
                                             </h3>
                                             <p className="mt-2 line-clamp-4 text-base leading-relaxed text-black">
-                                                {item.excerpt}
+                                                {post.excerpt || ""}
                                             </p>
                                         </div>
                                     </a>
@@ -91,20 +71,23 @@ export default function ActivityCarousel() {
                     </div>
 
                     {/* Dots */}
-                    <div className="pb-4 pt-4 md:pb-0 md:pt-6 flex justify-center gap-3">
-                        {scrollSnaps.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => emblaApi?.scrollTo(index)}
-                                className={
-                                    `h-4 w-4 rounded-full transition-colors ${index === selectedIndex ? "bg-gray-800" : "bg-black/20"
-                                    }`}
-                                aria-label={`Trang ${index + 1}`}
-                            />
-                        ))}
-                    </div>
+                    {scrollSnaps.length > 1 && (
+                        <div className="pb-4 pt-4 md:pb-0 md:pt-6 flex justify-center gap-3">
+                            {scrollSnaps.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => emblaApi?.scrollTo(index)}
+                                    className={
+                                        `h-4 w-4 rounded-full transition-colors ${index === selectedIndex ? "bg-gray-800" : "bg-black/20"
+                                        }`}
+                                    aria-label={`Trang ${index + 1}`}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
     );
 }
+
