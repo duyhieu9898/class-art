@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Facebook, Youtube, Instagram, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Youtube, Instagram, Globe, Building2, FileText } from "lucide-react";
 import { getFooterInfo } from "@/actions/info";
 
 export default async function Footer() {
@@ -63,10 +63,18 @@ export default async function Footer() {
                     {/* Column 2: Liên hệ (4 cols) */}
                     <div className="space-y-6 md:col-span-4">
                         <h4 className="border-l-4 border-[#ffc708] pl-3 text-lg font-bold tracking-wider text-white uppercase">
-                            ĐÀ NẴNG
+                            THÔNG TIN LIÊN HỆ
                         </h4>
 
                         <ul className="space-y-4 text-sm text-white/85">
+                            <li className="flex items-start gap-3">
+                                <Building2 className="mt-0.5 h-5 w-5 shrink-0 text-white/90" />
+                                <span className="leading-relaxed">CÔNG TY TNHH REF ACADEMY</span>
+                            </li>
+                            <li className="flex items-center gap-3">
+                                <FileText className="h-5 w-5 shrink-0 text-white/90" />
+                                <span>Mã số thuế: 0402347756</span>
+                            </li>
                             <li className="flex items-start gap-3">
                                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-white/90" />
                                 <span className="leading-relaxed">{address}</span>
