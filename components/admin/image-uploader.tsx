@@ -28,9 +28,9 @@ export function ImageUploader({ folder, value, onChange, maxWidthOrHeight: maxWi
 
     // Use the explicit prop first; fall back to folder-based defaults for known entity types.
     const folderDefaults: Record<string, number> = {
-        partners: 240,  //  202X100
-        courses: 450,   //  265x353
-        posts: 1280,    //  1070X500
+        partners: 240, //  202X100
+        courses: 450, //  265x353
+        posts: 1280, //  1070X500
     };
     const maxWidthOrHeight = maxWidthOrHeightProp ?? folderDefaults[folder] ?? 1200;
 

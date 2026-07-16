@@ -21,13 +21,10 @@ import { SlugInput } from "@/components/admin/slug-input";
 import { ImageUploader } from "@/components/admin/image-uploader";
 import { toast } from "sonner";
 
-const RichTextEditor = dynamic(
-    () => import("@/components/admin/rich-text-editor").then((mod) => mod.RichTextEditor),
-    {
-        ssr: false,
-        loading: () => <div className="min-h-[250px] rounded-md border bg-gray-50" />,
-    }
-);
+const RichTextEditor = dynamic(() => import("@/components/admin/rich-text-editor").then((mod) => mod.RichTextEditor), {
+    ssr: false,
+    loading: () => <div className="min-h-[250px] rounded-md border bg-gray-50" />,
+});
 
 export default function NewPostPage() {
     const router = useRouter();

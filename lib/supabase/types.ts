@@ -52,6 +52,11 @@ export interface Database {
                     image_url: string | null;
                     order: number;
                     is_active: boolean;
+                    price: number | null;
+                    duration_lessons: number | null;
+                    lesson_minutes: number | null;
+                    start_date: string | null;
+                    end_date: string | null;
                     created_at: string;
                     updated_at: string;
                 };

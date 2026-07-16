@@ -6,11 +6,11 @@ export default function ActivitySection({ posts }: { posts: Post[] }) {
     const displayItems =
         posts.length > 0
             ? posts.map((post) => ({
-                id: post.id,
-                image_url: post.image_url || "/images/activity-full.png",
-                title: post.title,
-                href: `/tin-tuc/${post.slug}`,
-            }))
+                  id: post.id,
+                  image_url: post.image_url || "/images/activity-full.png",
+                  title: post.title,
+                  href: `/tin-tuc/${post.slug}`,
+              }))
             : [{ id: "1", image_url: "/images/activity-full.png", title: "Hoạt động học viên REF Academy" }];
 
     return (

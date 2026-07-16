@@ -9,12 +9,14 @@ Website cung cấp các thông tin giới thiệu, chương trình đào tạo, 
 ## Các phân hệ chính
 
 ### 1. Website Client (Trang dành cho học viên)
+
 - **Trang chủ & Giới thiệu:** Trải nghiệm hình ảnh hiện đại, giới thiệu sứ mệnh, triết lý đào tạo và lịch sử hình thành phát triển.
 - **Chương trình Đào tạo:** Giới thiệu các khóa học chi tiết.
 - **Tuyển sinh & Học bổng:** Cung cấp thông tin quy chế tuyển sinh, tài liệu nhập học và các chương trình học bổng/ưu đãi.
 - **Tin tức & Hoạt động:** Cập nhật các bài viết chia sẻ kiến thức, sự kiện và hoạt động ngoại khóa.
 
 ### 2. Admin Dashboard (Trang quản trị)
+
 - **Tổng quan (Dashboard):** Xem thống kê số lượng đăng ký, khóa học, đối tác và bài viết.
 - **Bài viết (Posts):** Quản lý tin tức, sự kiện, học bổng và nhân vật.
 - **Tuyển sinh & Đăng ký:** Quản lý danh sách học viên đăng ký tư vấn và thông tin banner tuyển sinh.
@@ -31,12 +33,15 @@ Website cung cấp các thông tin giới thiệu, chương trình đào tạo, 
 ## Hướng dẫn cài đặt và chạy thử
 
 ### 1. Cài đặt thư viện
+
 ```bash
 npm install # hoặc pnpm install / yarn install
 ```
 
 ### 2. Cấu hình biến môi trường
+
 Tạo file `.env.local` ở thư mục gốc dự án và khai báo các thông tin kết nối Supabase:
+
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
@@ -46,6 +51,7 @@ TELEGRAM_CHAT_ID=your-chat-id
 ```
 
 ### 3. Khởi chạy dự án (Local Development)
+
 ```bash
 npm run dev
 ```

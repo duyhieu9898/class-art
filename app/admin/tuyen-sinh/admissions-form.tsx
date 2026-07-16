@@ -58,13 +58,8 @@ export function AdmissionsForm({
 
                 <div className="space-y-2">
                     <Label className="font-semibold text-gray-700">Ảnh banner Tuyển sinh</Label>
-                    <ImageUploader
-                        folder="posts"
-                        maxWidthOrHeight={1920}
-                        value={bannerUrl}
-                        onChange={setBannerUrl}
-                    />
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <ImageUploader folder="posts" maxWidthOrHeight={1920} value={bannerUrl} onChange={setBannerUrl} />
+                    <p className="text-muted-foreground mt-1 text-xs">
                         Kích thước khuyên dùng: 1920x561px. Ảnh sẽ được lưu trữ trong thư mục &quot;posts&quot;.
                     </p>
                 </div>
@@ -80,18 +75,17 @@ export function AdmissionsForm({
                 <div className="space-y-4">
                     <div className="space-y-2">
                         <Label className="font-semibold text-gray-700">Ảnh bằng cấp</Label>
-                        <ImageUploader
-                            folder="posts"
-                            value={degreeImageUrl}
-                            onChange={setDegreeImageUrl}
-                        />
-                        <p className="text-xs text-muted-foreground mt-1">
-                            Kích thước khuyên dùng: 667x433px (tỷ lệ khoảng 3:2). Ảnh sẽ được lưu trữ trong thư mục &quot;posts&quot;.
+                        <ImageUploader folder="posts" value={degreeImageUrl} onChange={setDegreeImageUrl} />
+                        <p className="text-muted-foreground mt-1 text-xs">
+                            Kích thước khuyên dùng: 667x433px (tỷ lệ khoảng 3:2). Ảnh sẽ được lưu trữ trong thư mục
+                            &quot;posts&quot;.
                         </p>
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="degreeTitle" className="font-semibold text-gray-700">Tiêu đề</Label>
+                        <Label htmlFor="degreeTitle" className="font-semibold text-gray-700">
+                            Tiêu đề
+                        </Label>
                         <Input
                             id="degreeTitle"
                             type="text"
@@ -103,7 +97,9 @@ export function AdmissionsForm({
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="degreeContent" className="font-semibold text-gray-700">Nội dung</Label>
+                        <Label htmlFor="degreeContent" className="font-semibold text-gray-700">
+                            Nội dung
+                        </Label>
                         <Textarea
                             id="degreeContent"
                             value={degreeContent}
@@ -112,9 +108,7 @@ export function AdmissionsForm({
                             rows={6}
                             required
                         />
-                        <p className="text-xs text-muted-foreground mt-1">
-                            Hỗ trợ xuống dòng để ngắt đoạn văn bản.
-                        </p>
+                        <p className="text-muted-foreground mt-1 text-xs">Hỗ trợ xuống dòng để ngắt đoạn văn bản.</p>
                     </div>
                 </div>
             </div>

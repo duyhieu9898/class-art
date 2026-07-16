@@ -31,7 +31,7 @@ export default function PostDetail({ post, breadcrumbs, relatedPosts }: PostDeta
     return (
         <>
             {/* Article */}
-            <article className="w-full  pt-[40px] pb-[60px]">
+            <article className="w-full pt-[40px] pb-[60px]">
                 <div className="mx-auto max-w-[1600px]">
                     {/* Breadcrumb */}
                     <nav className="mb-[20px] flex items-center gap-2 px-[15px] text-[14px] text-[#333]">
@@ -126,7 +126,7 @@ export default function PostDetail({ post, breadcrumbs, relatedPosts }: PostDeta
             </article>
 
             {/* Related Posts */}
-            <section className="w-full  pb-[60px]">
+            <section className="w-full pb-[60px]">
                 <div className="mx-auto max-w-[1600px] px-[15px]">
                     <h2 className="mb-[30px] text-[30px] leading-[48px] font-bold text-[#333]">Bài Viết Liên Quan</h2>
                     <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 lg:grid-cols-3">

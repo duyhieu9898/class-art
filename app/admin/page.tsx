@@ -12,59 +12,66 @@ export default async function AdminDashboardPage() {
 
             {/* Stats Cards Grid - 4 columns for 4 merged/harmonized cards */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <StatsCard 
-                    label="Bài viết" 
-                    value={stats.totalPosts} 
-                    icon={<FileText />} 
-                    variant="info" 
+                <StatsCard
+                    label="Bài viết"
+                    value={stats.totalPosts}
+                    icon={<FileText />}
+                    variant="info"
                     description={`Đã xuất bản: ${stats.publishedPosts}`}
                 />
-                <StatsCard 
-                    label="Tổng đăng ký tuyển sinh" 
-                    value={stats.totalRegistrations} 
-                    icon={<Users />} 
-                    variant="warning" 
+                <StatsCard
+                    label="Tổng đăng ký tuyển sinh"
+                    value={stats.totalRegistrations}
+                    icon={<Users />}
+                    variant="warning"
                 />
-                <StatsCard 
-                    label="Khóa học đang hoạt động" 
-                    value={stats.totalCourses} 
-                    icon={<BookOpen />} 
-                    variant="primary" 
+                <StatsCard
+                    label="Khóa học đang hoạt động"
+                    value={stats.totalCourses}
+                    icon={<BookOpen />}
+                    variant="primary"
                 />
-                <StatsCard 
-                    label="Đối tác liên kết" 
-                    value={stats.totalPartners} 
-                    icon={<Handshake />} 
-                    variant="secondary" 
+                <StatsCard
+                    label="Đối tác liên kết"
+                    value={stats.totalPartners}
+                    icon={<Handshake />}
+                    variant="secondary"
                 />
             </div>
 
             {/* Visual Analytics & Recent Lists */}
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                 {/* Left column (2/3 width on large screens) */}
-                <div className="lg:col-span-2 space-y-6">
+                <div className="space-y-6 lg:col-span-2">
                     {/* Daily registrations trend bar chart - 30 days */}
                     <div className="rounded-xl border bg-white p-6 shadow-sm">
-                        <h2 className="text-lg font-semibold text-gray-800 mb-2">Xu hướng đăng ký mới</h2>
-                        <p className="text-xs text-gray-500 mb-6">Thống kê số lượng đăng ký theo ngày trong 30 ngày qua</p>
-                        
-                        <div className="relative flex h-56 items-end gap-1 md:gap-1.5 pt-4 border-b pb-2">
+                        <h2 className="mb-2 text-lg font-semibold text-gray-800">Xu hướng đăng ký mới</h2>
+                        <p className="mb-6 text-xs text-gray-500">
+                            Thống kê số lượng đăng ký theo ngày trong 30 ngày qua
+                        </p>
+
+                        <div className="relative flex h-56 items-end gap-1 border-b pt-4 pb-2 md:gap-1.5">
                             {stats.dailyStats.map((day, idx) => {
-                                const maxCount = Math.max(...stats.dailyStats.map(d => d.count), 1);
+                                const maxCount = Math.max(...stats.dailyStats.map((d) => d.count), 1);
                                 const heightPercent = (day.count / maxCount) * 80 + 5; // offset for display
                                 const showLabel = idx === 0 || idx === stats.dailyStats.length - 1 || idx % 5 === 0;
-                                
+
                                 return (
-                                    <div key={day.date} className="relative flex flex-1 flex-col items-center gap-2 h-full justify-end group">
+                                    <div
+                                        key={day.date}
+                                        className="group relative flex h-full flex-1 flex-col items-center justify-end gap-2"
+                                    >
                                         {/* Hover tooltip */}
-                                        <span className="absolute -top-4 text-[10px] font-bold text-[#363E91] bg-blue-50 px-1 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10 shadow-sm border border-blue-100">
+                                        <span className="pointer-events-none absolute -top-4 z-10 rounded border border-blue-100 bg-blue-50 px-1 py-0.5 text-[10px] font-bold whitespace-nowrap text-[#363E91] opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
                                             {day.count} lượt ({day.date})
                                         </span>
-                                        <div 
-                                            className="w-full rounded-t-sm bg-[#363E91] opacity-80 hover:opacity-100 transition-all duration-200 cursor-pointer min-h-[2px]" 
+                                        <div
+                                            className="min-h-[2px] w-full cursor-pointer rounded-t-sm bg-[#363E91] opacity-80 transition-all duration-200 hover:opacity-100"
                                             style={{ height: `${day.count > 0 ? heightPercent : 2}%` }}
                                         />
-                                        <span className={`text-[10px] text-gray-400 font-semibold select-none ${showLabel ? "opacity-100" : "opacity-0"}`}>
+                                        <span
+                                            className={`text-[10px] font-semibold text-gray-400 select-none ${showLabel ? "opacity-100" : "opacity-0"}`}
+                                        >
                                             {day.date}
                                         </span>
                                     </div>
@@ -75,10 +82,10 @@ export default async function AdminDashboardPage() {
 
                     {/* Recent registrations table */}
                     <div className="rounded-xl border bg-white p-6 shadow-sm">
-                        <div className="flex items-center justify-between mb-4">
+                        <div className="mb-4 flex items-center justify-between">
                             <h2 className="text-lg font-semibold text-gray-800">Đăng ký tuyển sinh mới nhất</h2>
-                            <Link 
-                                href="/admin/registrations" 
+                            <Link
+                                href="/admin/registrations"
                                 className="text-sm font-semibold text-[#363E91] hover:underline"
                             >
                                 Xem tất cả
@@ -86,7 +93,7 @@ export default async function AdminDashboardPage() {
                         </div>
                         <div className="overflow-x-auto">
                             <table className="w-full text-left text-sm text-gray-600">
-                                <thead className="border-b text-xs uppercase text-gray-500 bg-gray-50/70">
+                                <thead className="border-b bg-gray-50/70 text-xs text-gray-500 uppercase">
                                     <tr>
                                         <th className="px-4 py-3 font-semibold">Họ tên</th>
                                         <th className="px-4 py-3 font-semibold">Loại form</th>
@@ -96,9 +103,12 @@ export default async function AdminDashboardPage() {
                                 </thead>
                                 <tbody>
                                     {stats.recentRegistrationsList.map((reg) => (
-                                        <tr key={reg.id} className="border-b hover:bg-gray-50/50 transition-colors">
+                                        <tr key={reg.id} className="border-b transition-colors hover:bg-gray-50/50">
                                             <td className="px-4 py-3 font-medium text-gray-900">
-                                                <Link href={`/admin/registrations/${reg.id}`} className="hover:underline text-[#363E91]">
+                                                <Link
+                                                    href={`/admin/registrations/${reg.id}`}
+                                                    className="text-[#363E91] hover:underline"
+                                                >
                                                     {reg.full_name}
                                                 </Link>
                                             </td>
@@ -109,7 +119,7 @@ export default async function AdminDashboardPage() {
                                             </td>
                                             <td className="px-4 py-3">
                                                 {reg.voucher ? (
-                                                    <span className="inline-flex items-center rounded-md border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs font-mono font-bold text-amber-700">
+                                                    <span className="inline-flex items-center rounded-md border border-amber-200 bg-amber-50 px-2 py-0.5 font-mono text-xs font-bold text-amber-700">
                                                         {reg.voucher}
                                                     </span>
                                                 ) : (
@@ -121,14 +131,16 @@ export default async function AdminDashboardPage() {
                                                     day: "2-digit",
                                                     month: "2-digit",
                                                     hour: "2-digit",
-                                                    minute: "2-digit"
+                                                    minute: "2-digit",
                                                 })}
                                             </td>
                                         </tr>
                                     ))}
                                     {stats.recentRegistrationsList.length === 0 && (
                                         <tr>
-                                            <td colSpan={4} className="text-center py-6 text-gray-400">Không có đăng ký nào.</td>
+                                            <td colSpan={4} className="py-6 text-center text-gray-400">
+                                                Không có đăng ký nào.
+                                            </td>
                                         </tr>
                                     )}
                                 </tbody>
@@ -141,45 +153,57 @@ export default async function AdminDashboardPage() {
                 <div className="space-y-6">
                     {/* Quick links card */}
                     <div className="rounded-xl border bg-white p-6 shadow-sm">
-                        <h2 className="text-lg font-semibold text-gray-800 mb-2">Thao tác nhanh</h2>
-                        <p className="text-xs text-gray-500 mb-4">Lối tắt truy cập nhanh các tính năng quản trị thường dùng</p>
-                        
+                        <h2 className="mb-2 text-lg font-semibold text-gray-800">Thao tác nhanh</h2>
+                        <p className="mb-4 text-xs text-gray-500">
+                            Lối tắt truy cập nhanh các tính năng quản trị thường dùng
+                        </p>
+
                         <div className="grid grid-cols-2 gap-3">
-                            <Link 
-                                href="/admin/posts/new" 
-                                className="flex flex-col items-center gap-2.5 p-4 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-[#363E91]/5 hover:border-[#363E91]/30 hover:text-[#363E91] transition-all text-center group cursor-pointer"
+                            <Link
+                                href="/admin/posts/new"
+                                className="group flex cursor-pointer flex-col items-center gap-2.5 rounded-xl border border-gray-100 bg-gray-50/50 p-4 text-center transition-all hover:border-[#363E91]/30 hover:bg-[#363E91]/5 hover:text-[#363E91]"
                             >
-                                <FileText className="h-5 w-5 text-gray-500 group-hover:text-[#363E91] transition-colors" />
-                                <span className="text-xs font-bold text-gray-700 group-hover:text-[#363E91] transition-colors">Viết bài mới</span>
+                                <FileText className="h-5 w-5 text-gray-500 transition-colors group-hover:text-[#363E91]" />
+                                <span className="text-xs font-bold text-gray-700 transition-colors group-hover:text-[#363E91]">
+                                    Viết bài mới
+                                </span>
                             </Link>
-                            <Link 
-                                href="/admin/courses/new" 
-                                className="flex flex-col items-center gap-2.5 p-4 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-[#363E91]/5 hover:border-[#363E91]/30 hover:text-[#363E91] transition-all text-center group cursor-pointer"
+                            <Link
+                                href="/admin/courses/new"
+                                className="group flex cursor-pointer flex-col items-center gap-2.5 rounded-xl border border-gray-100 bg-gray-50/50 p-4 text-center transition-all hover:border-[#363E91]/30 hover:bg-[#363E91]/5 hover:text-[#363E91]"
                             >
-                                <BookOpen className="h-5 w-5 text-gray-500 group-hover:text-[#363E91] transition-colors" />
-                                <span className="text-xs font-bold text-gray-700 group-hover:text-[#363E91] transition-colors">Thêm khóa học</span>
+                                <BookOpen className="h-5 w-5 text-gray-500 transition-colors group-hover:text-[#363E91]" />
+                                <span className="text-xs font-bold text-gray-700 transition-colors group-hover:text-[#363E91]">
+                                    Thêm khóa học
+                                </span>
                             </Link>
-                            <Link 
-                                href="/admin/vouchers" 
-                                className="flex flex-col items-center gap-2.5 p-4 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-[#363E91]/5 hover:border-[#363E91]/30 hover:text-[#363E91] transition-all text-center group cursor-pointer"
+                            <Link
+                                href="/admin/vouchers"
+                                className="group flex cursor-pointer flex-col items-center gap-2.5 rounded-xl border border-gray-100 bg-gray-50/50 p-4 text-center transition-all hover:border-[#363E91]/30 hover:bg-[#363E91]/5 hover:text-[#363E91]"
                             >
-                                <TicketPercent className="h-5 w-5 text-gray-500 group-hover:text-[#363E91] transition-colors" />
-                                <span className="text-xs font-bold text-gray-700 group-hover:text-[#363E91] transition-colors">Thêm voucher</span>
+                                <TicketPercent className="h-5 w-5 text-gray-500 transition-colors group-hover:text-[#363E91]" />
+                                <span className="text-xs font-bold text-gray-700 transition-colors group-hover:text-[#363E91]">
+                                    Thêm voucher
+                                </span>
                             </Link>
-                            <Link 
-                                href="/admin/partners/new" 
-                                className="flex flex-col items-center gap-2.5 p-4 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-[#363E91]/5 hover:border-[#363E91]/30 hover:text-[#363E91] transition-all text-center group cursor-pointer"
+                            <Link
+                                href="/admin/partners/new"
+                                className="group flex cursor-pointer flex-col items-center gap-2.5 rounded-xl border border-gray-100 bg-gray-50/50 p-4 text-center transition-all hover:border-[#363E91]/30 hover:bg-[#363E91]/5 hover:text-[#363E91]"
                             >
-                                <Handshake className="h-5 w-5 text-gray-500 group-hover:text-[#363E91] transition-colors" />
-                                <span className="text-xs font-bold text-gray-700 group-hover:text-[#363E91] transition-colors">Thêm đối tác</span>
+                                <Handshake className="h-5 w-5 text-gray-500 transition-colors group-hover:text-[#363E91]" />
+                                <span className="text-xs font-bold text-gray-700 transition-colors group-hover:text-[#363E91]">
+                                    Thêm đối tác
+                                </span>
                             </Link>
                         </div>
                     </div>
 
-                    <div className="rounded-xl border bg-white p-6 shadow-sm h-fit">
+                    <div className="h-fit rounded-xl border bg-white p-6 shadow-sm">
                         <div className="mb-6">
                             <h2 className="text-lg font-semibold text-gray-800">Cơ cấu nguồn đăng ký</h2>
-                            <p className="text-xs text-gray-500 mt-1">Phân bổ các lượt đăng ký theo loại form yêu cầu</p>
+                            <p className="mt-1 text-xs text-gray-500">
+                                Phân bổ các lượt đăng ký theo loại form yêu cầu
+                            </p>
                         </div>
 
                         <div className="space-y-4">
@@ -190,11 +214,13 @@ export default async function AdminDashboardPage() {
                                     <div key={item.type} className="space-y-2">
                                         <div className="flex justify-between text-xs">
                                             <span className="font-semibold text-gray-600">{item.type}</span>
-                                            <span className="font-bold text-gray-900">{item.count} lượt ({percentage}%)</span>
+                                            <span className="font-bold text-gray-900">
+                                                {item.count} lượt ({percentage}%)
+                                            </span>
                                         </div>
-                                        <div className="w-full bg-gray-100 rounded-full h-2">
-                                            <div 
-                                                className="bg-[#363E91] h-2 rounded-full opacity-90 hover:opacity-100 transition-all duration-200" 
+                                        <div className="h-2 w-full rounded-full bg-gray-100">
+                                            <div
+                                                className="h-2 rounded-full bg-[#363E91] opacity-90 transition-all duration-200 hover:opacity-100"
                                                 style={{ width: `${percentage}%` }}
                                             />
                                         </div>

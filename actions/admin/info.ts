@@ -1,7 +1,14 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { infoSchema, type InfoInput, admissionsSchema, type AdmissionsInput, aboutSchema, type AboutInput } from "@/lib/validations/admin";
+import {
+    infoSchema,
+    type InfoInput,
+    admissionsSchema,
+    type AdmissionsInput,
+    aboutSchema,
+    type AboutInput,
+} from "@/lib/validations/admin";
 import { revalidatePath } from "next/cache";
 
 export async function updateFooterInfo(input: InfoInput) {

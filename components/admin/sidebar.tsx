@@ -2,7 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, FileText, Users, BookOpen, Handshake, Info, TicketPercent, GraduationCap, Newspaper } from "lucide-react";
+import {
+    LayoutDashboard,
+    FileText,
+    Users,
+    BookOpen,
+    Handshake,
+    Info,
+    TicketPercent,
+    GraduationCap,
+    Newspaper,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [

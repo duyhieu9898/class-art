@@ -14,7 +14,16 @@ export const metadata: Metadata = {
     title: "REF ACADEMY - Học viện Đào tạo Trí tuệ Nhân tạo & Thiết kế",
     description:
         "Lộ trình đào tạo thực chiến bài bản, REF ACADEMY trang bị cho bạn nền tảng kỹ năng sử dụng trí tuệ nhân tạo để tự tin gia nhập thị trường việc làm",
-    keywords: ["REF ACADEMY", "AI", "Thiết kế đồ họa", "Đào tạo", "Đà Nẵng", "Mỹ thuật đa phương tiện", "Học AI", "Thiết kế AI"],
+    keywords: [
+        "REF ACADEMY",
+        "AI",
+        "Thiết kế đồ họa",
+        "Đào tạo",
+        "Đà Nẵng",
+        "Mỹ thuật đa phương tiện",
+        "Học AI",
+        "Thiết kế AI",
+    ],
     metadataBase: new URL("https://www.refacademy.com.vn"),
     openGraph: {
         title: "REF ACADEMY - Học viện Đào tạo Trí tuệ Nhân tạo & Thiết kế",

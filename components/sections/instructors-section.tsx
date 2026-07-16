@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-
-
 export default function InstructorsSection() {
     return (
         <section
@@ -13,7 +11,7 @@ export default function InstructorsSection() {
             <div className="mx-auto max-w-[1400px] px-4">
                 <div className="relative flex items-end md:items-center">
                     {/* Logo - positioned left */}
-                    <div className="relative h-[150px] w-[150px] shrink-0 md:h-[340px] md:w-[330px] hidden md:block">
+                    <div className="relative hidden h-[150px] w-[150px] shrink-0 md:block md:h-[340px] md:w-[330px]">
                         <Image
                             src="/images/instructors-logo.png"
                             alt="Học viên tiêu biểu - Vinh danh thành tích xuất sắc"
@@ -32,7 +30,6 @@ export default function InstructorsSection() {
                             sizes="(max-width: 768px) 100vw, 1070px"
                             className="object-contain object-bottom"
                         />
-
                     </div>
                 </div>
             </div>

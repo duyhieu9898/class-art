@@ -19,6 +19,9 @@ interface Course {
     image_url: string | null;
     is_active: boolean;
     order: number;
+    price?: number | null;
+    start_date?: string | null;
+    end_date?: string | null;
     [key: string]: unknown;
 }
 
@@ -42,6 +45,15 @@ export function CoursesTable({ data }: CoursesTableProps) {
         setDeleteId(null);
     }
 
+    const formatDateOnly = (dateStr: string | null | undefined) => {
+        if (!dateStr) return "—";
+        const parts = dateStr.split("-");
+        if (parts.length === 3) {
+            return `${parts[2]}/${parts[1]}/${parts[0]}`;
+        }
+        return dateStr;
+    };
+
     const columns: Column<Course>[] = [
         {
             key: "image_url",
@@ -61,6 +73,26 @@ export function CoursesTable({ data }: CoursesTableProps) {
                 ),
         },
         { key: "title", label: "Tên khóa học" },
+        {
+            key: "price",
+            label: "Học phí",
+            render: (item) =>
+                item.price !== undefined && item.price !== null
+                    ? new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" })
+                          .format(Number(item.price))
+                          .replace("₫", "đ")
+                    : "—",
+        },
+        {
+            key: "start_date",
+            label: "Khai giảng",
+            render: (item) => formatDateOnly(item.start_date as string),
+        },
+        {
+            key: "end_date",
+            label: "Kết thúc",
+            render: (item) => formatDateOnly(item.end_date as string),
+        },
         {
             key: "is_active",
             label: "Trạng thái",

@@ -31,7 +31,7 @@ export default async function TinTucPage({ searchParams }: { searchParams: Promi
             <main className="flex-1">
                 <HeroBanner imageSrc="/images/tin-tuc/banner.png" title="Tin tức & Sự kiện" />
 
-                <section className="w-full  pt-[75px]">
+                <section className="w-full pt-[75px]">
                     <div className="mx-auto max-w-[1600px] px-[15px]">
                         <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 lg:grid-cols-3">
                             {posts.map((post) => (

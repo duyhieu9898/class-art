@@ -23,11 +23,11 @@ export default function CoursesSection({ courses }: CoursesSectionProps) {
                 </h2>
 
                 {/* Courses grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
+                <div className="grid grid-cols-2 justify-items-center gap-4 md:grid-cols-3 lg:grid-cols-6">
                     {courses.map((course) => (
                         <div
                             key={course.id}
-                            className="group relative w-full max-w-[290px] md:max-w-[405px] aspect-[3/4] cursor-pointer transition-transform hover:z-10 hover:scale-105"
+                            className="group relative aspect-[3/4] w-full max-w-[290px] cursor-pointer transition-transform hover:z-10 hover:scale-105 md:max-w-[405px]"
                         >
                             <Image
                                 src={getImageUrl(course.image_url)}

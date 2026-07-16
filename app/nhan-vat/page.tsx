@@ -31,7 +31,7 @@ export default async function NhanVatPage({ searchParams }: { searchParams: Prom
             <main className="flex-1">
                 <HeroBanner imageSrc="/images/nhan-vat/banner.png" title="Học viên xuất sắc" />
 
-                <section className="w-full  pt-[75px]">
+                <section className="w-full pt-[75px]">
                     <div className="mx-auto max-w-[1600px] px-[15px]">
                         <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 lg:grid-cols-3">
                             {posts.map((post) => (

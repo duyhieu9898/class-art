@@ -15,7 +15,7 @@ export default async function Footer() {
     const copyright = info?.copyright_text || "© 2026 REF Academy. All Rights Reserved.";
 
     return (
-        <footer className="relative w-full overflow-hidden bg-[#030732] pt-8 md:pt-16 text-white">
+        <footer className="relative w-full overflow-hidden bg-[#030732] pt-8 text-white md:pt-16">
             {/* Subtle top divider line */}
             <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
 

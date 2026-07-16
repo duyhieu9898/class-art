@@ -43,32 +43,29 @@ export default async function NhanVatDetailPage({ params }: PageProps) {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": post.title,
-        "description": post.excerpt || "",
-        "image": post.image_url ? [post.image_url] : [],
-        "datePublished": post.published_at,
-        "dateModified": post.updated_at || post.published_at,
-        "author": {
+        headline: post.title,
+        description: post.excerpt || "",
+        image: post.image_url ? [post.image_url] : [],
+        datePublished: post.published_at,
+        dateModified: post.updated_at || post.published_at,
+        author: {
             "@type": "Organization",
-            "name": "REF ACADEMY",
-            "url": "https://www.refacademy.com.vn"
+            name: "REF ACADEMY",
+            url: "https://www.refacademy.com.vn",
         },
-        "publisher": {
+        publisher: {
             "@type": "Organization",
-            "name": "REF ACADEMY",
-            "logo": {
+            name: "REF ACADEMY",
+            logo: {
                 "@type": "ImageObject",
-                "url": "https://www.refacademy.com.vn/images/logo.png"
-            }
-        }
+                url: "https://www.refacademy.com.vn/images/logo.png",
+            },
+        },
     };
 
     return (
         <div className="flex min-h-screen flex-col">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <Header />
             <main className="flex-1">
                 <PostDetail

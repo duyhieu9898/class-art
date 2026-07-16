@@ -40,37 +40,30 @@ export default async function Home() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "EducationalOrganization",
-        "name": "REF ACADEMY",
-        "url": "https://www.refacademy.com.vn",
-        "logo": "https://www.refacademy.com.vn/images/logo.png",
-        "description": "REF ACADEMY đào tạo thiết kế đồ họa ứng dụng trí tuệ nhân tạo (AI) theo lộ trình thực chiến tại Đà Nẵng, giúp học viên làm chủ công nghệ sáng tạo tương lai.",
-        "address": {
+        name: "REF ACADEMY",
+        url: "https://www.refacademy.com.vn",
+        logo: "https://www.refacademy.com.vn/images/logo.png",
+        description:
+            "REF ACADEMY đào tạo thiết kế đồ họa ứng dụng trí tuệ nhân tạo (AI) theo lộ trình thực chiến tại Đà Nẵng, giúp học viên làm chủ công nghệ sáng tạo tương lai.",
+        address: {
             "@type": "PostalAddress",
-            "streetAddress": info?.address || "35 Nại Nam",
-            "addressLocality": "Hải Châu",
-            "addressRegion": "Đà Nẵng",
-            "addressCountry": "VN"
+            streetAddress: info?.address || "35 Nại Nam",
+            addressLocality: "Hải Châu",
+            addressRegion: "Đà Nẵng",
+            addressCountry: "VN",
         },
-        "contactPoint": {
+        contactPoint: {
             "@type": "ContactPoint",
-            "telephone": info?.phone || "",
-            "contactType": "customer service",
-            "email": info?.email || ""
+            telephone: info?.phone || "",
+            contactType: "customer service",
+            email: info?.email || "",
         },
-        "sameAs": [
-            info?.facebook_url,
-            info?.youtube_url,
-            info?.instagram_url,
-            info?.tiktok_url
-        ].filter(Boolean)
+        sameAs: [info?.facebook_url, info?.youtube_url, info?.instagram_url, info?.tiktok_url].filter(Boolean),
     };
 
     return (
         <div className="flex min-h-screen flex-col">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <Header />
 
             <main className="flex-1">

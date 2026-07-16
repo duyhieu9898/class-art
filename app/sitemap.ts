@@ -45,9 +45,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         const basePath = sectionPaths[post.section];
         if (!basePath) return [];
 
-        const lastModified = post.updated_at || post.published_at
-            ? new Date(post.updated_at || post.published_at!)
-            : STATIC_LAST_MODIFIED;
+        const lastModified =
+            post.updated_at || post.published_at
+                ? new Date(post.updated_at || post.published_at!)
+                : STATIC_LAST_MODIFIED;
 
         return {
             url: `${SITE_URL}${basePath}/${post.slug}`,

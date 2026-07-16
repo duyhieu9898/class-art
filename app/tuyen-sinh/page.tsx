@@ -41,7 +41,6 @@ const targets = [
     },
 ];
 
-
 export default async function TuyenSinhPage() {
     const [scholarships, info] = await Promise.all([getScholarships(), getFooterInfo()]);
 
@@ -58,16 +57,16 @@ export default async function TuyenSinhPage() {
                 />
 
                 {/* Đối tượng đăng ký */}
-                <section className="w-full  py-[30px]">
+                <section className="w-full py-[30px]">
                     <div className="mx-auto max-w-[1600px] px-5">
                         <div className="mb-[30px] space-y-[10px] text-center">
                             <h2 className="text-[30px] leading-[48px] font-bold text-[#363e91]">Quy Chế Tuyển Sinh</h2>
                             <h1 className="text-[40px] leading-[64px] font-bold text-[#333]">Đối tượng đăng ký</h1>
                         </div>
 
-                        <div className="flex gap-8 items-stretch flex-col md:flex-row">
+                        <div className="flex flex-col items-stretch gap-8 md:flex-row">
                             {targets.map((item, index) => (
-                                <div key={index} className=" flex-1 flex flex-col items-center">
+                                <div key={index} className="flex flex-1 flex-col items-center">
                                     {/* Circle image */}
                                     <div className="relative z-[2] mb-[-80px] h-[201px] w-[201px] overflow-hidden rounded-full">
                                         <Image
@@ -80,7 +79,7 @@ export default async function TuyenSinhPage() {
                                     </div>
 
                                     {/* Card */}
-                                    <div className="flex-1 relative z-[1] w-full rounded-[20px] shadow-xl">
+                                    <div className="relative z-[1] w-full flex-1 rounded-[20px] shadow-xl">
                                         <div className="flex min-h-[150px] items-center justify-center rounded-[20px] bg-[#ffc404] pt-[95px] pb-[16px]">
                                             <h3 className="text-center text-[30px] leading-[39px] font-semibold text-[#363e91]">
                                                 {item.title}
@@ -99,7 +98,7 @@ export default async function TuyenSinhPage() {
                 </section>
 
                 {/* Cách thức đăng ký */}
-                <section className="w-full  py-[30px]">
+                <section className="w-full py-[30px]">
                     <div className="mx-auto max-w-[1600px] px-5">
                         <h1 className="mb-[10px] text-center text-[40px] leading-[64px] font-bold text-[#333]">
                             Cách thức đăng ký
@@ -107,7 +106,7 @@ export default async function TuyenSinhPage() {
 
                         {/* Online */}
                         <div className="mb-[30px] flex items-stretch gap-0">
-                            <div className="hidden lg:flex flex-1 justify-end pr-0">
+                            <div className="hidden flex-1 justify-end pr-0 lg:flex">
                                 <div className="relative z-[2] h-[360px] w-[480px] overflow-hidden rounded-[16px]">
                                     <Image
                                         src="/images/tuyen-sinh/register-online.png"
@@ -118,14 +117,14 @@ export default async function TuyenSinhPage() {
                                     />
                                 </div>
                             </div>
-                            <div className="relative z-[1] ml-0 md:ml-[-100px] flex-1">
-                                <div className="relative h-full rounded-[20px] shadow-xl py-8 flex flex-col justify-center">
-                                    <div className="max-w-[80%] flex items-center justify-center rounded-r-[20px] bg-[#ffc404]">
-                                        <span className="text-center text-2xl font-semibold text-[#363e91] py-3">
+                            <div className="relative z-[1] ml-0 flex-1 md:ml-[-100px]">
+                                <div className="relative flex h-full flex-col justify-center rounded-[20px] py-8 shadow-xl">
+                                    <div className="flex max-w-[80%] items-center justify-center rounded-r-[20px] bg-[#ffc404]">
+                                        <span className="py-3 text-center text-2xl font-semibold text-[#363e91]">
                                             ĐĂNG KÝ ONLINE
                                         </span>
                                     </div>
-                                    <div className=" text-center px-8 mt-8">
+                                    <div className="mt-8 px-8 text-center">
                                         <p className="text-base leading-[25.6px] text-black">
                                             Đăng ký nhập học trực tuyến tại website REF ACADEMY
                                         </p>
@@ -138,26 +137,25 @@ export default async function TuyenSinhPage() {
                                             </Link>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
 
                         {/* Offline */}
                         <div className="flex items-stretch gap-0">
-                            <div className="relative z-[1] mr-0 md:mr-[-100px] flex-1">
-                                <div className="relative h-full rounded-[20px] shadow-xl flex flex-col justify-center py-8">
-                                    <div className="ml-auto w-full flex items-center justify-center rounded-l-[20px] bg-[#ffc404] max-w-[80%]">
-                                        <span className="text-center text-2xl font-semibold text-[#363e91] py-3 ">
+                            <div className="relative z-[1] mr-0 flex-1 md:mr-[-100px]">
+                                <div className="relative flex h-full flex-col justify-center rounded-[20px] py-8 shadow-xl">
+                                    <div className="ml-auto flex w-full max-w-[80%] items-center justify-center rounded-l-[20px] bg-[#ffc404]">
+                                        <span className="py-3 text-center text-2xl font-semibold text-[#363e91]">
                                             ĐĂNG KÝ TRỰC TIẾP
                                         </span>
                                     </div>
-                                    <div className="px-8 text-center mt-8">
+                                    <div className="mt-8 px-8 text-center">
                                         <p className="text-base leading-[25.6px] text-black">
                                             Học viên có thể đăng kí bằng cách nhắn tin qua trang fanpage hoặc số điện
                                             thoại của trung tâm
                                         </p>
-                                        <div className="flex mt-[40px]  justify-center">
+                                        <div className="mt-[40px] flex justify-center">
                                             <Link
                                                 href={info?.facebook_url || "#"}
                                                 target="_blank"
@@ -168,10 +166,9 @@ export default async function TuyenSinhPage() {
                                             </Link>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-                            <div className="hidden lg:flex flex-1 justify-start pl-0">
+                            <div className="hidden flex-1 justify-start pl-0 lg:flex">
                                 <div className="relative z-[2] h-[390px] w-[520px] overflow-hidden rounded-[16px]">
                                     <Image
                                         src="/images/tuyen-sinh/register-offline.png"
@@ -186,11 +183,9 @@ export default async function TuyenSinhPage() {
                     </div>
                 </section>
 
-
-
                 {/* Bằng cấp */}
-                <section className="w-full  py-[75px]">
-                    <div className="mx-auto flex max-w-[1600px] items-stretch gap-0 flex-col lg:flex-row">
+                <section className="w-full py-[75px]">
+                    <div className="mx-auto flex max-w-[1600px] flex-col items-stretch gap-0 lg:flex-row">
                         {/* Image */}
 
                         <Image
@@ -211,29 +206,26 @@ export default async function TuyenSinhPage() {
                                 </div>
 
                                 {info?.admissions_degree_content ? (
-                                    info.admissions_degree_content
-                                        .split(/\n+/)
-                                        .map((paragraph, idx) => (
-                                            <p key={idx} className="text-base leading-[25.6px] text-black">
-                                                {paragraph.trim()}
-                                            </p>
-                                        ))
+                                    info.admissions_degree_content.split(/\n+/).map((paragraph, idx) => (
+                                        <p key={idx} className="text-base leading-[25.6px] text-black">
+                                            {paragraph.trim()}
+                                        </p>
+                                    ))
                                 ) : (
                                     <>
                                         <p className="text-base leading-[25.6px] text-black">
-                                            REF ACADEMY cung cấp chương trình đào tạo cập nhật và toàn diện,
-                                            bao quát tất cả các lĩnh vực của Mỹ thuật Đa phương tiện,
-                                            bám sát các ứng dụng thực tế và yêu cầu thiết yếu của ngành
-                                            công nghiệp sáng tạo và giải trí.
+                                            REF ACADEMY cung cấp chương trình đào tạo cập nhật và toàn diện, bao quát
+                                            tất cả các lĩnh vực của Mỹ thuật Đa phương tiện, bám sát các ứng dụng thực
+                                            tế và yêu cầu thiết yếu của ngành công nghiệp sáng tạo và giải trí.
                                         </p>
 
                                         <p className="text-base leading-[25.6px] text-black">
                                             Sinh viên sau khi hoàn thành chương trình học 2 năm sẽ nhận chứng chỉ
-                                            Advanced Diploma in Multimedia (ADIM) do Arena Multimedia Ấn Độ cấp.
-                                            Sở hữu chứng chỉ ADIM, học viên có thể học liên thông tại các trường
-                                            Đại học lớn trên thế giới như: Middlesex University (MDX – Anh Quốc),
-                                            Vancouver Center for Entertainment Arts (VCEA – Canada),
-                                            Lincoln University College (LUC – Malaysia)… để lấy bằng cử nhân quốc tế.
+                                            Advanced Diploma in Multimedia (ADIM) do Arena Multimedia Ấn Độ cấp. Sở hữu
+                                            chứng chỉ ADIM, học viên có thể học liên thông tại các trường Đại học lớn
+                                            trên thế giới như: Middlesex University (MDX – Anh Quốc), Vancouver Center
+                                            for Entertainment Arts (VCEA – Canada), Lincoln University College (LUC –
+                                            Malaysia)… để lấy bằng cử nhân quốc tế.
                                         </p>
                                     </>
                                 )}
@@ -243,7 +235,7 @@ export default async function TuyenSinhPage() {
                 </section>
 
                 {/* Học Bổng & Ưu Đãi */}
-                <section className="w-full  pb-[30px]">
+                <section className="w-full pb-[30px]">
                     <div className="mx-auto max-w-[1600px] px-5">
                         <h1 className="mb-[30px] text-center text-[40px] leading-[64px] font-bold text-[#333]">
                             Học Bổng &amp; Ưu Đãi
@@ -266,9 +258,7 @@ export default async function TuyenSinhPage() {
 
                                         {/* Content */}
                                         <div className="flex-1 space-y-[16px] px-[30px] pt-[34px] pb-[40px]">
-                                            <h2 className="text-3xl font-bold text-[#363e91]">
-                                                {item.title}
-                                            </h2>
+                                            <h2 className="text-3xl font-bold text-[#363e91]">{item.title}</h2>
                                             <p className="text-base leading-[25.6px] text-black">
                                                 {item.description || ""}
                                             </p>

@@ -13,7 +13,7 @@ export default function HeroSection() {
             />
 
             {/* Decorative images */}
-            <div className="absolute top-[62px] left-[-106px]  h-[396px] w-[554px] lg:block">
+            <div className="absolute top-[62px] left-[-106px] h-[396px] w-[554px] lg:block">
                 <Image
                     src="/images/hero-decor-left.png"
                     alt=""
@@ -24,7 +24,7 @@ export default function HeroSection() {
                 />
             </div>
 
-            <div className="absolute top-[50%] hidden md:top-[140px] right-[-30%] md:right-0 h-[372px] w-[325px]  md:h-[465px] md:w-[407px] lg:block">
+            <div className="absolute top-[50%] right-[-30%] hidden h-[372px] w-[325px] md:top-[140px] md:right-0 md:h-[465px] md:w-[407px] lg:block">
                 <Image
                     src="/images/hero-decor-right.png"
                     alt=""
@@ -73,7 +73,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Text content */}
-                <div className="w-full max-w-[450px] absolute bottom-[20px] left-1/2 -translate-x-1/2 text-center md:bottom-[60px] md:left-[660px] md:translate-x-0 bg-[#0000006b] md:bg-transparent rounded-lg p-4 md:p-0">
+                <div className="absolute bottom-[20px] left-1/2 w-full max-w-[450px] -translate-x-1/2 rounded-lg bg-[#0000006b] p-4 text-center md:bottom-[60px] md:left-[660px] md:translate-x-0 md:bg-transparent md:p-0">
                     <p className="mb-6 text-sm leading-relaxed text-white md:text-base">
                         Lộ trình đào tạo thực chiến bài bản, REF ACADEMY trang bị cho bạn nền tảng kỹ năng sử dụng trí
                         tuệ nhân tạo để tự tin gia nhập thị trường việc làm

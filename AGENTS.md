@@ -8,10 +8,10 @@
 
 Before implementation, select the relevant skill and read its `SKILL.md`.
 
-* Read `SKILL.md` first.
-* Read only the specific `references/` files needed for the task.
-* Prefer scripts shipped with a skill when they exist.
-* Priority order: `AGENTS.md` > active skill `SKILL.md` > skill `references/`.
+- Read `SKILL.md` first.
+- Read only the specific `references/` files needed for the task.
+- Prefer scripts shipped with a skill when they exist.
+- Priority order: `AGENTS.md` > active skill `SKILL.md` > skill `references/`.
 
 Do not bulk-load every reference file in a skill folder.
 
@@ -21,13 +21,13 @@ Do not bulk-load every reference file in a skill folder.
 
 Use the smallest effective route:
 
-| Request | Default Handling |
-|:---|:---|
-| Question or explanation | Answer directly; load skills only when domain detail matters |
-| Survey, analysis, or file overview | Use `explorer-agent` when repository discovery is needed |
-| Simple code edit or bug fix | Use the relevant domain skill and edit directly when intent is clear |
+| Request                                               | Default Handling                                                                       |
+| :---------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| Question or explanation                               | Answer directly; load skills only when domain detail matters                           |
+| Survey, analysis, or file overview                    | Use `explorer-agent` when repository discovery is needed                               |
+| Simple code edit or bug fix                           | Use the relevant domain skill and edit directly when intent is clear                   |
 | Broad feature, refactor, architecture, or design work | Use the relevant domain skill; add `project-planner` only when scope is broad or risky |
-| Multi-domain coordination | Use `orchestrator` when sequencing or ownership is unclear |
+| Multi-domain coordination                             | Use `orchestrator` when sequencing or ownership is unclear                             |
 
 When useful, mention the applied skill briefly. Do not add a fixed announcement format.
 
@@ -68,13 +68,13 @@ For vague work, ask the smallest blocking question. For broad work, state a shor
 
 ## Project Routing
 
-| Project Type | Primary Skill | Supporting Skills |
-|:---|:---|:---|
-| Mobile (iOS, Android, React Native, Flutter) | `mobile-developer` | `mobile-design` |
-| Web (React, Next.js, browser UI) | `frontend-specialist` | `frontend-design`, `tailwind-patterns` |
-| Backend (API, server, database) | `backend-specialist` | `api-patterns`, `database-design` |
-| Security audit | `security-auditor` | `vulnerability-scanner`, `verify-changes` |
-| Testing | `test-engineer` | `testing-patterns`, `webapp-testing`, `playwright-pro-patterns` |
+| Project Type                                 | Primary Skill         | Supporting Skills                                               |
+| :------------------------------------------- | :-------------------- | :-------------------------------------------------------------- |
+| Mobile (iOS, Android, React Native, Flutter) | `mobile-developer`    | `mobile-design`                                                 |
+| Web (React, Next.js, browser UI)             | `frontend-specialist` | `frontend-design`, `tailwind-patterns`                          |
+| Backend (API, server, database)              | `backend-specialist`  | `api-patterns`, `database-design`                               |
+| Security audit                               | `security-auditor`    | `vulnerability-scanner`, `verify-changes`                       |
+| Testing                                      | `test-engineer`       | `testing-patterns`, `webapp-testing`, `playwright-pro-patterns` |
 
 Mobile work should not route through `frontend-specialist` unless it is explicitly web-based.
 
@@ -86,9 +86,9 @@ Run verification that matches the change. Do not claim success without execution
 
 Useful commands:
 
-| Task | Command |
-|:---|:---|
-| Manual audit | `python .agents/scripts/checklist.py .` |
+| Task              | Command                                              |
+| :---------------- | :--------------------------------------------------- |
+| Manual audit      | `python .agents/scripts/checklist.py .`              |
 | Full verification | `python .agents/scripts/verify_all.py . --url <URL>` |
 
 Use `.agents/skills/verify-changes/SKILL.md` for final validation and evidence reporting.
@@ -99,21 +99,21 @@ Use `.agents/skills/verify-changes/SKILL.md` for final validation and evidence r
 
 Key skills:
 
-* `clean-code`
-* `brainstorming`
-* `app-builder`
-* `project-planner`
-* `frontend-specialist`
-* `backend-specialist`
-* `mobile-developer`
-* `security-auditor`
-* `debugger`
-* `verify-changes`
+- `clean-code`
+- `brainstorming`
+- `app-builder`
+- `project-planner`
+- `frontend-specialist`
+- `backend-specialist`
+- `mobile-developer`
+- `security-auditor`
+- `debugger`
+- `verify-changes`
 
 Key scripts:
 
-* `.agents/scripts/verify_all.py`
-* `.agents/scripts/checklist.py`
-* `.agents/skills/vulnerability-scanner/scripts/security_scan.py`
-* `.agents/skills/frontend-design/scripts/ux_audit.py`
-* `.agents/skills/performance-profiling/scripts/lighthouse_audit.py`
+- `.agents/scripts/verify_all.py`
+- `.agents/scripts/checklist.py`
+- `.agents/skills/vulnerability-scanner/scripts/security_scan.py`
+- `.agents/skills/frontend-design/scripts/ux_audit.py`
+- `.agents/skills/performance-profiling/scripts/lighthouse_audit.py`

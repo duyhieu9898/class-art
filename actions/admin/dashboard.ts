@@ -45,10 +45,7 @@ export async function getDashboardStats(): Promise<DashboardStats> {
         supabase.from("posts").select("*", { count: "exact", head: true }),
         supabase.from("posts").select("*", { count: "exact", head: true }).eq("is_published", true),
         supabase.from("registrations").select("*", { count: "exact", head: true }),
-        supabase
-            .from("registrations")
-            .select("*", { count: "exact", head: true })
-            .gte("created_at", thirtyDaysAgo),
+        supabase.from("registrations").select("*", { count: "exact", head: true }).gte("created_at", thirtyDaysAgo),
         supabase.from("courses").select("*", { count: "exact", head: true }),
         supabase.from("partners").select("*", { count: "exact", head: true }),
         supabase
@@ -56,10 +53,7 @@ export async function getDashboardStats(): Promise<DashboardStats> {
             .select("id, full_name, email, phone, form_type, voucher, created_at")
             .order("created_at", { ascending: false })
             .limit(5),
-        supabase
-            .from("registrations")
-            .select("created_at")
-            .gte("created_at", thirtyDaysAgo),
+        supabase.from("registrations").select("created_at").gte("created_at", thirtyDaysAgo),
         supabase.from("registrations").select("*", { count: "exact", head: true }).eq("form_type", "Đăng ký khóa học"),
         supabase.from("registrations").select("*", { count: "exact", head: true }).eq("form_type", "Tư vấn khóa học"),
         supabase.from("registrations").select("*", { count: "exact", head: true }).eq("form_type", "Tham quan cơ sở"),

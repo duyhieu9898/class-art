@@ -66,12 +66,12 @@ export default function ConsultationSection({
             <div className="relative mx-auto max-w-[1600px] rounded-[30px]">
                 {/* Title */}
                 <div className="pt-12 pb-10 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#333]">{title}</h2>
+                    <h2 className="text-3xl font-bold text-[#333] md:text-4xl">{title}</h2>
                 </div>
 
                 <div className="flex items-stretch gap-0">
                     {/* Left - Image */}
-                    <div className="max-w-[800px] flex-1 pr-[15px] hidden md:block">
+                    <div className="hidden max-w-[800px] flex-1 pr-[15px] md:block">
                         <div className="relative h-[690px] w-full overflow-hidden rounded-[20px] drop-shadow-[0px_4px_15px_rgba(48,58,158,0.15)]">
                             <div className="relative h-full w-full overflow-hidden rounded-[16px]">
                                 <div className="absolute inset-[14px_12px_11px_12px] overflow-hidden rounded-[27px] border-[3px] border-black">
@@ -92,7 +92,7 @@ export default function ConsultationSection({
                         <div className="flex min-h-[610px] items-center justify-center rounded-[20px] bg-white px-[30px] pt-[40px] pb-[40px] drop-shadow-[0px_4px_15px_rgba(48,58,158,0.15)]">
                             <form onSubmit={handleSubmit} className="w-full space-y-[20px]">
                                 {/* Subtitle */}
-                                <p className="mb-[20px] text-center text-lg md:text-2xl font-medium text-[#333]">
+                                <p className="mb-[20px] text-center text-lg font-medium text-[#333] md:text-2xl">
                                     {subtitle}
                                 </p>
 
@@ -167,7 +167,6 @@ export default function ConsultationSection({
                                     >
                                         Đồng ý để dữ liệu cá nhân của Anh/Chị được thu thập trên trang này, được xử lý
                                         và lưu trữ bởi Tổ chức giáo dục REF ACADEM
-
                                     </label>
                                 </div>
 
@@ -187,10 +186,7 @@ export default function ConsultationSection({
                 </div>
             </div>
 
-            <RegistrationSuccessModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-            />
+            <RegistrationSuccessModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </section>
     );
 }

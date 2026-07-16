@@ -26,15 +26,11 @@ export default async function GioiThieuPage() {
     ]);
 
     // Hero section
-    const heroImage = info?.hero_image_url
-        ? getImageUrl(info.hero_image_url)
-        : "/images/about/hero-bg.png";
+    const heroImage = info?.hero_image_url ? getImageUrl(info.hero_image_url) : "/images/about/hero-bg.png";
     const heroMission =
-        info?.hero_mission ||
-        "Cung cấp nhân lực chất lượng giúp đỡ học viên có thể tiếp cận cơ hội việc làm.";
+        info?.hero_mission || "Cung cấp nhân lực chất lượng giúp đỡ học viên có thể tiếp cận cơ hội việc làm.";
     const heroPhilosophy =
-        info?.hero_philosophy ||
-        "Giáo dục đào tạo là tổ chức và quản trị việc tự học của người học.";
+        info?.hero_philosophy || "Giáo dục đào tạo là tổ chức và quản trị việc tự học của người học.";
     const heroCulture =
         info?.hero_culture ||
         "Tôn trọng, Đổi mới, Đồng đội, Chí công\nGương mẫu, Sáng suốt\nHọc thật, thi thật, thành công thật\nLàm khác để làm tốt.";
@@ -47,9 +43,7 @@ export default async function GioiThieuPage() {
     const aboutDesc2 =
         info?.about_description_2 ||
         "Với mong muốn đồng hành cùng người trẻ trong việc ứng dụng trí tuệ nhân tạo vào trong thiết kế, với hy vọng giúp đỡ các học viên tự tin trên con đường theo đuổi trong con đường thiết kế đồ họa.";
-    const aboutImage = info?.about_image_url
-        ? getImageUrl(info.about_image_url)
-        : "/images/about/about-banner.png";
+    const aboutImage = info?.about_image_url ? getImageUrl(info.about_image_url) : "/images/about/about-banner.png";
 
     // History section
     const historyImage = info?.history_image_url
@@ -92,7 +86,7 @@ export default async function GioiThieuPage() {
                             </div>
                             <div>
                                 <h2 className="text-3xl font-semibold text-[#486aff]">Văn hóa</h2>
-                                <p className="mt-2 leading-8 text-gray-100 whitespace-pre-line">{heroCulture}</p>
+                                <p className="mt-2 leading-8 whitespace-pre-line text-gray-100">{heroCulture}</p>
                             </div>
                         </div>
                     </div>
@@ -147,7 +141,6 @@ export default async function GioiThieuPage() {
                         </div>
                     </div>
                 </section>
-
 
                 <ActivityCarousel posts={dynamicActivities} />
             </main>

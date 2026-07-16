@@ -22,8 +22,13 @@ export const postSchema = z.object({
 export const courseSchema = z.object({
     title: z.string().min(1, "Tên khóa học không được để trống"),
     image_url: z.string().optional(),
-    order: z.number().int().min(0).default(0),
+    order: z.coerce.number().int().min(0).default(0),
     is_active: z.boolean().default(true),
+    price: z.coerce.number().int().min(0, "Học phí phải từ 0 trở lên"),
+    duration_lessons: z.coerce.number().int().min(1, "Số buổi học phải từ 1 trở lên"),
+    lesson_minutes: z.coerce.number().int().min(1, "Thời lượng mỗi buổi phải từ 1 phút trở lên"),
+    start_date: z.string().min(1, "Ngày bắt đầu không được để trống"),
+    end_date: z.string().min(1, "Ngày kết thúc không được để trống"),
 });
 
 export const partnerSchema = z.object({

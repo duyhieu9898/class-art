@@ -47,8 +47,7 @@ export function AboutForm({ initialData }: AboutFormProps) {
                 initialData?.hero_mission ||
                 "Cung cấp nhân lực chất lượng giúp đỡ học viên có thể tiếp cận cơ hội việc làm.",
             hero_philosophy:
-                initialData?.hero_philosophy ||
-                "Giáo dục đào tạo là tổ chức và quản trị việc tự học của người học.",
+                initialData?.hero_philosophy || "Giáo dục đào tạo là tổ chức và quản trị việc tự học của người học.",
             hero_culture:
                 initialData?.hero_culture ||
                 "Tôn trọng, Đổi mới, Đồng đội, Chí công\nGương mẫu, Sáng suốt\nHọc thật, thi thật, thành công thật\nLàm khác để làm tốt.",
@@ -167,11 +166,7 @@ export function AboutForm({ initialData }: AboutFormProps) {
                     <Label htmlFor="about_title" className="font-semibold text-gray-700">
                         Tiêu đề
                     </Label>
-                    <Input
-                        id="about_title"
-                        {...register("about_title")}
-                        placeholder="e.g. Về REF ACADEMY"
-                    />
+                    <Input id="about_title" {...register("about_title")} placeholder="e.g. Về REF ACADEMY" />
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -266,10 +261,7 @@ export function AboutForm({ initialData }: AboutFormProps) {
                             >
                                 <div className="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-4">
                                     <div className="space-y-1 sm:col-span-1">
-                                        <Label
-                                            htmlFor={`milestones-${index}-year`}
-                                            className="text-xs text-gray-500"
-                                        >
+                                        <Label htmlFor={`milestones-${index}-year`} className="text-xs text-gray-500">
                                             Mốc thời gian
                                         </Label>
                                         <Input
@@ -285,10 +277,7 @@ export function AboutForm({ initialData }: AboutFormProps) {
                                         )}
                                     </div>
                                     <div className="space-y-1 sm:col-span-3">
-                                        <Label
-                                            htmlFor={`milestones-${index}-desc`}
-                                            className="text-xs text-gray-500"
-                                        >
+                                        <Label htmlFor={`milestones-${index}-desc`} className="text-xs text-gray-500">
                                             Mô tả chi tiết
                                         </Label>
                                         <Input

@@ -22,13 +22,7 @@ interface ZaloSuccessModalProps {
     formType: string;
 }
 
-export default function ZaloSuccessModal({
-    isOpen,
-    onClose,
-    fullName,
-    phone,
-    formType,
-}: ZaloSuccessModalProps) {
+export default function ZaloSuccessModal({ isOpen, onClose, fullName, phone, formType }: ZaloSuccessModalProps) {
     const [isCopied, setIsCopied] = useState(false);
 
     // Get Zalo link from env, fallback to a placeholder that they can configure
@@ -72,42 +66,49 @@ export default function ZaloSuccessModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="max-w-md border-0 bg-white p-6 shadow-2xl rounded-3xl md:max-w-lg">
-                <DialogHeader className="flex flex-col items-center justify-center text-center space-y-4">
+            <DialogContent className="max-w-md rounded-3xl border-0 bg-white p-6 shadow-2xl md:max-w-lg">
+                <DialogHeader className="flex flex-col items-center justify-center space-y-4 text-center">
                     {/* Glowing success check mark icon */}
                     <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50">
-                        <CheckCircle2 className="h-10 w-10 text-emerald-500 animate-bounce" />
-                        <span className="absolute inset-0 rounded-full border-4 border-emerald-500/20 animate-ping" />
+                        <CheckCircle2 className="h-10 w-10 animate-bounce text-emerald-500" />
+                        <span className="absolute inset-0 animate-ping rounded-full border-4 border-emerald-500/20" />
                     </div>
 
                     <DialogTitle className="text-2xl font-black tracking-tight text-gray-900 md:text-3xl">
                         Đăng Ký Thành Công! 🎉
                     </DialogTitle>
 
-                    <DialogDescription className="text-[15px] leading-relaxed font-medium text-gray-500 px-2">
-                        Để được hỗ trợ và tư vấn lộ trình học nhanh nhất, vui lòng nhắn tin trực tiếp với chuyên viên qua Zalo.
+                    <DialogDescription className="px-2 text-[15px] leading-relaxed font-medium text-gray-500">
+                        Để được hỗ trợ và tư vấn lộ trình học nhanh nhất, vui lòng nhắn tin trực tiếp với chuyên viên
+                        qua Zalo.
                     </DialogDescription>
                 </DialogHeader>
 
-                <div className="my-4 space-y-3 rounded-2xl bg-slate-50 p-4 border border-slate-100">
-                    <p className="text-[13px] font-bold text-slate-400 uppercase tracking-wider">
+                <div className="my-4 space-y-3 rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                    <p className="text-[13px] font-bold tracking-wider text-slate-400 uppercase">
                         Thông tin đăng ký của bạn:
                     </p>
-                    <div className="space-y-1.5 text-sm text-slate-700 font-semibold">
-                        <p>👤 Họ tên: <span className="text-gray-900 font-bold">{fullName}</span></p>
-                        <p>📞 Số điện thoại: <span className="text-gray-900 font-bold">{phone}</span></p>
-                        <p>🎯 Nhu cầu: <span className="text-blue-600 font-bold">{formType}</span></p>
+                    <div className="space-y-1.5 text-sm font-semibold text-slate-700">
+                        <p>
+                            👤 Họ tên: <span className="font-bold text-gray-900">{fullName}</span>
+                        </p>
+                        <p>
+                            📞 Số điện thoại: <span className="font-bold text-gray-900">{phone}</span>
+                        </p>
+                        <p>
+                            🎯 Nhu cầu: <span className="font-bold text-blue-600">{formType}</span>
+                        </p>
                     </div>
 
                     <div className="mt-3 flex items-center justify-between border-t border-slate-200/60 pt-3">
-                        <span className="text-xs font-semibold text-emerald-600 flex items-center gap-1">
+                        <span className="flex items-center gap-1 text-xs font-semibold text-emerald-600">
                             {isCopied ? "✓ Đã tự động copy vào bộ nhớ tạm" : "Chưa sao chép"}
                         </span>
                         <Button
                             variant="ghost"
                             size="sm"
                             onClick={handleCopyManual}
-                            className="h-8 gap-1.5 px-3 text-xs font-bold text-slate-500 hover:text-slate-900 hover:bg-slate-200/50"
+                            className="h-8 gap-1.5 px-3 text-xs font-bold text-slate-500 hover:bg-slate-200/50 hover:text-slate-900"
                         >
                             <Copy className="h-3.5 w-3.5" />
                             Sao chép lại
@@ -115,19 +116,19 @@ export default function ZaloSuccessModal({
                     </div>
                 </div>
 
-                <div className="text-center bg-blue-50/50 border border-blue-100 p-3 rounded-xl">
-                    <p className="text-xs font-medium text-blue-700 leading-normal">
-                        💡 <strong>Hướng dẫn:</strong> Hệ thống đã tự động sao chép thông tin trên.
-                        Bạn chỉ cần nhấn nút <strong>&ldquo;Mở Zalo và Nhắn Tin&rdquo;</strong> dưới đây,
-                        sau đó <strong>Dán (Paste)</strong> vào khung chat và gửi đi!
+                <div className="rounded-xl border border-blue-100 bg-blue-50/50 p-3 text-center">
+                    <p className="text-xs leading-normal font-medium text-blue-700">
+                        💡 <strong>Hướng dẫn:</strong> Hệ thống đã tự động sao chép thông tin trên. Bạn chỉ cần nhấn nút{" "}
+                        <strong>&ldquo;Mở Zalo và Nhắn Tin&rdquo;</strong> dưới đây, sau đó <strong>Dán (Paste)</strong>{" "}
+                        vào khung chat và gửi đi!
                     </p>
                 </div>
 
-                <DialogFooter className="flex flex-col gap-2 sm:flex-row sm:justify-stretch pt-2">
+                <DialogFooter className="flex flex-col gap-2 pt-2 sm:flex-row sm:justify-stretch">
                     <Button
                         type="button"
                         onClick={handleOpenZalo}
-                        className="w-full h-12 rounded-full bg-[#0068FF] text-sm font-black text-white hover:bg-[#005AE0] active:scale-[0.98] transition-all shadow-[0px_8px_20px_0px_rgba(0,104,255,0.3)] gap-2 flex justify-center items-center"
+                        className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#0068FF] text-sm font-black text-white shadow-[0px_8px_20px_0px_rgba(0,104,255,0.3)] transition-all hover:bg-[#005AE0] active:scale-[0.98]"
                     >
                         <MessageSquareText className="h-5 w-5 fill-white/10" />
                         MỞ ZALO VÀ NHẮN TIN

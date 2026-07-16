@@ -15,11 +15,11 @@ export default function HeroBanner({ imageSrc, title }: HeroBannerProps) {
             </div>
 
             {/* Title */}
-            <div className="relative z-10 w-full max-w-[1600px] ">
+            <div className="relative z-10 w-full max-w-[1600px]">
                 <div className="flex items-center gap-0 px-[15px]">
                     <div className="h-[2px] flex-1 bg-white" />
                     <div className="">
-                        <h1 className="text-center text-4xl md:text-6xl font-semibold whitespace-nowrap text-white uppercase">
+                        <h1 className="text-center text-4xl font-semibold whitespace-nowrap text-white uppercase md:text-6xl">
                             {title}
                         </h1>
                     </div>

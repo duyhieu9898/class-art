@@ -34,9 +34,7 @@ export default async function DaoTaoPage() {
                 <section className="w-full pt-15.25 pb-7.5">
                     <div className="mx-auto max-w-400">
                         <div className="px-3.75">
-                            <h1 className="text-lg font-bold text-[#333]">
-                                Bài cuối khóa của Học Viên
-                            </h1>
+                            <h1 className="text-lg font-bold text-[#333]">Bài cuối khóa của Học Viên</h1>
                         </div>
 
                         <div className="grid grid-cols-1 gap-7.5 px-3.75 pt-5 md:grid-cols-2 lg:grid-cols-3">

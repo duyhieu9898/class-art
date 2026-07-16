@@ -5,11 +5,7 @@ import CardPost from "@/components/common/card-post";
 import Pagination from "@/components/common/pagination";
 import { searchPosts } from "@/actions/posts";
 
-export async function generateMetadata({
-    searchParams,
-}: {
-    searchParams: Promise<{ q?: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ q?: string }> }): Promise<Metadata> {
     const { q } = await searchParams;
     const query = q?.trim();
 
@@ -90,8 +86,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                                             post.section === "nhan-vat"
                                                 ? `/nhan-vat/${post.slug}`
                                                 : post.section === "dao-tao"
-                                                    ? `/dao-tao/${post.slug}`
-                                                    : `/tin-tuc/${post.slug}`
+                                                  ? `/dao-tao/${post.slug}`
+                                                  : `/tin-tuc/${post.slug}`
                                         }
                                         category={sectionLabels[post.section] || post.section}
                                         date={

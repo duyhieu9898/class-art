@@ -22,13 +22,10 @@ import { formatDateTimeLocal } from "@/lib/utils";
 
 type PostFormValues = z.input<typeof postSchema>;
 
-const RichTextEditor = dynamic(
-    () => import("@/components/admin/rich-text-editor").then((mod) => mod.RichTextEditor),
-    {
-        ssr: false,
-        loading: () => <div className="min-h-[250px] rounded-md border bg-gray-50" />,
-    }
-);
+const RichTextEditor = dynamic(() => import("@/components/admin/rich-text-editor").then((mod) => mod.RichTextEditor), {
+    ssr: false,
+    loading: () => <div className="min-h-[250px] rounded-md border bg-gray-50" />,
+});
 
 interface Post {
     id: string;
