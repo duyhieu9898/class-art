@@ -106,14 +106,13 @@ export default async function TuyenSinhPage() {
 
                         {/* Online */}
                         <div className="mb-[30px] flex items-stretch gap-0">
-                            <div className="hidden flex-1 justify-end pr-0 lg:flex">
-                                <div className="relative z-[2] h-[360px] w-[480px] overflow-hidden rounded-[16px]">
+                            <div className="hidden flex-1 justify-end pr-10 lg:flex">
+                                <div className="relative z-[2] overflow-hidden">
                                     <Image
-                                        src="/images/tuyen-sinh/register-online-2.png"
+                                        src="/images/tuyen-sinh/register-online-v2.png"
                                         alt="Đăng ký online"
-                                        fill
-                                        sizes="480px"
-                                        className="object-cover"
+                                        width={296}
+                                        height={300}
                                     />
                                 </div>
                             </div>
@@ -168,14 +167,13 @@ export default async function TuyenSinhPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="hidden flex-1 justify-start pl-0 lg:flex">
-                                <div className="relative z-[2] h-[390px] w-[520px] overflow-hidden rounded-[16px]">
+                            <div className="hidden flex-1 justify-start pl-20 lg:flex">
+                                <div className="relative z-[2] overflow-hidden">
                                     <Image
-                                        src="/images/tuyen-sinh/register-offline-2.png"
+                                        src="/images/tuyen-sinh/register-offline-v2.png"
                                         alt="Đăng ký trực tiếp"
-                                        fill
-                                        sizes="520px"
-                                        className="object-cover"
+                                        width={368}
+                                        height={300}
                                     />
                                 </div>
                             </div>
