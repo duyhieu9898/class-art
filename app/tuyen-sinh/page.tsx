@@ -5,7 +5,6 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import PageBanner from "@/components/common/page-banner";
 import ConsultationSection from "@/components/common/consultation-section";
-import { getScholarships } from "@/actions/scholarships";
 import { getFooterInfo } from "@/actions/info";
 import { getImageUrl } from "@/lib/supabase/storage";
 
@@ -42,7 +41,7 @@ const targets = [
 ];
 
 export default async function TuyenSinhPage() {
-    const [scholarships, info] = await Promise.all([getScholarships(), getFooterInfo()]);
+    const info = await getFooterInfo();
 
     return (
         <div className="flex min-h-screen flex-col">
@@ -203,67 +202,12 @@ export default async function TuyenSinhPage() {
                                     </h1>
                                 </div>
 
-                                {info?.admissions_degree_content ? (
-                                    info.admissions_degree_content.split(/\n+/).map((paragraph, idx) => (
-                                        <p key={idx} className="text-base leading-[25.6px] text-black">
-                                            {paragraph.trim()}
-                                        </p>
-                                    ))
-                                ) : (
-                                    <>
-                                        <p className="text-base leading-[25.6px] text-black">
-                                            REF ACADEMY cung cấp chương trình đào tạo cập nhật và toàn diện, bao quát
-                                            tất cả các lĩnh vực của Mỹ thuật Đa phương tiện, bám sát các ứng dụng thực
-                                            tế và yêu cầu thiết yếu của ngành công nghiệp sáng tạo và giải trí.
-                                        </p>
-
-                                        <p className="text-base leading-[25.6px] text-black">
-                                            Sinh viên sau khi hoàn thành chương trình học 2 năm sẽ nhận chứng chỉ
-                                            Advanced Diploma in Multimedia (ADIM) do Arena Multimedia Ấn Độ cấp. Sở hữu
-                                            chứng chỉ ADIM, học viên có thể học liên thông tại các trường Đại học lớn
-                                            trên thế giới như: Middlesex University (MDX – Anh Quốc), Vancouver Center
-                                            for Entertainment Arts (VCEA – Canada), Lincoln University College (LUC –
-                                            Malaysia)… để lấy bằng cử nhân quốc tế.
-                                        </p>
-                                    </>
-                                )}
+                                {info?.admissions_degree_content?.split(/\n+/).map((paragraph, idx) => (
+                                    <p key={idx} className="text-base leading-[25.6px] text-black">
+                                        {paragraph.trim()}
+                                    </p>
+                                ))}
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Học Bổng & Ưu Đãi */}
-                <section className="w-full pb-[30px]">
-                    <div className="mx-auto max-w-[1600px] px-5">
-                        <h1 className="mb-[30px] text-center text-[40px] leading-[64px] font-bold text-[#333]">
-                            Học Bổng &amp; Ưu Đãi
-                        </h1>
-
-                        <div className="grid grid-cols-1 gap-[30px] md:grid-cols-3">
-                            {scholarships.map((item, index) => (
-                                <Link key={item.id} href={`/tuyen-sinh/${item.slug}`} className="group block">
-                                    <article className="flex h-full flex-col overflow-hidden rounded-[20px] shadow-xl">
-                                        {/* Image */}
-                                        <div className="relative h-[244px] w-full overflow-hidden">
-                                            <Image
-                                                src={getImageUrl(item.image_url)}
-                                                alt={item.title}
-                                                fill
-                                                sizes="(max-width: 768px) 100vw, 33vw"
-                                                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                            />
-                                        </div>
-
-                                        {/* Content */}
-                                        <div className="flex-1 space-y-[16px] px-[30px] pt-[34px] pb-[40px]">
-                                            <h2 className="text-3xl font-bold text-[#363e91]">{item.title}</h2>
-                                            <p className="text-base leading-[25.6px] text-black">
-                                                {item.description || ""}
-                                            </p>
-                                        </div>
-                                    </article>
-                                </Link>
-                            ))}
                         </div>
                     </div>
                 </section>
