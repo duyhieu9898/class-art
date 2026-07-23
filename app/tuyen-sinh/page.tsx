@@ -109,7 +109,7 @@ export default async function TuyenSinhPage() {
                             <div className="hidden flex-1 justify-end pr-0 lg:flex">
                                 <div className="relative z-[2] h-[360px] w-[480px] overflow-hidden rounded-[16px]">
                                     <Image
-                                        src="/images/tuyen-sinh/register-online.png"
+                                        src="/images/tuyen-sinh/register-online-2.png"
                                         alt="Đăng ký online"
                                         fill
                                         sizes="480px"
@@ -171,7 +171,7 @@ export default async function TuyenSinhPage() {
                             <div className="hidden flex-1 justify-start pl-0 lg:flex">
                                 <div className="relative z-[2] h-[390px] w-[520px] overflow-hidden rounded-[16px]">
                                     <Image
-                                        src="/images/tuyen-sinh/register-offline.png"
+                                        src="/images/tuyen-sinh/register-offline-2.png"
                                         alt="Đăng ký trực tiếp"
                                         fill
                                         sizes="520px"
